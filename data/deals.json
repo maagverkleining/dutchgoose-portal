@@ -113,5 +113,18 @@
     "placementDefault": "deals-top",
     "dealType": "link",
     "note": "Voor dagen waarop structuur lastig is."
+  },
+  {
+    "title": "Ahead Nutrition bestsellers",
+    "slug": "ahead-nutrition-bestsellers",
+    "merchantSlug": "ahead-nutrition",
+    "category": "proteine",
+    "placementDefault": "deals-top",
+    "dealType": "code",
+    "couponCode": "dutchgoose",
+    "couponText": "Code geldig van 1 januari 2026 t/m 31 maart 2026.",
+    "startDate": "2026-01-01",
+    "endDate": "2026-03-31",
+    "note": "Bestsellers voor snackmomenten zonder gedoe."
   }
 ]

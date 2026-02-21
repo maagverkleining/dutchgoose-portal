@@ -253,5 +253,23 @@
     "allowDefaultCode": false,
     "isFeatured": false,
     "needsReview": false
+  },
+  {
+    "name": "Ahead Nutrition",
+    "slug": "ahead-nutrition",
+    "category": "proteine",
+    "shortPitch": "Snack zonder schuldgevoel met eiwitrijke bestsellers.",
+    "whyForMaagverkleining": [
+      "Makkelijke snackopties voor onderweg",
+      "Helpt je eiwitdoel haalbaar te houden",
+      "Duidelijke kortingscode via Dutch Goose"
+    ],
+    "trackingNetwork": "direct",
+    "baseUrl": "https://serv.linkster.co/r/B5D6Viq1qk",
+    "allowDefaultCode": false,
+    "couponCode": "dutchgoose",
+    "couponText": "Code geldig van 1 januari 2026 t/m 31 maart 2026.",
+    "isFeatured": true,
+    "needsReview": false
   }
 ]
