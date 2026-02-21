@@ -3,6 +3,8 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { GoLink } from "@/components/go-link";
 import { JsonLd } from "@/components/json-ld";
 import { PartnerDisclosure } from "@/components/partner-disclosure";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { merchantMap, merchants, deals } from "@/lib/data";
 import { getCategoryIllustration } from "@/lib/illustrations";
 import { buildFaqJsonLd, buildMetadata } from "@/lib/seo";
@@ -112,6 +114,8 @@ export default function PartnerDetailPage({ params }: { params: { slug: string }
       </section>
 
       <PartnerDisclosure />
+      <SmartAffiliateBlock contextKey="deals-default" title="Vergelijkbare partnerdeals" />
+      <ConversionBlock variant="community" context={`partner-${merchant.slug}`} />
     </div>
   );
 }

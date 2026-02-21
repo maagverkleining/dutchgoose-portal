@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { VisualHero } from "@/components/visual-hero";
 import { buildMetadata } from "@/lib/seo";
 
@@ -38,6 +40,7 @@ export default function ToolsPage() {
         imageAlt="Dutch Goose tools overzicht"
         chip="Community tools"
       />
+      <ConversionBlock variant="tools" context="tools-top" />
       <div className="grid gap-4 md:grid-cols-2">
         {tools.map((tool) => (
           <article key={tool.href} className="card">
@@ -49,6 +52,8 @@ export default function ToolsPage() {
           </article>
         ))}
       </div>
+      <SmartAffiliateBlock contextKey="eiwit-calculator" title="Deals die goed werken met deze tools" />
+      <ConversionBlock variant="community" context="tools-community-cta" />
       <section className="card">
         <h2 className="text-xl font-semibold text-gooseNavy">Voor partners en campagnes</h2>
         <p className="mt-2 text-sm text-slate-700">

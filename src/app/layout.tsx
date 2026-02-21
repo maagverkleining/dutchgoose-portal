@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { JsonLd } from "@/components/json-ld";
+import { GA4 } from "@/components/ga4";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -40,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <body>
+        <GA4 />
         <JsonLd data={websiteJsonLd} />
         <JsonLd data={orgJsonLd} />
         <Header />

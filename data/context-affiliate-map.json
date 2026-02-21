@@ -1,0 +1,16 @@
+{
+  "home-default": { "category": "proteine" },
+  "home-net-post-op": { "category": "proteine" },
+  "home-6-12-maanden": { "category": "keuken-en-tools" },
+  "home-1-jaar-plus": { "category": "maaltijden-en-structuur" },
+  "eiwit-calculator": { "category": "proteine" },
+  "timer-eten-drinken": { "category": "maaltijden-en-structuur" },
+  "voorraad-teller": { "category": "proteine" },
+  "starter-kit-net-post-op": { "category": "proteine" },
+  "starter-kit-6-tot-12-maanden": { "category": "keuken-en-tools" },
+  "starter-kit-1-jaar-plus": { "category": "maaltijden-en-structuur" },
+  "kennisbank-default": { "category": "vezels" },
+  "tests-proteine-test": { "category": "proteine" },
+  "deals-default": { "category": "proteine" },
+  "community-default": { "category": "uitjes-en-leven" }
+}

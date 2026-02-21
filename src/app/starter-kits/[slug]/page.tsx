@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { starterKits, starterKitMap } from "@/lib/data";
 import { getCategoryIllustration } from "@/lib/illustrations";
 import { buildMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
@@ -72,6 +74,8 @@ export default function StarterKitDetailPage({ params }: { params: { slug: strin
           ))}
         </div>
       </section>
+      <SmartAffiliateBlock contextKey={`starter-kit-${kit.slug}`} />
+      <ConversionBlock variant="community" context={`starter-kit-${kit.slug}`} />
     </div>
   );
 }

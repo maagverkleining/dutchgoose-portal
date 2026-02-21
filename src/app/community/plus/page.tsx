@@ -1,4 +1,6 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { VisualHero } from "@/components/visual-hero";
 import { buildMetadata } from "@/lib/seo";
 
@@ -25,6 +27,7 @@ export default function CommunityPlusPage() {
         imageAlt="Plus membership visual"
         chip="Premium community"
       />
+      <ConversionBlock variant="community" context="plus-top" />
       <section className="card">
         <h2 className="text-xl font-semibold text-gooseNavy">Wat je krijgt per maand</h2>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-700">
@@ -58,6 +61,8 @@ export default function CommunityPlusPage() {
           </button>
         </form>
       </section>
+      <SmartAffiliateBlock contextKey="community-default" title="Plus + slimme deals combineren" />
+      <ConversionBlock variant="community" context="plus-bottom" />
     </div>
   );
 }

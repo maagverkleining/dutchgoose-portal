@@ -1,7 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { GoLink } from "@/components/go-link";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
+import { trackEvent } from "@/lib/analytics";
 
 export function EiwitCalculatorClient() {
   const [meals, setMeals] = useState(4);
@@ -15,6 +19,29 @@ export function EiwitCalculatorClient() {
     `Diner: ${Math.round(grams * 1.1)}g`,
     `Snack: ${Math.max(10, Math.round(grams * 0.6))}g`
   ];
+
+  useEffect(() => {
+    trackEvent("tool_use", { tool: "eiwit-calculator" });
+  }, []);
+
+  const recommendedDeals = useMemo((): Array<{ slug: string; label: string }> => {
+    if (total >= 120) {
+      return [
+        { slug: "bodyfit-isolaat-voordeel", label: "Body & Fit isolaat voordeel" },
+        { slug: "myprotein-starter-bundel", label: "Myprotein starter bundel" }
+      ];
+    }
+    if (total >= 80) {
+      return [
+        { slug: "myprotein-starter-bundel", label: "Myprotein starter bundel" },
+        { slug: "huel-drukke-dag-bundle", label: "Huel drukke dag bundle" }
+      ];
+    }
+    return [
+      { slug: "bulk-repen-selectie", label: "Bulk repen selectie" },
+      { slug: "bodyfit-isolaat-voordeel", label: "Body & Fit isolaat voordeel" }
+    ];
+  }, [total]);
 
   return (
     <div className="space-y-6">
@@ -61,6 +88,27 @@ export function EiwitCalculatorClient() {
           ))}
         </ul>
       </section>
+      <section className="card">
+        <h2 className="text-xl font-semibold text-gooseNavy">Aanbevolen producten bij jouw uitkomst</h2>
+        <p className="mt-2 text-sm text-slate-700">
+          Op basis van je dagtotaal ({total}g) kun je deze deals checken.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          {recommendedDeals.map((deal) => (
+            <GoLink
+              key={deal.slug}
+              slug={deal.slug}
+              placement="eiwit-calculator-recommendation"
+              eventName="deal_click"
+              className="btn-secondary text-xs"
+            >
+              Bekijk {deal.label}
+            </GoLink>
+          ))}
+        </div>
+      </section>
+      <SmartAffiliateBlock contextKey="eiwit-calculator" />
+      <ConversionBlock variant="community" context="tool-eiwit-calculator" />
     </div>
   );
 }

@@ -91,7 +91,17 @@ export function PartnersFilter() {
           </section>
         ))}
         {grouped.length === 0 ? (
-          <div className="card text-sm text-slate-600">Geen partners gevonden met deze filters.</div>
+          <div className="card text-sm text-slate-600">
+            <p>Geen partners gevonden met deze filters.</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <a href="/partners" className="btn-secondary text-xs">
+                Reset filters
+              </a>
+              <a href="/community" className="btn-primary text-xs">
+                Vraag hulp in community
+              </a>
+            </div>
+          </div>
         ) : null}
       </div>
     </section>

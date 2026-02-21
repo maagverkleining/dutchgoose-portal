@@ -1,7 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
+import { trackEvent } from "@/lib/analytics";
 
 export function VoorraadTellerClient() {
   const [potmaat, setPotmaat] = useState(900);
@@ -13,6 +16,10 @@ export function VoorraadTellerClient() {
     }
     return Math.floor(potmaat / dosering);
   }, [dosering, potmaat]);
+
+  useEffect(() => {
+    trackEvent("tool_use", { tool: "voorraad-teller" });
+  }, []);
 
   return (
     <div className="space-y-6">
@@ -67,6 +74,8 @@ export function VoorraadTellerClient() {
           </button>
         </form>
       </section>
+      <SmartAffiliateBlock contextKey="voorraad-teller" />
+      <ConversionBlock variant="community" context="tool-voorraad-teller" />
     </div>
   );
 }

@@ -137,7 +137,17 @@ export function DealsFilter({ categorySlug }: { categorySlug?: string }) {
           </section>
         ))}
         {groupedByMerchant.length === 0 ? (
-          <div className="card text-sm text-slate-600">Geen resultaten gevonden. Probeer een andere filter.</div>
+          <div className="card text-sm text-slate-600">
+            <p>Geen resultaten gevonden. Probeer een andere filter.</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <a className="btn-secondary text-xs" href="/deals">
+                Reset filters
+              </a>
+              <a className="btn-primary text-xs" href="/community/baribuddies">
+                Vraag community hulp
+              </a>
+            </div>
+          </div>
         ) : null}
       </div>
     </section>

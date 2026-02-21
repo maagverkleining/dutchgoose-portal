@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { VisualHero } from "@/components/visual-hero";
 import { starterKits } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
@@ -21,6 +23,7 @@ export default function StarterKitsPage() {
         imageAlt="Starter kits overzicht"
         chip="3 fases"
       />
+      <ConversionBlock variant="tools" context="starter-kits-top" />
       <div className="grid gap-4 md:grid-cols-3">
         {starterKits.map((kit) => (
           <article key={kit.slug} className="card">
@@ -32,6 +35,7 @@ export default function StarterKitsPage() {
           </article>
         ))}
       </div>
+      <SmartAffiliateBlock contextKey="starter-kit-net-post-op" title="Aanbevolen deals voor starters" />
     </div>
   );
 }

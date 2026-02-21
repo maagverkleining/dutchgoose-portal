@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
 import { JsonLd } from "@/components/json-ld";
+import { RelatedArticles } from "@/components/related-articles";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { articleMap, knowledgebase } from "@/lib/data";
-import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildMetadata } from "@/lib/seo";
+import { buildArticleJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd, buildMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return knowledgebase.map((item) => ({ slug: item.slug }));
@@ -29,6 +32,14 @@ export default function KennisbankArticlePage({ params }: { params: { slug: stri
 
   return (
     <article className="space-y-6">
+      <JsonLd
+        data={buildArticleJsonLd({
+          title: article.title,
+          description: article.description,
+          path: `/kennisbank/${article.slug}`,
+          dateModified: article.updatedAt
+        })}
+      />
       <JsonLd
         data={buildBreadcrumbJsonLd([
           { name: "Start", item: "/" },
@@ -59,6 +70,14 @@ export default function KennisbankArticlePage({ params }: { params: { slug: stri
         </p>
       </header>
       <div className="space-y-4 text-slate-800">
+        <section className="card">
+          <h2 className="text-xl font-semibold text-gooseNavy">TLDR</h2>
+          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
+            {article.body.slice(0, 3).map((point) => (
+              <li key={point.slice(0, 32)}>{point}</li>
+            ))}
+          </ul>
+        </section>
         {article.body.map((paragraph) => (
           <p className="leading-7" key={paragraph.slice(0, 32)}>
             {paragraph}
@@ -88,6 +107,9 @@ export default function KennisbankArticlePage({ params }: { params: { slug: stri
           </Link>
         </div>
       </section>
+      <SmartAffiliateBlock contextKey={`kennisbank-${article.slug}`} title="Deals die hierbij passen" />
+      <ConversionBlock variant="community" context={`kennisbank-${article.slug}`} />
+      <RelatedArticles currentSlug={article.slug} />
     </article>
   );
 }

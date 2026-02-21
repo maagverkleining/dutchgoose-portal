@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { VisualHero } from "@/components/visual-hero";
 import { knowledgebase } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
@@ -21,6 +23,7 @@ export default function KennisbankPage() {
         imageAlt="Kennisbank en community visual"
         chip="24 artikelen"
       />
+      <ConversionBlock variant="tools" context="kennisbank-top" />
       <p className="text-slate-700">Geen medisch advies. Bespreek dit met je eigen ziekenhuis of team.</p>
       <div className="grid gap-4 md:grid-cols-2">
         {knowledgebase.map((article) => (
@@ -33,6 +36,8 @@ export default function KennisbankPage() {
           </article>
         ))}
       </div>
+      <SmartAffiliateBlock contextKey="kennisbank-default" />
+      <ConversionBlock variant="community" context="kennisbank-bottom" />
     </div>
   );
 }

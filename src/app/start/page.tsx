@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { PhaseSelector } from "@/components/phase-selector";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { VisualHero } from "@/components/visual-hero";
 import { starterKits } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
@@ -21,6 +24,7 @@ export default function StartPage() {
         imageAlt="Startflow en categorie overzicht"
         chip="Stap voor stap"
       />
+      <PhaseSelector />
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         {starterKits.map((kit) => (
           <article className="card" key={kit.slug}>
@@ -32,6 +36,8 @@ export default function StartPage() {
           </article>
         ))}
       </div>
+      <SmartAffiliateBlock contextKey="home-default" title="Slimme eerste deals" />
+      <ConversionBlock variant="community" context="start-bottom" />
     </div>
   );
 }

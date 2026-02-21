@@ -1,4 +1,6 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { VisualHero } from "@/components/visual-hero";
 import { buildMetadata } from "@/lib/seo";
 
@@ -25,6 +27,7 @@ export default function BariBuddiesPage() {
         imageAlt="BariBuddies community visual"
         chip="Gratis community"
       />
+      <ConversionBlock variant="community" context="baribuddies-top" />
       <section className="card">
         <h2 className="text-xl font-semibold text-gooseNavy">Wat is het?</h2>
         <p className="mt-2 text-slate-700">
@@ -57,6 +60,8 @@ export default function BariBuddiesPage() {
           </button>
         </form>
       </section>
+      <SmartAffiliateBlock contextKey="community-default" title="Community deals die leden vaak gebruiken" />
+      <ConversionBlock variant="community" context="baribuddies-bottom" />
     </div>
   );
 }

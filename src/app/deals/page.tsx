@@ -3,6 +3,8 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { DealsFilter } from "@/components/deals-filter";
 import { buildItemListJsonLd, buildMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SafeDataRenderer } from "@/components/safe-data-renderer";
 import { categories, deals, merchants } from "@/lib/data";
 
 export const metadata = buildMetadata({
@@ -23,6 +25,12 @@ export default function DealsPage() {
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Deals" }]} />
       <h1 className="text-3xl font-bold text-gooseNavy">Deals 🥝🍌</h1>
       <p className="text-slate-700">Via Dutch Goose pak je korting als er een code of actie is.</p>
+      <ConversionBlock
+        variant="deals"
+        context="deals-top"
+        headline="Besparen op producten die je toch gebruikt"
+        copy="Filter slim op categorie, type en leverancier. Daarna pak je direct je volgende stap in tools of community."
+      />
       <section className="community-card">
         <img
           src="/illustrations/deals-categories.svg"
@@ -49,6 +57,13 @@ export default function DealsPage() {
           </div>
         </div>
       </section>
+      <SafeDataRenderer data={deals} fallbackData={deals.slice(0, 6)}>
+        {(rows) => (
+          <p className="text-sm text-slate-600">
+            We tonen nu {rows.length} deals. Gebruik filters voor je beste match.
+          </p>
+        )}
+      </SafeDataRenderer>
       <Suspense fallback={<div className="card">Deals laden...</div>}>
         <DealsFilter />
       </Suspense>

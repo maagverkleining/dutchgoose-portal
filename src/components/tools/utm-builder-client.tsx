@@ -1,7 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { trackEvent } from "@/lib/analytics";
 
 export function UtmBuilderClient() {
   const [url, setUrl] = useState("");
@@ -23,6 +25,10 @@ export function UtmBuilderClient() {
       return "Vul een geldige URL in.";
     }
   }, [url, category, placement]);
+
+  useEffect(() => {
+    trackEvent("tool_use", { tool: "utm-builder" });
+  }, []);
 
   return (
     <div className="space-y-6">
@@ -74,6 +80,14 @@ export function UtmBuilderClient() {
           Kopieer link
         </button>
       </section>
+      <ConversionBlock
+        variant="community"
+        context="tool-utm-builder"
+        headline="Werk je met Dutch Goose als partner?"
+        copy="Plan je samenwerking en zet je campagne strak op met heldere plaatsingen."
+        primaryLabel="Naar samenwerken"
+        primaryHref="/samenwerken"
+      />
     </div>
   );
 }

@@ -84,3 +84,36 @@ export function buildItemListJsonLd(
     }))
   };
 }
+
+export function buildArticleJsonLd({
+  title,
+  description,
+  path,
+  dateModified
+}: {
+  title: string;
+  description: string;
+  path: string;
+  dateModified: string;
+}) {
+  const url = absoluteUrl(path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    dateModified,
+    inLanguage: "nl-NL",
+    mainEntityOfPage: url,
+    url,
+    author: {
+      "@type": "Person",
+      name: "David Gans"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url
+    }
+  };
+}

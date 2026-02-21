@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { VisualHero } from "@/components/visual-hero";
 import { buildMetadata } from "@/lib/seo";
 
@@ -20,6 +22,7 @@ export default function CommunityPage() {
         imageAlt="BariBuddies community met mensen, kiwi en banaan"
         chip="BariBuddies NL/BE"
       />
+      <ConversionBlock variant="community" context="community-top" />
       <div className="grid gap-4 md:grid-cols-2">
         <article className="card">
           <h2 className="text-xl font-semibold text-gooseNavy">BariBuddies 🥝🍌</h2>
@@ -38,6 +41,8 @@ export default function CommunityPage() {
           </Link>
         </article>
       </div>
+      <SmartAffiliateBlock contextKey="community-default" title="Community favorieten uit de deals" />
+      <ConversionBlock variant="community" context="community-bottom" />
     </div>
   );
 }

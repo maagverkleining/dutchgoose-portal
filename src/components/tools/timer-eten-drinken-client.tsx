@@ -2,12 +2,19 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
+import { trackEvent } from "@/lib/analytics";
 
 export function TimerEtenDrinkenClient() {
   const [minutes, setMinutes] = useState(30);
   const [secondsLeft, setSecondsLeft] = useState(30 * 60);
   const [running, setRunning] = useState(false);
   const [audioEnabled, setAudioEnabled] = useState(false);
+
+  useEffect(() => {
+    trackEvent("tool_use", { tool: "timer-eten-drinken" });
+  }, []);
 
   useEffect(() => {
     if (!running) {
@@ -76,7 +83,10 @@ export function TimerEtenDrinkenClient() {
           <button
             aria-label={running ? "Stop timer" : "Start timer"}
             className="btn-primary min-w-40"
-            onClick={() => setRunning((value) => !value)}
+            onClick={() => {
+              setRunning((value) => !value);
+              trackEvent("tool_use", { tool: "timer-eten-drinken", action: running ? "stop" : "start" });
+            }}
           >
             {running ? "Stop" : "Start"}
           </button>
@@ -94,6 +104,8 @@ export function TimerEtenDrinkenClient() {
           Audio signaal
         </label>
       </section>
+      <SmartAffiliateBlock contextKey="timer-eten-drinken" />
+      <ConversionBlock variant="community" context="tool-timer-eten-drinken" />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ConversionBlock } from "@/components/conversion-block";
 import { GoLink } from "@/components/go-link";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -11,6 +13,7 @@ export const metadata = buildMetadata({
 const ranking = [
   {
     product: "Body & Fit Whey Isolaat",
+    dealSlug: "bodyfit-isolaat-voordeel",
     taste: 8.5,
     structure: 8,
     protein: 25,
@@ -18,6 +21,7 @@ const ranking = [
   },
   {
     product: "Myprotein Clear Whey",
+    dealSlug: "myprotein-starter-bundel",
     taste: 8,
     structure: 7.5,
     protein: 20,
@@ -25,6 +29,7 @@ const ranking = [
   },
   {
     product: "Bulk Vegan Protein",
+    dealSlug: "bulk-repen-selectie",
     taste: 7,
     structure: 7,
     protein: 22,
@@ -60,12 +65,22 @@ export default function ProteineTestPage() {
               <li>Eiwit: {row.protein}g</li>
               <li>Prijs: {row.price}</li>
             </ul>
+            <GoLink
+              slug={row.dealSlug}
+              placement="test-proteine-buy-button"
+              eventName="deal_click"
+              className="btn-secondary mt-4 text-xs"
+            >
+              Koop via deal
+            </GoLink>
           </article>
         ))}
       </div>
-      <GoLink slug="bodyfit-isolaat-voordeel" placement="test-proteine" className="btn-primary text-xs">
+      <GoLink slug="bodyfit-isolaat-voordeel" placement="test-proteine" eventName="deal_click" className="btn-primary text-xs">
         Naar bijpassende deals
       </GoLink>
+      <SmartAffiliateBlock contextKey="tests-proteine-test" />
+      <ConversionBlock variant="community" context="tests-proteine-bottom" />
     </div>
   );
 }

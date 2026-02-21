@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PartnersFilter } from "@/components/partners-filter";
 import { JsonLd } from "@/components/json-ld";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SafeDataRenderer } from "@/components/safe-data-renderer";
 import { buildItemListJsonLd, buildMetadata } from "@/lib/seo";
 import { merchants } from "@/lib/data";
 
@@ -28,11 +30,20 @@ export default function PartnersPage() {
       <p className="text-slate-700">
         Directory van partners met heldere uitleg per merk, gegroepeerd per productgroep en leverancier.
       </p>
+      <ConversionBlock
+        variant="deals"
+        context="partners-top"
+        headline="Kies je leverancier zonder ruis"
+        copy="Vergelijk partners op relevantie na maagverkleining en ga daarna direct door naar passende deals."
+      />
       <img
         src="/illustrations/partners-suppliers.svg"
         alt="Partners gegroepeerd per leverancier"
         className="w-full rounded-2xl border border-slate-200"
       />
+      <SafeDataRenderer data={merchants} fallbackData={merchants.slice(0, 6)}>
+        {(rows) => <p className="text-sm text-slate-600">{rows.length} partners beschikbaar.</p>}
+      </SafeDataRenderer>
       <Suspense fallback={<div className="card">Partners laden...</div>}>
         <PartnersFilter />
       </Suspense>

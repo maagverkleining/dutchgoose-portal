@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { DealsFilter } from "@/components/deals-filter";
 import { JsonLd } from "@/components/json-ld";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { categories, categoryMap, deals } from "@/lib/data";
 import { getCategoryIllustration } from "@/lib/illustrations";
 import { buildFaqJsonLd, buildMetadata } from "@/lib/seo";
@@ -48,6 +50,12 @@ export default function DealCategoryPage({ params }: { params: { category: strin
       />
       <p className="text-slate-700">{category.introCopy}</p>
       <p className="text-sm text-slate-600">{categoryDeals.length} deals gevonden in deze categorie.</p>
+      <ConversionBlock
+        variant="deals"
+        context={`deals-category-${category.slug}`}
+        secondaryHref="/community/baribuddies"
+        secondaryLabel="Vraag invite aan"
+      />
       <Suspense fallback={<div className="card">Deals laden...</div>}>
         <DealsFilter categorySlug={category.slug} />
       </Suspense>
@@ -60,6 +68,10 @@ export default function DealCategoryPage({ params }: { params: { category: strin
           </article>
         ))}
       </section>
+      <SmartAffiliateBlock
+        contextKey="deals-default"
+        title={`Meer ${category.name.toLowerCase()} aanbevelingen`}
+      />
     </div>
   );
 }

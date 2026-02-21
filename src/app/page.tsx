@@ -2,6 +2,9 @@ import Link from "next/link";
 import { BananaIcon, KiwiIcon } from "@/components/icons";
 import { DealCard } from "@/components/deal-card";
 import { PartnerDisclosure } from "@/components/partner-disclosure";
+import { ConversionBlock } from "@/components/conversion-block";
+import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
+import { PhaseSelector } from "@/components/phase-selector";
 import { buildMetadata } from "@/lib/seo";
 import { deals } from "@/lib/data";
 
@@ -39,6 +42,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      <PhaseSelector />
+      <ConversionBlock variant="deals" context="home-above-fold" />
 
       <section className="grid gap-6 lg:grid-cols-2">
         <article className="community-card">
@@ -88,6 +94,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <SmartAffiliateBlock contextKey="home" title="Slim gekozen voor jouw fase" />
+      <ConversionBlock variant="community" context="home-middle" />
 
       <section className="community-card">
         <h2 className="text-2xl font-semibold text-gooseNavy">Groepering per producten en leveranciers</h2>
