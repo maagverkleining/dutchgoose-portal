@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { VisualHero } from "@/components/visual-hero";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -30,10 +31,13 @@ export default function ToolsPage() {
   return (
     <div className="space-y-6">
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Tools" }]} />
-      <h1 className="text-3xl font-bold text-gooseNavy">Tools</h1>
-      <p className="text-slate-700">
-        Deze tools zijn voor communityleden. Simpel, snel en direct bruikbaar in je dag.
-      </p>
+      <VisualHero
+        title="Tools voor je dagritme"
+        subtitle="Praktische hulpmiddelen die je dagelijks gebruikt: eiwit, timer en voorraad."
+        imageSrc="/illustrations/deals-categories.svg"
+        imageAlt="Dutch Goose tools overzicht"
+        chip="Community tools"
+      />
       <div className="grid gap-4 md:grid-cols-2">
         {tools.map((tool) => (
           <article key={tool.href} className="card">

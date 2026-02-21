@@ -4,6 +4,7 @@ import { GoLink } from "@/components/go-link";
 import { JsonLd } from "@/components/json-ld";
 import { PartnerDisclosure } from "@/components/partner-disclosure";
 import { merchantMap, merchants, deals } from "@/lib/data";
+import { getCategoryIllustration } from "@/lib/illustrations";
 import { buildFaqJsonLd, buildMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -55,6 +56,11 @@ export default function PartnerDetailPage({ params }: { params: { slug: string }
         ]}
       />
       <h1 className="text-3xl font-bold text-gooseNavy">{merchant.name}</h1>
+      <img
+        src={getCategoryIllustration(merchant.category)}
+        alt={`Visual ${merchant.name}`}
+        className="w-full rounded-2xl border border-slate-200"
+      />
       <p className="text-slate-700">{merchant.shortPitch}</p>
 
       <section className="card">

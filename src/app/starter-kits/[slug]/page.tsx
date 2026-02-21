@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { starterKits, starterKitMap } from "@/lib/data";
+import { getCategoryIllustration } from "@/lib/illustrations";
 import { buildMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
 
@@ -44,6 +45,17 @@ export default function StarterKitDetailPage({ params }: { params: { slug: strin
         ]}
       />
       <h1 className="text-3xl font-bold text-gooseNavy">{kit.title}</h1>
+      <img
+        src={getCategoryIllustration(
+          kit.slug === "net-post-op"
+            ? "proteine"
+            : kit.slug === "6-tot-12-maanden"
+              ? "keuken-en-tools"
+              : "maaltijden-en-structuur"
+        )}
+        alt={`Starter kit ${kit.phase}`}
+        className="w-full rounded-2xl border border-slate-200"
+      />
       <p className="text-slate-700">{kit.description}</p>
       <ul className="card list-disc space-y-2 pl-5 text-slate-700">
         {kit.bullets.map((bullet) => (

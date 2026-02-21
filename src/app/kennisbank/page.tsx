@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { VisualHero } from "@/components/visual-hero";
 import { knowledgebase } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 
@@ -13,7 +14,13 @@ export default function KennisbankPage() {
   return (
     <div className="space-y-6">
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Kennisbank" }]} />
-      <h1 className="text-3xl font-bold text-gooseNavy">Kennisbank</h1>
+      <VisualHero
+        title="Kennisbank"
+        subtitle="Heldere uitleg in gewone taal. Voor echte situaties na maagverkleining."
+        imageSrc="/illustrations/hero-buddies.svg"
+        imageAlt="Kennisbank en community visual"
+        chip="24 artikelen"
+      />
       <p className="text-slate-700">Geen medisch advies. Bespreek dit met je eigen ziekenhuis of team.</p>
       <div className="grid gap-4 md:grid-cols-2">
         {knowledgebase.map((article) => (

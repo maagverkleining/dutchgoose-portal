@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { VisualHero } from "@/components/visual-hero";
 
 export const metadata = buildMetadata({
   title: "Contact | Dutch Goose",
@@ -9,7 +10,13 @@ export const metadata = buildMetadata({
 export default function ContactPage() {
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gooseNavy">Contact</h1>
+      <VisualHero
+        title="Contact"
+        subtitle="Vraag, idee of feedback? Stuur je bericht. We reageren nuchter en snel."
+        imageSrc="/illustrations/hero-buddies.svg"
+        imageAlt="Contact Dutch Goose"
+        chip="Community support"
+      />
       <section className="card">
         <form name="contact" method="POST" data-netlify="true" className="space-y-3">
           <input type="hidden" name="form-name" value="contact" />

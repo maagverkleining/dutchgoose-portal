@@ -43,6 +43,11 @@ export default function ProteineTestPage() {
         ]}
       />
       <h1 className="text-3xl font-bold text-gooseNavy">Proteïne test</h1>
+      <img
+        src="/illustrations/category-proteine.svg"
+        alt="Proteïne test visual"
+        className="w-full rounded-2xl border border-slate-200"
+      />
       <p className="text-slate-700">Ranking cards op smaak, structuur en eiwit per portie.</p>
       <div className="grid gap-4 md:grid-cols-3">
         {ranking.map((row, index) => (

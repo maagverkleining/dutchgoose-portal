@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { VisualHero } from "@/components/visual-hero";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -12,7 +13,13 @@ export default function CommunityPage() {
   return (
     <div className="space-y-6">
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Community" }]} />
-      <h1 className="text-3xl font-bold text-gooseNavy">Community</h1>
+      <VisualHero
+        title="Community 🥝🍌"
+        subtitle="Jij hoeft dit niet alleen te doen. Hier vind je support, structuur en een plek waar mensen je echt snappen."
+        imageSrc="/illustrations/hero-buddies.svg"
+        imageAlt="BariBuddies community met mensen, kiwi en banaan"
+        chip="BariBuddies NL/BE"
+      />
       <div className="grid gap-4 md:grid-cols-2">
         <article className="card">
           <h2 className="text-xl font-semibold text-gooseNavy">BariBuddies 🥝🍌</h2>

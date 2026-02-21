@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { VisualHero } from "@/components/visual-hero";
 
 export const metadata = buildMetadata({
   title: "Samenwerken met Dutch Goose",
@@ -9,7 +10,13 @@ export const metadata = buildMetadata({
 export default function SamenwerkenPage() {
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gooseNavy">Samenwerken</h1>
+      <VisualHero
+        title="Samenwerken"
+        subtitle="Voor merken en partners die echt waarde toevoegen voor mensen na maagverkleining."
+        imageSrc="/illustrations/partners-suppliers.svg"
+        imageAlt="Samenwerken en partnerdeals"
+        chip="Partner & media"
+      />
       <section className="card">
         <h2 className="text-xl font-semibold text-gooseNavy">Opties</h2>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-700">

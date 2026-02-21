@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { VisualHero } from "@/components/visual-hero";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -17,7 +18,13 @@ export default function BariBuddiesPage() {
           { label: "BariBuddies" }
         ]}
       />
-      <h1 className="text-3xl font-bold text-gooseNavy">BariBuddies 🥝🍌</h1>
+      <VisualHero
+        title="BariBuddies 🥝🍌"
+        subtitle="Een warme community voor mensen met een maagverkleining. Praktische hulp, herkenning en duidelijke regels."
+        imageSrc="/illustrations/hero-buddies.svg"
+        imageAlt="BariBuddies community visual"
+        chip="Gratis community"
+      />
       <section className="card">
         <h2 className="text-xl font-semibold text-gooseNavy">Wat is het?</h2>
         <p className="mt-2 text-slate-700">

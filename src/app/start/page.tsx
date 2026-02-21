@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { VisualHero } from "@/components/visual-hero";
 import { starterKits } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 
@@ -11,12 +12,15 @@ export const metadata = buildMetadata({
 
 export default function StartPage() {
   return (
-    <div>
+    <div className="space-y-6">
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Begin hier" }]} />
-      <h1 className="text-3xl font-bold text-gooseNavy">Begin hier</h1>
-      <p className="mt-3 max-w-2xl text-slate-700">
-        Kies je fase. Dan pakken we de juiste tools, kennisbank en deals erbij.
-      </p>
+      <VisualHero
+        title="Begin hier"
+        subtitle="Kies je fase en start met de juiste kit, tools en kennisbank. Kort, logisch en direct toepasbaar."
+        imageSrc="/illustrations/deals-categories.svg"
+        imageAlt="Startflow en categorie overzicht"
+        chip="Stap voor stap"
+      />
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         {starterKits.map((kit) => (
           <article className="card" key={kit.slug}>

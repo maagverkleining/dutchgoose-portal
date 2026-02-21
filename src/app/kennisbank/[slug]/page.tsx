@@ -46,6 +46,11 @@ export default function KennisbankArticlePage({ params }: { params: { slug: stri
       />
       <header>
         <h1 className="text-3xl font-bold text-gooseNavy">{article.title}</h1>
+        <img
+          src="/illustrations/hero-buddies.svg"
+          alt="Community kennisbank visual"
+          className="mt-4 w-full rounded-2xl border border-slate-200"
+        />
         <p className="mt-2 text-sm text-slate-500">
           Update: {article.updatedAt} · Leestijd: {article.readingMinutes} minuten
         </p>

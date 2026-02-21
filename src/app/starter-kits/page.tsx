@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { VisualHero } from "@/components/visual-hero";
 import { starterKits } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 
@@ -13,7 +14,13 @@ export default function StarterKitsPage() {
   return (
     <div className="space-y-6">
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Starter kits" }]} />
-      <h1 className="text-3xl font-bold text-gooseNavy">Starter kits</h1>
+      <VisualHero
+        title="Starter kits 🥝🍌"
+        subtitle="Per fase een praktisch pakket met de juiste links en focuspunten."
+        imageSrc="/illustrations/deals-categories.svg"
+        imageAlt="Starter kits overzicht"
+        chip="3 fases"
+      />
       <div className="grid gap-4 md:grid-cols-3">
         {starterKits.map((kit) => (
           <article key={kit.slug} className="card">

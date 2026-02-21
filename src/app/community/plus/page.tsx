@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { VisualHero } from "@/components/visual-hero";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -17,7 +18,13 @@ export default function CommunityPlusPage() {
           { label: "Plus" }
         ]}
       />
-      <h1 className="text-3xl font-bold text-gooseNavy">Dutch Goose Plus</h1>
+      <VisualHero
+        title="Dutch Goose Plus 🍌🥝"
+        subtitle="Extra verdieping, maandelijkse focus en directe begeleiding voor wie meer structuur en accountability wil."
+        imageSrc="/illustrations/partners-suppliers.svg"
+        imageAlt="Plus membership visual"
+        chip="Premium community"
+      />
       <section className="card">
         <h2 className="text-xl font-semibold text-gooseNavy">Wat je krijgt per maand</h2>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-700">
