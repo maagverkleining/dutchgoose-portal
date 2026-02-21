@@ -2,15 +2,14 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { mainNav, megaMenu } from "@/lib/navigation";
 import { BananaIcon, KiwiIcon } from "@/components/icons";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [collapseMega, setCollapseMega] = useState(false);
-  const previousY = useRef(0);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
   const quickLinks = useMemo(() => {
     const entries = megaMenu.flatMap((group) => group.links);
@@ -22,20 +21,7 @@ export function Header() {
       .filter((item) => item.label.toLowerCase().includes(lowered))
       .slice(0, 6);
   }, [query]);
-
-  useEffect(() => {
-    function handleScroll() {
-      const currentY = window.scrollY;
-      const scrollingDown = currentY > previousY.current;
-      const shouldCollapse = currentY > 80 && scrollingDown;
-      setCollapseMega(shouldCollapse);
-      previousY.current = currentY;
-    }
-
-    previousY.current = window.scrollY;
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const activeGroup = megaMenu.find((group) => group.title === activeSubmenu);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -96,7 +82,22 @@ export function Header() {
           <ul className="flex flex-wrap gap-2">
             {mainNav.map((item) => (
               <li key={item.href}>
-                {item.href.startsWith("http") ? (
+                {megaMenu.some((group) => group.title === item.label) ? (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setActiveSubmenu((value) => (value === item.label ? null : item.label))
+                    }
+                    className={`inline-flex rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                      activeSubmenu === item.label
+                        ? "bg-gooseNavy text-white"
+                        : "text-slate-700 hover:bg-gooseNavy hover:text-white"
+                    }`}
+                    aria-expanded={activeSubmenu === item.label}
+                  >
+                    {item.label}
+                  </button>
+                ) : item.href.startsWith("http") ? (
                   <a
                     href={item.href}
                     target="_blank"
@@ -108,6 +109,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
+                    onClick={() => setActiveSubmenu(null)}
                     className="inline-flex rounded-full px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-gooseNavy hover:text-white"
                   >
                     {item.label}
@@ -117,25 +119,26 @@ export function Header() {
             ))}
           </ul>
         </nav>
-        <div className={`mt-3 hidden rounded-goose border border-slate-200 bg-slate-50 p-3 transition-all duration-300 lg:block ${collapseMega ? "max-h-0 overflow-hidden border-transparent p-0 opacity-0" : "max-h-[420px] opacity-100"}`}>
-          <p className="mb-2 text-xs font-bold uppercase tracking-wide text-slate-500">Mega menu</p>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {megaMenu.map((group) => (
-              <section key={group.title}>
-                <h3 className="mb-1 text-sm font-semibold text-gooseNavy">{group.title}</h3>
-                <ul className="space-y-1">
-                  {group.links.map((link) => (
-                    <li key={link.href}>
-                      <Link href={link.href} className="text-sm text-slate-600 hover:underline">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
+        {activeGroup ? (
+          <div className="mt-3 rounded-goose border border-slate-200 bg-slate-50 p-3">
+            <p className="mb-2 text-xs font-bold uppercase tracking-wide text-slate-500">
+              {activeGroup.title}
+            </p>
+            <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {activeGroup.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setActiveSubmenu(null)}
+                    className="block rounded-lg bg-white px-3 py-2 text-sm text-slate-700 hover:bg-gooseNavy hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        ) : null}
       </div>
     </header>
   );
