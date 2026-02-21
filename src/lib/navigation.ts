@@ -1,6 +1,7 @@
 export const mainNav = [
   { label: "Start", href: "/" },
   { label: "Deals", href: "/deals" },
+  { label: "Vitamines", href: "https://dutchgoose-wls.netlify.app/" },
   { label: "Tools", href: "/tools" },
   { label: "Tests", href: "/tests" },
   { label: "Starter kits", href: "/starter-kits" },

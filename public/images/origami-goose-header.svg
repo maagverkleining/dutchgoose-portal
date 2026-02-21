@@ -1,0 +1,36 @@
+<svg width="520" height="320" viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Origami gans</title>
+  <desc id="desc">Line-art origami gans in vlucht.</desc>
+  <rect width="520" height="320" rx="24" fill="#ffffff"/>
+  <g stroke="#1D1A58" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M68 186L178 202L220 216L210 172L168 154L68 144L96 166L68 186Z"/>
+    <path d="M182 200L250 166L302 178L220 216L182 200Z"/>
+    <path d="M250 166L306 140L358 152L302 178L250 166Z"/>
+    <path d="M306 140L374 116L412 122L358 152L306 140Z"/>
+    <path d="M372 116L430 110L452 120L410 124L372 116Z"/>
+    <path d="M430 110L466 112L454 122L412 122L430 110Z"/>
+    <circle cx="438" cy="117" r="4" fill="#1D1A58"/>
+    <path d="M456 122L486 126L450 130L456 122Z" fill="#ffffff"/>
+
+    <path d="M210 172L188 74L216 36L236 118L210 172Z"/>
+    <path d="M236 118L264 58L280 28L296 102L236 118Z"/>
+    <path d="M296 102L312 46L326 24L338 96L296 102Z"/>
+    <path d="M214 84L244 96"/>
+    <path d="M224 62L252 78"/>
+    <path d="M234 42L258 64"/>
+    <path d="M246 122L280 128"/>
+    <path d="M258 96L288 106"/>
+    <path d="M270 70L298 84"/>
+
+    <path d="M184 170L112 84L66 72L106 124L184 170Z"/>
+    <path d="M176 158L98 58L58 44L92 96L176 158Z"/>
+    <path d="M162 150L84 36L54 24L80 74L162 150Z"/>
+    <path d="M136 132L190 146"/>
+    <path d="M116 110L182 126"/>
+    <path d="M98 88L174 106"/>
+
+    <path d="M186 202L154 226L184 230L202 214L186 202Z"/>
+    <path d="M162 226L144 246L172 240L184 230L162 226Z"/>
+    <path d="M184 230L174 254L202 240L214 220L184 230Z"/>
+  </g>
+</svg>

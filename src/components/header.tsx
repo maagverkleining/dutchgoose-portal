@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import Image from "next/image";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { mainNav, megaMenu } from "@/lib/navigation";
 import { BananaIcon, KiwiIcon } from "@/components/icons";
-import { AnimatedOrigamiGoose } from "@/components/animated-origami-goose";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [collapseMega, setCollapseMega] = useState(false);
+  const previousY = useRef(0);
 
   const quickLinks = useMemo(() => {
     const entries = megaMenu.flatMap((group) => group.links);
@@ -21,12 +23,34 @@ export function Header() {
       .slice(0, 6);
   }, [query]);
 
+  useEffect(() => {
+    function handleScroll() {
+      const currentY = window.scrollY;
+      const scrollingDown = currentY > previousY.current;
+      const shouldCollapse = currentY > 80 && scrollingDown;
+      setCollapseMega(shouldCollapse);
+      previousY.current = currentY;
+    }
+
+    previousY.current = window.scrollY;
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="container-goose py-3">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/" className="flex items-center gap-2 text-lg font-bold text-gooseNavy">
-            <AnimatedOrigamiGoose className="h-20 w-44" /> Dutch Goose
+            <Image
+              src="/images/origami-goose-header.svg"
+              alt="Origami gans Dutch Goose"
+              width={104}
+              height={64}
+              className="h-14 w-auto rounded-md border border-slate-100 bg-white p-1"
+              priority
+            />
+            Dutch Goose
           </Link>
           <span className="hidden rounded-full bg-gooseKiwi/20 px-3 py-1 text-xs font-semibold text-gooseNavy sm:inline-flex">
             BariBuddies <KiwiIcon /> <BananaIcon />
@@ -72,17 +96,28 @@ export function Header() {
           <ul className="flex flex-wrap gap-2">
             {mainNav.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="inline-flex rounded-full px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-gooseNavy hover:text-white"
-                >
-                  {item.label}
-                </Link>
+                {item.href.startsWith("http") ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex rounded-full px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-gooseNavy hover:text-white"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="inline-flex rounded-full px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-gooseNavy hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
         </nav>
-        <div className="mt-3 hidden rounded-goose border border-slate-200 bg-slate-50 p-3 lg:block">
+        <div className={`mt-3 hidden rounded-goose border border-slate-200 bg-slate-50 p-3 transition-all duration-300 lg:block ${collapseMega ? "max-h-0 overflow-hidden border-transparent p-0 opacity-0" : "max-h-[420px] opacity-100"}`}>
           <p className="mb-2 text-xs font-bold uppercase tracking-wide text-slate-500">Mega menu</p>
           <div className="grid gap-3 sm:grid-cols-3">
             {megaMenu.map((group) => (
