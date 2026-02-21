@@ -4,6 +4,7 @@ import { GoLink } from "@/components/go-link";
 import { JsonLd } from "@/components/json-ld";
 import { PartnerDisclosure } from "@/components/partner-disclosure";
 import { ConversionBlock } from "@/components/conversion-block";
+import { MerchantThumbnail } from "@/components/merchant-thumbnail";
 import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { merchantMap, merchants, deals } from "@/lib/data";
 import { getCategoryIllustration } from "@/lib/illustrations";
@@ -57,7 +58,10 @@ export default function PartnerDetailPage({ params }: { params: { slug: string }
           { label: merchant.name }
         ]}
       />
-      <h1 className="text-3xl font-bold text-gooseNavy">{merchant.name}</h1>
+      <div className="flex items-center gap-3">
+        <MerchantThumbnail merchant={merchant} size="lg" />
+        <h1 className="text-3xl font-bold text-gooseNavy">{merchant.name}</h1>
+      </div>
       <img
         src={getCategoryIllustration(merchant.category)}
         alt={`Visual ${merchant.name}`}

@@ -73,21 +73,21 @@ a {
 @keyframes gooseThick {
   0%, 32% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.16) translateX(-6px) translateY(2px);
   }
   52%, 100% {
     opacity: 0;
-    transform: scale(0.95) translateX(4px);
+    transform: scale(0.72) translateX(18px) translateY(-2px);
   }
 }
 
 @keyframes gooseSlim {
   0%, 38% {
     opacity: 0;
-    transform: scale(0.93) translateX(-4px);
+    transform: scale(0.58) translateX(-18px) translateY(1px);
   }
   58%, 100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(0.94) translateX(4px) translateY(-1px);
   }
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Badge } from "@/components/badge";
 import { GoLink } from "@/components/go-link";
+import { MerchantThumbnail } from "@/components/merchant-thumbnail";
 import { disclosureLine, siteConfig } from "@/lib/site";
 import { merchantMap } from "@/lib/data";
 import { getCategoryIllustration } from "@/lib/illustrations";
@@ -28,6 +29,12 @@ export function DealCard({ deal }: DealCardProps) {
         alt={`Illustratie ${deal.category}`}
         className="mb-3 h-24 w-full rounded-xl border border-slate-100 object-cover"
       />
+      {merchant ? (
+        <div className="mb-3 flex items-center gap-2">
+          <MerchantThumbnail merchant={merchant} size="sm" />
+          <p className="text-sm font-semibold text-gooseNavy">{merchant.name}</p>
+        </div>
+      ) : null}
       <div className="mb-3 flex flex-wrap gap-2">
         <Badge
           label={
@@ -39,6 +46,7 @@ export function DealCard({ deal }: DealCardProps) {
           }
         />
         <Badge label="Nieuw" />
+        {deal.merchantSlug === "ahead-nutrition" ? <Badge label="Uitgelicht" /> : null}
       </div>
       <h3 className="text-lg font-semibold text-gooseNavy">{deal.title}</h3>
       <p className="mt-2 text-sm text-slate-600">{deal.note}</p>
@@ -69,7 +77,7 @@ export function DealCard({ deal }: DealCardProps) {
         </p>
       )}
       <div className="mt-4 flex items-center justify-between">
-        <p className="text-sm text-slate-500">{merchant?.name}</p>
+        <p className="text-sm text-slate-500">{merchant?.name ?? "Leverancier"}</p>
         <GoLink slug={deal.slug} placement={deal.placementDefault} className="btn-primary text-xs">
           Bekijk deal
         </GoLink>

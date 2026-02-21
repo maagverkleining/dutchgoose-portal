@@ -6,7 +6,7 @@ import { ConversionBlock } from "@/components/conversion-block";
 import { SmartAffiliateBlock } from "@/components/smart-affiliate-block";
 import { PhaseSelector } from "@/components/phase-selector";
 import { buildMetadata } from "@/lib/seo";
-import { deals } from "@/lib/data";
+import { dealMap, deals } from "@/lib/data";
 
 export const metadata = buildMetadata({
   title: "Dutch Goose | Jouw portal na maagverkleining",
@@ -16,7 +16,11 @@ export const metadata = buildMetadata({
 });
 
 export default function HomePage() {
-  const featuredDeals = deals.slice(0, 3);
+  const aheadDeal = dealMap.get("ahead-nutrition-bestsellers");
+  const featuredDeals = [aheadDeal, ...deals]
+    .filter((deal): deal is (typeof deals)[number] => Boolean(deal))
+    .filter((deal, index, arr) => arr.findIndex((item) => item.slug === deal.slug) === index)
+    .slice(0, 3);
 
   return (
     <div className="space-y-10 fruit-bg rounded-goose p-4 sm:p-6">
@@ -45,6 +49,22 @@ export default function HomePage() {
 
       <PhaseSelector />
       <ConversionBlock variant="deals" context="home-above-fold" />
+
+      <section className="community-card border-2 border-gooseKiwi/60">
+        <p className="section-chip mb-3">Uitgelicht deze maand 🥝🍌</p>
+        <h2 className="text-2xl font-semibold text-gooseNavy">Ahead Nutrition</h2>
+        <p className="mt-2 text-sm text-slate-700">
+          Snack zonder schuldgevoel met code <strong>dutchgoose</strong>. Geldig t/m 31 maart 2026.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link href="/partners/ahead-nutrition" className="btn-primary text-xs">
+            Bekijk leverancier
+          </Link>
+          <Link href="/deals?merchant=ahead-nutrition" className="btn-secondary text-xs">
+            Bekijk Ahead deals
+          </Link>
+        </div>
+      </section>
 
       <section className="grid gap-6 lg:grid-cols-2">
         <article className="community-card">

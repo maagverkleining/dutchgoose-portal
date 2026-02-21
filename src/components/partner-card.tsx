@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Badge } from "@/components/badge";
+import { MerchantThumbnail } from "@/components/merchant-thumbnail";
 import { PartnerDisclosure } from "@/components/partner-disclosure";
 import { getCategoryIllustration } from "@/lib/illustrations";
 import type { Merchant } from "@/types/models";
@@ -7,14 +8,18 @@ import type { Merchant } from "@/types/models";
 export function PartnerCard({ merchant }: { merchant: Merchant }) {
   return (
     <article className="card h-full">
-      <img
-        src={getCategoryIllustration(merchant.category)}
-        alt={`Illustratie ${merchant.name}`}
-        className="mb-3 h-24 w-full rounded-xl border border-slate-100 object-cover"
-      />
+      <div className="mb-3 flex items-center gap-3">
+        <MerchantThumbnail merchant={merchant} size="md" />
+        <img
+          src={getCategoryIllustration(merchant.category)}
+          alt={`Illustratie ${merchant.name}`}
+          className="h-16 w-full rounded-xl border border-slate-100 object-cover"
+        />
+      </div>
       <div className="mb-3 flex gap-2">
         <Badge label={merchant.couponCode ? "Code" : "Partnerlink"} />
         {merchant.isFeatured ? <Badge label="Deal" /> : null}
+        {merchant.slug === "ahead-nutrition" ? <Badge label="Hot" /> : null}
       </div>
       <h3 className="text-lg font-semibold text-gooseNavy">{merchant.name}</h3>
       <p className="mt-2 text-sm text-slate-600">{merchant.shortPitch}</p>

@@ -3,9 +3,10 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PartnersFilter } from "@/components/partners-filter";
 import { JsonLd } from "@/components/json-ld";
 import { ConversionBlock } from "@/components/conversion-block";
+import { MerchantThumbnail } from "@/components/merchant-thumbnail";
 import { SafeDataRenderer } from "@/components/safe-data-renderer";
 import { buildItemListJsonLd, buildMetadata } from "@/lib/seo";
-import { merchants } from "@/lib/data";
+import { merchantMap, merchants } from "@/lib/data";
 
 export const metadata = buildMetadata({
   title: "Partners directory | Dutch Goose",
@@ -14,6 +15,8 @@ export const metadata = buildMetadata({
 });
 
 export default function PartnersPage() {
+  const ahead = merchantMap.get("ahead-nutrition");
+
   return (
     <div className="space-y-6">
       <JsonLd
@@ -36,6 +39,19 @@ export default function PartnersPage() {
         headline="Kies je leverancier zonder ruis"
         copy="Vergelijk partners op relevantie na maagverkleining en ga daarna direct door naar passende deals."
       />
+      {ahead ? (
+        <section className="community-card border-2 border-gooseKiwi/60">
+          <div className="flex items-center gap-3">
+            <MerchantThumbnail merchant={ahead} size="lg" />
+            <div>
+              <h2 className="text-lg font-semibold text-gooseNavy">Uitgelicht: Ahead Nutrition</h2>
+              <p className="text-sm text-slate-700">
+                Code <strong>dutchgoose</strong> voor de huidige actieperiode.
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : null}
       <img
         src="/illustrations/partners-suppliers.svg"
         alt="Partners gegroepeerd per leverancier"

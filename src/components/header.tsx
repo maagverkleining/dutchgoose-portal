@@ -26,7 +26,7 @@ export function Header() {
       <div className="container-goose py-3">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/" className="flex items-center gap-2 text-lg font-bold text-gooseNavy">
-            <AnimatedOrigamiGoose className="h-16 w-36" /> Dutch Goose
+            <AnimatedOrigamiGoose className="h-20 w-44" /> Dutch Goose
           </Link>
           <span className="hidden rounded-full bg-gooseKiwi/20 px-3 py-1 text-xs font-semibold text-gooseNavy sm:inline-flex">
             BariBuddies <KiwiIcon /> <BananaIcon />

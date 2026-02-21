@@ -44,7 +44,15 @@ export function PartnersFilter() {
       current.push(merchant);
       groups.set(categoryName, current);
     });
-    return Array.from(groups.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+    return Array.from(groups.entries())
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([categoryName, list]) => [
+        categoryName,
+        [...list].sort((a, b) => {
+          const score = (slug: string, featured: boolean) => (slug === "ahead-nutrition" ? 20 : 0) + (featured ? 5 : 0);
+          return score(b.slug, b.isFeatured) - score(a.slug, a.isFeatured) || a.name.localeCompare(b.name);
+        })
+      ] as const);
   }, [filtered]);
 
   return (

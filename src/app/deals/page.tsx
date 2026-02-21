@@ -57,6 +57,20 @@ export default function DealsPage() {
           </div>
         </div>
       </section>
+      <section className="community-card border-2 border-gooseKiwi/60">
+        <h2 className="text-lg font-semibold text-gooseNavy">Uitgelichte leverancier: Ahead Nutrition</h2>
+        <p className="mt-2 text-sm text-slate-700">
+          Gebruik code <strong>dutchgoose</strong> voor Ahead bestsellers. Geldig t/m 31 maart 2026.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          <a href="/partners/ahead-nutrition" className="btn-primary text-xs">
+            Naar Ahead partnerpagina
+          </a>
+          <a href="/deals?merchant=ahead-nutrition" className="btn-secondary text-xs">
+            Filter op Ahead
+          </a>
+        </div>
+      </section>
       <SafeDataRenderer data={deals} fallbackData={deals.slice(0, 6)}>
         {(rows) => (
           <p className="text-sm text-slate-600">

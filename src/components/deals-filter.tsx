@@ -7,7 +7,12 @@ import { DealCard } from "@/components/deal-card";
 import type { DealType } from "@/types/models";
 
 const sorters: Record<string, (a: typeof deals[number], b: typeof deals[number]) => number> = {
-  populair: () => 0,
+  populair: (a, b) => {
+    const merchantA = merchants.find((entry) => entry.slug === a.merchantSlug);
+    const merchantB = merchants.find((entry) => entry.slug === b.merchantSlug);
+    const score = (slug: string, featured = false) => (slug === "ahead-nutrition" ? 20 : 0) + (featured ? 5 : 0);
+    return score(b.merchantSlug, Boolean(merchantB?.isFeatured)) - score(a.merchantSlug, Boolean(merchantA?.isFeatured));
+  },
   nieuw: (a, b) => b.slug.localeCompare(a.slug),
   "hoogste-korting": (a, b) => Number(Boolean(b.couponCode)) - Number(Boolean(a.couponCode)),
   "beste-match": (a, b) => a.title.localeCompare(b.title)
