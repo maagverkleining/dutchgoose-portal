@@ -50,9 +50,20 @@ export function DealsFilter({ categorySlug }: { categorySlug?: string }) {
     .filter((merchant) => (categorySlug ? merchant.category === categorySlug : true))
     .map((merchant) => ({ slug: merchant.slug, name: merchant.name }));
 
+  const groupedByMerchant = useMemo(() => {
+    const groups = new Map<string, typeof filtered>();
+    filtered.forEach((deal) => {
+      const name = merchants.find((merchant) => merchant.slug === deal.merchantSlug)?.name ?? "Onbekende leverancier";
+      const current = groups.get(name) ?? [];
+      current.push(deal);
+      groups.set(name, current);
+    });
+    return Array.from(groups.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+  }, [filtered]);
+
   return (
     <section className="grid gap-6 lg:grid-cols-[280px_1fr]">
-      <aside className="card h-fit">
+      <aside className="community-card h-fit">
         <h2 className="mb-3 text-lg font-semibold text-gooseNavy">Filter</h2>
         <label className="mb-3 block text-sm font-medium">
           Zoek
@@ -108,11 +119,26 @@ export function DealsFilter({ categorySlug }: { categorySlug?: string }) {
             <option value="beste-match">Beste match</option>
           </select>
         </label>
+        <p className="mt-3 rounded-goose bg-gooseKiwi/15 p-3 text-xs text-slate-700">
+          🥝 Producten en 🍌 leveranciers zijn gegroepeerd zodat je sneller kunt kiezen.
+        </p>
       </aside>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {filtered.map((deal) => (
-          <DealCard key={deal.slug} deal={deal} />
+      <div className="space-y-6">
+        {groupedByMerchant.map(([merchantName, merchantDeals], groupIndex) => (
+          <section key={merchantName} className="space-y-3">
+            <h3 className="inline-flex items-center rounded-full bg-gooseBanana/40 px-3 py-1 text-sm font-semibold text-gooseNavy">
+              {groupIndex % 2 === 0 ? "🥝" : "🍌"} Leverancier: {merchantName}
+            </h3>
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {merchantDeals.map((deal) => (
+                <DealCard key={deal.slug} deal={deal} />
+              ))}
+            </div>
+          </section>
         ))}
+        {groupedByMerchant.length === 0 ? (
+          <div className="card text-sm text-slate-600">Geen resultaten gevonden. Probeer een andere filter.</div>
+        ) : null}
       </div>
     </section>
   );

@@ -16,13 +16,14 @@ export default function HomePage() {
   const featuredDeals = deals.slice(0, 3);
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 fruit-bg rounded-goose p-4 sm:p-6">
       <section className="rounded-goose bg-gradient-to-br from-gooseNavy to-gooseNavySoft p-8 text-white">
+        <p className="section-chip mb-4 bg-gooseBanana text-gooseNavy">Community first 🥝🍌</p>
         <h1 className="text-3xl font-bold sm:text-4xl">
-          Dutch Goose, jouw portal na maagverkleining.
+          Dutch Goose, jouw community portal na maagverkleining 🥝🍌
         </h1>
         <p className="mt-4 max-w-2xl text-slate-100">
-          Tools, deals, tests en community voor je leven na een maagverkleining.
+          Tools, deals, tests en community voor je leven na een maagverkleining. Warm, direct, geen ruis.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link href="/deals" className="btn-primary bg-gooseKiwi text-gooseNavy hover:bg-gooseBanana">
@@ -35,14 +36,14 @@ export default function HomePage() {
       </section>
 
       <section className="grid gap-6 lg:grid-cols-2">
-        <article className="card">
+        <article className="community-card">
           <h2 className="text-2xl font-semibold text-gooseNavy">Over Dutch Goose</h2>
           <p className="mt-3 text-slate-700">
             David Gans viel 105 kg af na een maagverkleining. Bekend van TikTok en community.
             Focus op eerlijk, praktisch en zonder filter.
           </p>
         </article>
-        <article className="card">
+        <article className="community-card">
           <h2 className="text-2xl font-semibold text-gooseNavy">
             BariBuddies <KiwiIcon /> <BananaIcon />
           </h2>
@@ -57,7 +58,7 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2 className="mb-4 text-2xl font-semibold text-gooseNavy">Waarom deze portal</h2>
+        <h2 className="mb-4 text-2xl font-semibold text-gooseNavy">Waarom deze portal 🥝🍌</h2>
         <div className="grid gap-4 md:grid-cols-3">
           <article className="card">
             <h3 className="font-semibold text-gooseNavy">Overzicht</h3>
@@ -75,11 +76,25 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2 className="mb-4 text-2xl font-semibold text-gooseNavy">Top deals</h2>
+        <h2 className="mb-4 text-2xl font-semibold text-gooseNavy">Top deals uit de community</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {featuredDeals.map((deal) => (
             <DealCard key={deal.slug} deal={deal} />
           ))}
+        </div>
+      </section>
+
+      <section className="community-card">
+        <h2 className="text-2xl font-semibold text-gooseNavy">Groepering per producten en leveranciers</h2>
+        <p className="mt-2 text-slate-700">
+          Op de deals en partners pagina zie je nu duidelijke blokken per productgroep en leverancier.
+          Zo vind je sneller wat bij jouw fase past.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-2 text-sm">
+          <span className="section-chip">🥝 Proteïne</span>
+          <span className="section-chip">🍌 Vezels</span>
+          <span className="section-chip">🥝 Keuken tools</span>
+          <span className="section-chip">🍌 Maaltijdstructuur</span>
         </div>
       </section>
 

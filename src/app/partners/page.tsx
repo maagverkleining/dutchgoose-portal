@@ -24,8 +24,10 @@ export default function PartnersPage() {
         )}
       />
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Partners" }]} />
-      <h1 className="text-3xl font-bold text-gooseNavy">Partners</h1>
-      <p className="text-slate-700">Directory van partners met heldere uitleg per merk.</p>
+      <h1 className="text-3xl font-bold text-gooseNavy">Partners 🥝🍌</h1>
+      <p className="text-slate-700">
+        Directory van partners met heldere uitleg per merk, gegroepeerd per productgroep en leverancier.
+      </p>
       <Suspense fallback={<div className="card">Partners laden...</div>}>
         <PartnersFilter />
       </Suspense>

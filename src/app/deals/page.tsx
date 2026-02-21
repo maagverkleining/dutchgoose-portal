@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { DealsFilter } from "@/components/deals-filter";
 import { buildItemListJsonLd, buildMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
-import { deals } from "@/lib/data";
+import { categories, deals, merchants } from "@/lib/data";
 
 export const metadata = buildMetadata({
   title: "Deals na maagverkleining | Dutch Goose",
@@ -21,8 +21,29 @@ export default function DealsPage() {
     <div className="space-y-6">
       <JsonLd data={jsonLd} />
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Deals" }]} />
-      <h1 className="text-3xl font-bold text-gooseNavy">Deals</h1>
+      <h1 className="text-3xl font-bold text-gooseNavy">Deals 🥝🍌</h1>
       <p className="text-slate-700">Via Dutch Goose pak je korting als er een code of actie is.</p>
+      <section className="community-card">
+        <h2 className="text-lg font-semibold text-gooseNavy">Snel overzicht community stijl</h2>
+        <div className="mt-3 grid gap-3 md:grid-cols-2">
+          <div>
+            <p className="text-sm font-semibold text-gooseNavy">Productgroepen</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {categories.map((category, index) => (
+                <span key={category.slug} className="section-chip">
+                  {index % 2 === 0 ? "🥝" : "🍌"} {category.name}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-gooseNavy">Leveranciers</p>
+            <p className="mt-2 text-sm text-slate-700">
+              {merchants.length} leveranciers verdeeld over {categories.length} productgroepen.
+            </p>
+          </div>
+        </div>
+      </section>
       <Suspense fallback={<div className="card">Deals laden...</div>}>
         <DealsFilter />
       </Suspense>

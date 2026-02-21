@@ -41,3 +41,18 @@ a {
 .badge {
   @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
 }
+
+.fruit-bg {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(123, 203, 74, 0.18) 0, rgba(123, 203, 74, 0) 30%),
+    radial-gradient(circle at 90% 20%, rgba(255, 217, 90, 0.22) 0, rgba(255, 217, 90, 0) 28%),
+    linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+}
+
+.community-card {
+  @apply rounded-goose border border-gooseKiwi/30 bg-white p-5 shadow-card;
+}
+
+.section-chip {
+  @apply inline-flex items-center rounded-full bg-gooseBanana/40 px-3 py-1 text-xs font-semibold text-gooseNavy;
+}

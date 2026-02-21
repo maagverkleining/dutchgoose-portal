@@ -35,9 +35,21 @@ export function PartnersFilter() {
     router.push(`${pathname}?${next.toString()}`);
   }
 
+  const grouped = useMemo(() => {
+    const groups = new Map<string, typeof filtered>();
+    filtered.forEach((merchant) => {
+      const categoryName =
+        categories.find((categoryItem) => categoryItem.slug === merchant.category)?.name ?? "Overig";
+      const current = groups.get(categoryName) ?? [];
+      current.push(merchant);
+      groups.set(categoryName, current);
+    });
+    return Array.from(groups.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+  }, [filtered]);
+
   return (
     <section className="space-y-6">
-      <aside className="card grid gap-3 sm:grid-cols-2">
+      <aside className="community-card grid gap-3 sm:grid-cols-2">
         <label className="text-sm font-medium">
           Zoek partners
           <input
@@ -65,10 +77,22 @@ export function PartnersFilter() {
           </select>
         </label>
       </aside>
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {filtered.map((merchant) => (
-          <PartnerCard key={merchant.slug} merchant={merchant} />
+      <div className="space-y-6">
+        {grouped.map(([categoryName, groupedMerchants], categoryIndex) => (
+          <section key={categoryName} className="space-y-3">
+            <h3 className="inline-flex items-center rounded-full bg-gooseKiwi/20 px-3 py-1 text-sm font-semibold text-gooseNavy">
+              {categoryIndex % 2 === 0 ? "🥝" : "🍌"} Productgroep: {categoryName}
+            </h3>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {groupedMerchants.map((merchant) => (
+                <PartnerCard key={merchant.slug} merchant={merchant} />
+              ))}
+            </div>
+          </section>
         ))}
+        {grouped.length === 0 ? (
+          <div className="card text-sm text-slate-600">Geen partners gevonden met deze filters.</div>
+        ) : null}
       </div>
     </section>
   );

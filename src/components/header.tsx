@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { mainNav, megaMenu } from "@/lib/navigation";
-import { GooseIcon } from "@/components/icons";
+import { BananaIcon, GooseIcon, KiwiIcon } from "@/components/icons";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -27,6 +27,9 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2 text-lg font-bold text-gooseNavy">
             <GooseIcon /> Dutch Goose
           </Link>
+          <span className="hidden rounded-full bg-gooseKiwi/20 px-3 py-1 text-xs font-semibold text-gooseNavy sm:inline-flex">
+            BariBuddies <KiwiIcon /> <BananaIcon />
+          </span>
           <form action="/deals" className="relative ml-auto w-full min-w-52 flex-1 sm:max-w-sm" role="search">
             <input
               aria-label="Zoek in portal"
