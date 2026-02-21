@@ -1,0 +1,53 @@
+[
+  {
+    "slug": "net-post-op",
+    "title": "Starter kit: net post-op",
+    "phase": "Net post-op",
+    "description": "Rust, ritme en simpele keuzes. Geen druk. Wel een plan.",
+    "bullets": [
+      "Kleine eetmomenten plannen",
+      "Drinken en eten scheiden met timer",
+      "Veilige proteïne basis klaarzetten",
+      "Signalen bijhouden zonder stress"
+    ],
+    "links": [
+      { "label": "Timer eten/drinken", "href": "/tools/timer-eten-drinken" },
+      { "label": "Kennisbank: eten en drinken scheiden", "href": "/kennisbank/eten-en-drinken-scheiden-zo-maak-je-het-haalbaar" },
+      { "label": "Deals: proteïne", "href": "/deals/proteine" }
+    ]
+  },
+  {
+    "slug": "6-tot-12-maanden",
+    "title": "Starter kit: 6 tot 12 maanden",
+    "phase": "6 tot 12 maanden",
+    "description": "Je ritme staat, nu bouw je verder met slimme keuzes.",
+    "bullets": [
+      "Eiwitdoel scherper maken",
+      "Meal prep zonder gedoe",
+      "Plateau aanpakken met overzicht",
+      "Sociale situaties oefenen"
+    ],
+    "links": [
+      { "label": "Eiwit calculator", "href": "/tools/eiwit-calculator" },
+      { "label": "Kennisbank: plateaus", "href": "/kennisbank/plateaus-wat-is-het-en-wanneer-is-het-echt-een-plateau" },
+      { "label": "Deals: maaltijden en structuur", "href": "/deals/maaltijden-en-structuur" }
+    ]
+  },
+  {
+    "slug": "1-jaar-plus",
+    "title": "Starter kit: 1 jaar plus",
+    "phase": "1 jaar plus",
+    "description": "Vasthouden, finetunen en leven met ruimte.",
+    "bullets": [
+      "Onderhoudsfase plannen",
+      "Social life met duidelijke grenzen",
+      "Nieuwe sport- en beweegroutines",
+      "Suppletie en bloedwaarden scherp houden"
+    ],
+    "links": [
+      { "label": "Voorraad teller", "href": "/tools/voorraad-teller" },
+      { "label": "Kennisbank: supplementen en bloedwaarden", "href": "/kennisbank/supplementen-en-bloedwaarden-hoe-je-uitslagen-leest-na-maagverkleining" },
+      { "label": "Community Plus", "href": "/community/plus" }
+    ]
+  }
+]

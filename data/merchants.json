@@ -1,0 +1,257 @@
+[
+  {
+    "name": "Body & Fit NL",
+    "slug": "body-fit-nl",
+    "category": "proteine",
+    "shortPitch": "Grote keuze in eiwitproducten en basics voor herstel.",
+    "whyForMaagverkleining": [
+      "Veel kleine portie-opties",
+      "Labels zijn duidelijk",
+      "Snelle levering voor routine"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1001",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1001&awinaffid=000000",
+    "baseUrl": "https://www.bodyandfit.com",
+    "allowDefaultCode": true,
+    "couponCode": "DUTCHGOOSE",
+    "couponText": "Pak korting op geselecteerde proteïne producten.",
+    "heroImage": "/assets/partner-bodyfit.jpg",
+    "isFeatured": true,
+    "needsReview": false
+  },
+  {
+    "name": "Myprotein NL",
+    "slug": "myprotein-nl",
+    "category": "proteine",
+    "shortPitch": "Shakes, repen en variatie in smaken.",
+    "whyForMaagverkleining": [
+      "Makkelijk eiwitmoment",
+      "Veel lactose-arme opties",
+      "Handig voor onderweg"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1002",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1002&awinaffid=000000",
+    "baseUrl": "https://www.myprotein.nl",
+    "allowDefaultCode": true,
+    "couponCode": "DUTCHGOOSE",
+    "couponText": "Extra voordeel als de code actief is.",
+    "isFeatured": true,
+    "needsReview": false
+  },
+  {
+    "name": "Bulk NL",
+    "slug": "bulk-nl",
+    "category": "proteine",
+    "shortPitch": "No-nonsense sportvoeding met heldere productinfo.",
+    "whyForMaagverkleining": [
+      "Eiwit per portie duidelijk",
+      "Mix van shakes en snacks",
+      "Regelmatig acties"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1003",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1003&awinaffid=000000",
+    "baseUrl": "https://www.bulk.com/nl",
+    "allowDefaultCode": true,
+    "isFeatured": false,
+    "needsReview": false
+  },
+  {
+    "name": "Holland and Barrett NL",
+    "slug": "holland-and-barrett-nl",
+    "category": "vezels",
+    "shortPitch": "Vezels, supplementen en dagelijkse gezondheidsproducten.",
+    "whyForMaagverkleining": [
+      "Brede vezelkeuze",
+      "Winkel en online",
+      "Regelmatig 1+1 acties"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1004",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1004&awinaffid=000000",
+    "baseUrl": "https://www.hollandandbarrett.nl",
+    "allowDefaultCode": false,
+    "isFeatured": true,
+    "needsReview": false
+  },
+  {
+    "name": "HelloFresh NL",
+    "slug": "hellofresh-nl",
+    "category": "maaltijden-en-structuur",
+    "shortPitch": "Maaltijdboxen voor structuur en planning.",
+    "whyForMaagverkleining": [
+      "Minder beslissen",
+      "Recepten in stappen",
+      "Handig voor gezin en solo"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1005",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1005&awinaffid=000000",
+    "baseUrl": "https://www.hellofresh.nl",
+    "allowDefaultCode": false,
+    "isFeatured": true,
+    "needsReview": false
+  },
+  {
+    "name": "Marley Spoon NL",
+    "slug": "marley-spoon-nl",
+    "category": "maaltijden-en-structuur",
+    "shortPitch": "Maaltijdbox met flexibele weekplanning.",
+    "whyForMaagverkleining": [
+      "Variatie in recepten",
+      "Porties te splitsen",
+      "Makkelijk in drukke weken"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1006",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1006&awinaffid=000000",
+    "baseUrl": "https://www.marleyspoon.nl",
+    "allowDefaultCode": false,
+    "isFeatured": false,
+    "needsReview": false
+  },
+  {
+    "name": "Coolblue NL",
+    "slug": "coolblue-nl",
+    "category": "keuken-en-tools",
+    "shortPitch": "Keukenapparatuur en slimme tools voor thuis.",
+    "whyForMaagverkleining": [
+      "Betrouwbare service",
+      "Veel keukenhulpjes",
+      "Duidelijke productvergelijking"
+    ],
+    "trackingNetwork": "direct",
+    "baseUrl": "https://www.coolblue.nl",
+    "allowDefaultCode": false,
+    "isFeatured": true,
+    "needsReview": false
+  },
+  {
+    "name": "Huel",
+    "slug": "huel",
+    "category": "proteine",
+    "shortPitch": "Snelle complete maaltijdopties.",
+    "whyForMaagverkleining": [
+      "Handig op drukke dagen",
+      "Voedingswaarden duidelijk",
+      "Makkelijk mee te nemen"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1007",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1007&awinaffid=000000",
+    "baseUrl": "https://www.huel.com",
+    "allowDefaultCode": false,
+    "isFeatured": false,
+    "needsReview": false
+  },
+  {
+    "name": "Boohoo.com NL",
+    "slug": "boohoo-nl",
+    "category": "kleding-na-afvallen",
+    "shortPitch": "Betaalbare kleding als je maat snel verandert.",
+    "whyForMaagverkleining": [
+      "Veel maten",
+      "Snelle trends",
+      "Regelmatig kortingsacties"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1008",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1008&awinaffid=000000",
+    "baseUrl": "https://nl.boohoo.com",
+    "allowDefaultCode": false,
+    "isFeatured": false,
+    "needsReview": false
+  },
+  {
+    "name": "Babista NL",
+    "slug": "babista-nl",
+    "category": "kleding-na-afvallen",
+    "shortPitch": "Comfortabele kleding met focus op pasvorm.",
+    "whyForMaagverkleining": [
+      "Maten overzichtelijk",
+      "Basic stukken",
+      "Retourproces duidelijk"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1009",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1009&awinaffid=000000",
+    "baseUrl": "https://www.babista.nl",
+    "allowDefaultCode": false,
+    "isFeatured": false,
+    "needsReview": false
+  },
+  {
+    "name": "After Eden NL",
+    "slug": "after-eden-nl",
+    "category": "kleding-na-afvallen",
+    "shortPitch": "Ondergoed met fijne pasvorm in veranderende fases.",
+    "whyForMaagverkleining": [
+      "Maatadvies helder",
+      "Comfortabele basics",
+      "Regelmatig acties"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1010",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1010&awinaffid=000000",
+    "baseUrl": "https://www.aftereden.nl",
+    "allowDefaultCode": false,
+    "isFeatured": false,
+    "needsReview": false
+  },
+  {
+    "name": "BesteCanvas NL",
+    "slug": "bestecanvas-nl",
+    "category": "uitjes-en-leven",
+    "shortPitch": "Maak van je progressfoto een canvas herinnering.",
+    "whyForMaagverkleining": [
+      "Mijlpaalmoment vastleggen",
+      "Persoonlijk cadeau",
+      "Regelmatig kortingsweken"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1011",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1011&awinaffid=000000",
+    "baseUrl": "https://www.bestecanvas.nl",
+    "allowDefaultCode": false,
+    "isFeatured": false,
+    "needsReview": false
+  },
+  {
+    "name": "Tiqets Benelux",
+    "slug": "tiqets-benelux",
+    "category": "uitjes-en-leven",
+    "shortPitch": "Tickets voor uitjes zonder gedoe.",
+    "whyForMaagverkleining": [
+      "Flexibele uitjes",
+      "Makkelijk mobiel boeken",
+      "Motivatie voor actief leven"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1012",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1012&awinaffid=000000",
+    "baseUrl": "https://www.tiqets.com",
+    "allowDefaultCode": false,
+    "isFeatured": false,
+    "needsReview": false
+  },
+  {
+    "name": "Centraal Beheer NL",
+    "slug": "centraal-beheer-nl",
+    "category": "uitjes-en-leven",
+    "shortPitch": "Verzekeringsopties voor nieuwe levensfases.",
+    "whyForMaagverkleining": [
+      "Financiële rust",
+      "Duidelijke pakketten",
+      "Online snel geregeld"
+    ],
+    "trackingNetwork": "awin",
+    "awinMerchantId": "1013",
+    "awinTrackingUrl": "https://www.awin1.com/cread.php?awinmid=1013&awinaffid=000000",
+    "baseUrl": "https://www.centraalbeheer.nl",
+    "allowDefaultCode": false,
+    "isFeatured": false,
+    "needsReview": false
+  }
+]

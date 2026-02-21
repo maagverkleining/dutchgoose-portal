@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-gooseCanvas text-slate-900;
+  font-family: "Avenir Next", "Nunito Sans", "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+a {
+  @apply text-gooseNavy hover:text-gooseNavySoft;
+}
+
+.container-goose {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.card {
+  @apply rounded-goose border border-slate-200 bg-white p-5 shadow-card;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-gooseNavy px-5 py-3 text-sm font-semibold text-white transition hover:bg-gooseNavySoft focus:outline-none focus:ring-2 focus:ring-gooseKiwi focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-gooseNavy px-5 py-3 text-sm font-semibold text-gooseNavy transition hover:bg-gooseNavy hover:text-white focus:outline-none focus:ring-2 focus:ring-gooseKiwi focus:ring-offset-2;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
+}

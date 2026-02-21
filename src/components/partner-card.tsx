@@ -1,0 +1,26 @@
+import Link from "next/link";
+import { Badge } from "@/components/badge";
+import { PartnerDisclosure } from "@/components/partner-disclosure";
+import type { Merchant } from "@/types/models";
+
+export function PartnerCard({ merchant }: { merchant: Merchant }) {
+  return (
+    <article className="card h-full">
+      <div className="mb-3 flex gap-2">
+        <Badge label={merchant.couponCode ? "Code" : "Partnerlink"} />
+        {merchant.isFeatured ? <Badge label="Deal" /> : null}
+      </div>
+      <h3 className="text-lg font-semibold text-gooseNavy">{merchant.name}</h3>
+      <p className="mt-2 text-sm text-slate-600">{merchant.shortPitch}</p>
+      <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
+        {merchant.whyForMaagverkleining.map((point) => (
+          <li key={point}>{point}</li>
+        ))}
+      </ul>
+      <PartnerDisclosure className="mt-4" />
+      <Link href={`/partners/${merchant.slug}`} className="btn-secondary mt-4 text-xs">
+        Bekijk partner
+      </Link>
+    </article>
+  );
+}

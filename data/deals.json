@@ -1,0 +1,117 @@
+[
+  {
+    "title": "Body & Fit isolaat voordeel",
+    "slug": "bodyfit-isolaat-voordeel",
+    "merchantSlug": "body-fit-nl",
+    "category": "proteine",
+    "placementDefault": "deals-top",
+    "dealType": "code",
+    "couponCode": "DUTCHGOOSE",
+    "couponText": "Korting op geselecteerde whey isolaat.",
+    "note": "Goede start als je je eiwitdoel lastig haalt."
+  },
+  {
+    "title": "Myprotein starter bundel",
+    "slug": "myprotein-starter-bundel",
+    "merchantSlug": "myprotein-nl",
+    "category": "proteine",
+    "placementDefault": "partner-card",
+    "dealType": "sale",
+    "couponText": "Wisselende acties op bundels.",
+    "note": "Check smaken en portiegrootte voordat je bestelt."
+  },
+  {
+    "title": "Bulk repen selectie",
+    "slug": "bulk-repen-selectie",
+    "merchantSlug": "bulk-nl",
+    "category": "proteine",
+    "placementDefault": "starterkit-block",
+    "dealType": "link",
+    "note": "Partnerlink deal, check shop voor actuele acties."
+  },
+  {
+    "title": "H&B psyllium husk weekdeal",
+    "slug": "hb-psyllium-weekdeal",
+    "merchantSlug": "holland-and-barrett-nl",
+    "category": "vezels",
+    "placementDefault": "deals-top",
+    "dealType": "sale",
+    "couponText": "Vaak 1+1 of tweede halve prijs.",
+    "note": "Bouw vezels rustig op en drink verspreid over de dag."
+  },
+  {
+    "title": "Coolblue keukenweegschaal picks",
+    "slug": "coolblue-keukenweegschaal-picks",
+    "merchantSlug": "coolblue-nl",
+    "category": "keuken-en-tools",
+    "placementDefault": "home-hero",
+    "dealType": "link",
+    "note": "Handig om porties zonder stress te leren inschatten."
+  },
+  {
+    "title": "HelloFresh structuur start",
+    "slug": "hellofresh-structuur-start",
+    "merchantSlug": "hellofresh-nl",
+    "category": "maaltijden-en-structuur",
+    "placementDefault": "deals-top",
+    "dealType": "sale",
+    "couponText": "Introactie op je eerste boxweken.",
+    "note": "Porties kun je spreiden over twee eetmomenten."
+  },
+  {
+    "title": "Marley Spoon ritme deal",
+    "slug": "marleyspoon-ritme-deal",
+    "merchantSlug": "marley-spoon-nl",
+    "category": "maaltijden-en-structuur",
+    "placementDefault": "partner-card",
+    "dealType": "link",
+    "note": "Partnerlink deal, check shop voor acties."
+  },
+  {
+    "title": "Boohoo basic fit refresh",
+    "slug": "boohoo-basic-fit-refresh",
+    "merchantSlug": "boohoo-nl",
+    "category": "kleding-na-afvallen",
+    "placementDefault": "deals-top",
+    "dealType": "sale",
+    "couponText": "Regelmatig seizoenskorting.",
+    "note": "Betaalbare basics als je maat nog verandert."
+  },
+  {
+    "title": "After Eden comfort set",
+    "slug": "aftereden-comfort-set",
+    "merchantSlug": "after-eden-nl",
+    "category": "kleding-na-afvallen",
+    "placementDefault": "partner-card",
+    "dealType": "link",
+    "note": "Partnerlink deal, check shop voor acties."
+  },
+  {
+    "title": "Tiqets beweeg-en-beleef",
+    "slug": "tiqets-beweeg-en-beleef",
+    "merchantSlug": "tiqets-benelux",
+    "category": "uitjes-en-leven",
+    "placementDefault": "deals-top",
+    "dealType": "sale",
+    "couponText": "Wisselende kortingen op populaire uitjes.",
+    "note": "Leuke motivatie om actief te blijven."
+  },
+  {
+    "title": "BesteCanvas transformatie moment",
+    "slug": "bestecanvas-transformatie-moment",
+    "merchantSlug": "bestecanvas-nl",
+    "category": "uitjes-en-leven",
+    "placementDefault": "partner-card",
+    "dealType": "link",
+    "note": "Zet je progressie om in een tastbare herinnering."
+  },
+  {
+    "title": "Huel drukke dag bundle",
+    "slug": "huel-drukke-dag-bundle",
+    "merchantSlug": "huel",
+    "category": "proteine",
+    "placementDefault": "deals-top",
+    "dealType": "link",
+    "note": "Voor dagen waarop structuur lastig is."
+  }
+]
