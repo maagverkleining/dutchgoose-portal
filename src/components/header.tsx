@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { mainNav, megaMenu } from "@/lib/navigation";
-import { BananaIcon, GooseIcon, KiwiIcon } from "@/components/icons";
+import { BananaIcon, KiwiIcon } from "@/components/icons";
+import { AnimatedOrigamiGoose } from "@/components/animated-origami-goose";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -25,7 +26,7 @@ export function Header() {
       <div className="container-goose py-3">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/" className="flex items-center gap-2 text-lg font-bold text-gooseNavy">
-            <GooseIcon /> Dutch Goose
+            <AnimatedOrigamiGoose className="h-9 w-16" /> Dutch Goose
           </Link>
           <span className="hidden rounded-full bg-gooseKiwi/20 px-3 py-1 text-xs font-semibold text-gooseNavy sm:inline-flex">
             BariBuddies <KiwiIcon /> <BananaIcon />

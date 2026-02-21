@@ -5,6 +5,7 @@ import { Badge } from "@/components/badge";
 import { GoLink } from "@/components/go-link";
 import { disclosureLine, siteConfig } from "@/lib/site";
 import { merchantMap } from "@/lib/data";
+import { getCategoryIllustration } from "@/lib/illustrations";
 import type { Deal } from "@/types/models";
 
 type DealCardProps = {
@@ -22,6 +23,11 @@ export function DealCard({ deal }: DealCardProps) {
 
   return (
     <article className="card flex h-full flex-col">
+      <img
+        src={getCategoryIllustration(deal.category)}
+        alt={`Illustratie ${deal.category}`}
+        className="mb-3 h-24 w-full rounded-xl border border-slate-100 object-cover"
+      />
       <div className="mb-3 flex flex-wrap gap-2">
         <Badge
           label={

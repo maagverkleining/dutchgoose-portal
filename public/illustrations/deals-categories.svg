@@ -1,0 +1,24 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="360" rx="28" fill="#F2F9FF"/>
+  <rect x="42" y="52" width="170" height="118" rx="20" fill="#EAF8DF"/>
+  <rect x="228" y="52" width="170" height="118" rx="20" fill="#FFF2C0"/>
+  <rect x="414" y="52" width="170" height="118" rx="20" fill="#EAF8DF"/>
+  <rect x="600" y="52" width="170" height="118" rx="20" fill="#FFF2C0"/>
+  <rect x="786" y="52" width="170" height="118" rx="20" fill="#EAF8DF"/>
+  <rect x="972" y="52" width="170" height="118" rx="20" fill="#FFF2C0"/>
+  <text x="56" y="96" fill="#0B375B" font-family="Arial" font-size="22" font-weight="700">Proteine</text>
+  <text x="242" y="96" fill="#0B375B" font-family="Arial" font-size="22" font-weight="700">Vezels</text>
+  <text x="428" y="96" fill="#0B375B" font-family="Arial" font-size="22" font-weight="700">Keuken tools</text>
+  <text x="614" y="96" fill="#0B375B" font-family="Arial" font-size="22" font-weight="700">Kleding</text>
+  <text x="800" y="96" fill="#0B375B" font-family="Arial" font-size="22" font-weight="700">Uitjes</text>
+  <text x="986" y="96" fill="#0B375B" font-family="Arial" font-size="22" font-weight="700">Structuur</text>
+  <circle cx="84" cy="135" r="14" fill="#7BCB4A"/><circle cx="84" cy="135" r="6" fill="#F7FAFF"/>
+  <path d="M262 136C276 122 298 122 312 136" stroke="#F3BF3E" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="456" cy="135" r="14" fill="#7BCB4A"/><circle cx="456" cy="135" r="6" fill="#F7FAFF"/>
+  <path d="M640 136C654 122 676 122 690 136" stroke="#F3BF3E" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="828" cy="135" r="14" fill="#7BCB4A"/><circle cx="828" cy="135" r="6" fill="#F7FAFF"/>
+  <path d="M1012 136C1026 122 1048 122 1062 136" stroke="#F3BF3E" stroke-width="9" stroke-linecap="round"/>
+  <rect x="44" y="208" width="1112" height="110" rx="20" fill="#FFFFFF"/>
+  <text x="74" y="250" fill="#0B375B" font-family="Arial" font-size="30" font-weight="700">Duidelijke groepering per product en leverancier</text>
+  <text x="74" y="286" fill="#274A6E" font-family="Arial" font-size="22">Zo vind je sneller wat past bij jouw fase.</text>
+</svg>

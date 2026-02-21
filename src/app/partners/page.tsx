@@ -28,6 +28,11 @@ export default function PartnersPage() {
       <p className="text-slate-700">
         Directory van partners met heldere uitleg per merk, gegroepeerd per productgroep en leverancier.
       </p>
+      <img
+        src="/illustrations/partners-suppliers.svg"
+        alt="Partners gegroepeerd per leverancier"
+        className="w-full rounded-2xl border border-slate-200"
+      />
       <Suspense fallback={<div className="card">Partners laden...</div>}>
         <PartnersFilter />
       </Suspense>

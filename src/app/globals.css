@@ -56,3 +56,38 @@ a {
 .section-chip {
   @apply inline-flex items-center rounded-full bg-gooseBanana/40 px-3 py-1 text-xs font-semibold text-gooseNavy;
 }
+
+.goose-thick,
+.goose-slim {
+  transform-origin: 70px 40px;
+}
+
+.goose-thick {
+  animation: gooseThick 3.6s ease-in-out infinite;
+}
+
+.goose-slim {
+  animation: gooseSlim 3.6s ease-in-out infinite;
+}
+
+@keyframes gooseThick {
+  0%, 32% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  52%, 100% {
+    opacity: 0;
+    transform: scale(0.95) translateX(4px);
+  }
+}
+
+@keyframes gooseSlim {
+  0%, 38% {
+    opacity: 0;
+    transform: scale(0.93) translateX(-4px);
+  }
+  58%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

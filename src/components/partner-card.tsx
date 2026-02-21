@@ -1,11 +1,17 @@
 import Link from "next/link";
 import { Badge } from "@/components/badge";
 import { PartnerDisclosure } from "@/components/partner-disclosure";
+import { getCategoryIllustration } from "@/lib/illustrations";
 import type { Merchant } from "@/types/models";
 
 export function PartnerCard({ merchant }: { merchant: Merchant }) {
   return (
     <article className="card h-full">
+      <img
+        src={getCategoryIllustration(merchant.category)}
+        alt={`Illustratie ${merchant.name}`}
+        className="mb-3 h-24 w-full rounded-xl border border-slate-100 object-cover"
+      />
       <div className="mb-3 flex gap-2">
         <Badge label={merchant.couponCode ? "Code" : "Partnerlink"} />
         {merchant.isFeatured ? <Badge label="Deal" /> : null}

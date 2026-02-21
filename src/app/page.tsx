@@ -18,6 +18,11 @@ export default function HomePage() {
   return (
     <div className="space-y-10 fruit-bg rounded-goose p-4 sm:p-6">
       <section className="rounded-goose bg-gradient-to-br from-gooseNavy to-gooseNavySoft p-8 text-white">
+        <img
+          src="/illustrations/hero-buddies.svg"
+          alt="BariBuddies community sfeer"
+          className="mb-5 h-48 w-full rounded-2xl border border-white/30 object-cover"
+        />
         <p className="section-chip mb-4 bg-gooseBanana text-gooseNavy">Community first 🥝🍌</p>
         <h1 className="text-3xl font-bold sm:text-4xl">
           Dutch Goose, jouw community portal na maagverkleining 🥝🍌
@@ -96,6 +101,11 @@ export default function HomePage() {
           <span className="section-chip">🥝 Keuken tools</span>
           <span className="section-chip">🍌 Maaltijdstructuur</span>
         </div>
+        <img
+          src="/illustrations/deals-categories.svg"
+          alt="Groepering van deals per categorie"
+          className="mt-4 w-full rounded-xl border border-slate-200"
+        />
       </section>
 
       <section className="card">

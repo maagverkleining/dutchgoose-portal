@@ -1,0 +1,18 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="360" rx="28" fill="#F7FAFF"/>
+  <rect x="46" y="46" width="274" height="124" rx="18" fill="#FFFFFF" stroke="#CBE6BA"/>
+  <rect x="334" y="46" width="274" height="124" rx="18" fill="#FFFFFF" stroke="#CBE6BA"/>
+  <rect x="622" y="46" width="274" height="124" rx="18" fill="#FFFFFF" stroke="#CBE6BA"/>
+  <rect x="910" y="46" width="244" height="124" rx="18" fill="#FFFFFF" stroke="#CBE6BA"/>
+  <text x="76" y="95" fill="#0B375B" font-family="Arial" font-size="26" font-weight="700">Body & Fit</text>
+  <text x="364" y="95" fill="#0B375B" font-family="Arial" font-size="26" font-weight="700">Myprotein</text>
+  <text x="652" y="95" fill="#0B375B" font-family="Arial" font-size="26" font-weight="700">H&B</text>
+  <text x="940" y="95" fill="#0B375B" font-family="Arial" font-size="26" font-weight="700">Coolblue</text>
+  <circle cx="80" cy="130" r="11" fill="#7BCB4A"/><circle cx="80" cy="130" r="5" fill="#F7FAFF"/>
+  <path d="M374 132C384 121 398 121 408 132" stroke="#F3BF3E" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="662" cy="130" r="11" fill="#7BCB4A"/><circle cx="662" cy="130" r="5" fill="#F7FAFF"/>
+  <path d="M950 132C960 121 974 121 984 132" stroke="#F3BF3E" stroke-width="8" stroke-linecap="round"/>
+  <rect x="46" y="194" width="1108" height="120" rx="18" fill="#EAF8DF"/>
+  <text x="78" y="243" fill="#0B375B" font-family="Arial" font-size="34" font-weight="700">Leveranciers per productgroep</text>
+  <text x="78" y="285" fill="#274A6E" font-family="Arial" font-size="23">Community-overzicht met kiwi en banaan markers.</text>
+</svg>

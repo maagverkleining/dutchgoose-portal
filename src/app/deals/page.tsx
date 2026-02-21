@@ -24,6 +24,11 @@ export default function DealsPage() {
       <h1 className="text-3xl font-bold text-gooseNavy">Deals 🥝🍌</h1>
       <p className="text-slate-700">Via Dutch Goose pak je korting als er een code of actie is.</p>
       <section className="community-card">
+        <img
+          src="/illustrations/deals-categories.svg"
+          alt="Deals categorie overzicht"
+          className="mb-4 w-full rounded-xl border border-slate-200"
+        />
         <h2 className="text-lg font-semibold text-gooseNavy">Snel overzicht community stijl</h2>
         <div className="mt-3 grid gap-3 md:grid-cols-2">
           <div>
