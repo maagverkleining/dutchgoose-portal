@@ -25,8 +25,8 @@ export function DealCard({ deal }: DealCardProps) {
   return (
     <article className="card flex h-full flex-col">
       <img
-        src={getCategoryIllustration(deal.category)}
-        alt={`Illustratie ${deal.category}`}
+        src={merchant?.heroImage ?? getCategoryIllustration(deal.category)}
+        alt={`Preview ${merchant?.name ?? deal.category}`}
         className="mb-3 h-24 w-full rounded-xl border border-slate-100 object-cover"
       />
       {merchant ? (

@@ -63,7 +63,7 @@ export default function PartnerDetailPage({ params }: { params: { slug: string }
         <h1 className="text-3xl font-bold text-gooseNavy">{merchant.name}</h1>
       </div>
       <img
-        src={getCategoryIllustration(merchant.category)}
+        src={merchant.heroImage ?? getCategoryIllustration(merchant.category)}
         alt={`Visual ${merchant.name}`}
         className="w-full rounded-2xl border border-slate-200"
       />

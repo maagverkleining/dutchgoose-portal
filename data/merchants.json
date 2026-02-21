@@ -16,7 +16,7 @@
     "allowDefaultCode": true,
     "couponCode": "DUTCHGOOSE",
     "couponText": "Pak korting op geselecteerde proteïne producten.",
-    "heroImage": "/assets/partner-bodyfit.jpg",
+    "heroImage": "/merchant-previews/body-fit-nl.png",
     "isFeatured": true,
     "needsReview": false
   },
@@ -38,7 +38,8 @@
     "couponCode": "DUTCHGOOSE",
     "couponText": "Extra voordeel als de code actief is.",
     "isFeatured": true,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/myprotein-nl.png"
   },
   {
     "name": "Bulk NL",
@@ -56,7 +57,8 @@
     "baseUrl": "https://www.bulk.com/nl",
     "allowDefaultCode": true,
     "isFeatured": false,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/bulk-nl.jpg"
   },
   {
     "name": "Holland and Barrett NL",
@@ -74,7 +76,8 @@
     "baseUrl": "https://www.hollandandbarrett.nl",
     "allowDefaultCode": false,
     "isFeatured": true,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/holland-and-barrett-nl.png"
   },
   {
     "name": "HelloFresh NL",
@@ -92,7 +95,8 @@
     "baseUrl": "https://www.hellofresh.nl",
     "allowDefaultCode": false,
     "isFeatured": true,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/hellofresh-nl.png"
   },
   {
     "name": "Marley Spoon NL",
@@ -110,7 +114,8 @@
     "baseUrl": "https://www.marleyspoon.nl",
     "allowDefaultCode": false,
     "isFeatured": false,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/marley-spoon-nl.png"
   },
   {
     "name": "Coolblue NL",
@@ -126,7 +131,8 @@
     "baseUrl": "https://www.coolblue.nl",
     "allowDefaultCode": false,
     "isFeatured": true,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/coolblue-nl.png"
   },
   {
     "name": "Huel",
@@ -144,7 +150,8 @@
     "baseUrl": "https://www.huel.com",
     "allowDefaultCode": false,
     "isFeatured": false,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/huel.png"
   },
   {
     "name": "Boohoo.com NL",
@@ -162,7 +169,8 @@
     "baseUrl": "https://nl.boohoo.com",
     "allowDefaultCode": false,
     "isFeatured": false,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/boohoo-nl.png"
   },
   {
     "name": "Babista NL",
@@ -180,7 +188,8 @@
     "baseUrl": "https://www.babista.nl",
     "allowDefaultCode": false,
     "isFeatured": false,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/babista-nl.png"
   },
   {
     "name": "After Eden NL",
@@ -198,7 +207,8 @@
     "baseUrl": "https://www.aftereden.nl",
     "allowDefaultCode": false,
     "isFeatured": false,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/after-eden-nl.png"
   },
   {
     "name": "BesteCanvas NL",
@@ -216,7 +226,8 @@
     "baseUrl": "https://www.bestecanvas.nl",
     "allowDefaultCode": false,
     "isFeatured": false,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/bestecanvas-nl.jpg"
   },
   {
     "name": "Tiqets Benelux",
@@ -234,7 +245,8 @@
     "baseUrl": "https://www.tiqets.com",
     "allowDefaultCode": false,
     "isFeatured": false,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/tiqets-benelux.png"
   },
   {
     "name": "Centraal Beheer NL",
@@ -252,7 +264,8 @@
     "baseUrl": "https://www.centraalbeheer.nl",
     "allowDefaultCode": false,
     "isFeatured": false,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/centraal-beheer-nl.png"
   },
   {
     "name": "Ahead Nutrition",
@@ -270,6 +283,7 @@
     "couponCode": "dutchgoose",
     "couponText": "Code geldig van 1 januari 2026 t/m 31 maart 2026.",
     "isFeatured": true,
-    "needsReview": false
+    "needsReview": false,
+    "heroImage": "/merchant-previews/ahead-nutrition.jpg"
   }
 ]
