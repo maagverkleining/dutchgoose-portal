@@ -4,7 +4,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Tools na maagverkleining | Dutch Goose",
-  description: "Praktische tools: eiwitcalculator, timer, voorraadteller en UTM builder.",
+  description: "Praktische tools: eiwitcalculator, timer en voorraadteller.",
   path: "/tools"
 });
 
@@ -23,11 +23,6 @@ const tools = [
     title: "Voorraad teller",
     href: "/tools/voorraad-teller",
     description: "Zie hoeveel dagen je pot nog meegaat en vraag reminder aan."
-  },
-  {
-    title: "UTM builder",
-    href: "/tools/utm-builder",
-    description: "Maak direct links met Dutch Goose standaard UTM structuur."
   }
 ];
 
@@ -36,6 +31,9 @@ export default function ToolsPage() {
     <div className="space-y-6">
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Tools" }]} />
       <h1 className="text-3xl font-bold text-gooseNavy">Tools</h1>
+      <p className="text-slate-700">
+        Deze tools zijn voor communityleden. Simpel, snel en direct bruikbaar in je dag.
+      </p>
       <div className="grid gap-4 md:grid-cols-2">
         {tools.map((tool) => (
           <article key={tool.href} className="card">
@@ -47,6 +45,21 @@ export default function ToolsPage() {
           </article>
         ))}
       </div>
+      <section className="card">
+        <h2 className="text-xl font-semibold text-gooseNavy">Voor partners en campagnes</h2>
+        <p className="mt-2 text-sm text-slate-700">
+          De UTM builder is een interne partnertool voor samenwerkingen en tracking, niet voor de
+          standaard community-flow.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link href="/tools/utm-builder" className="btn-secondary text-xs">
+            Open UTM builder
+          </Link>
+          <Link href="/samenwerken" className="btn-primary text-xs">
+            Naar samenwerken
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

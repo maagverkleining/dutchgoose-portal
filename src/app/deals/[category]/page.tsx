@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { DealsFilter } from "@/components/deals-filter";
 import { JsonLd } from "@/components/json-ld";
 import { categories, categoryMap, deals } from "@/lib/data";
+import { getCategoryIllustration } from "@/lib/illustrations";
 import { buildFaqJsonLd, buildMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -40,6 +41,11 @@ export default function DealCategoryPage({ params }: { params: { category: strin
         ]}
       />
       <h1 className="text-3xl font-bold text-gooseNavy">{category.name} deals</h1>
+      <img
+        src={getCategoryIllustration(category.slug)}
+        alt={`Categorie illustratie ${category.name}`}
+        className="w-full rounded-2xl border border-slate-200"
+      />
       <p className="text-slate-700">{category.introCopy}</p>
       <p className="text-sm text-slate-600">{categoryDeals.length} deals gevonden in deze categorie.</p>
       <Suspense fallback={<div className="card">Deals laden...</div>}>

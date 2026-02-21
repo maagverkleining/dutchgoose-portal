@@ -21,6 +21,17 @@ export default function SamenwerkenPage() {
         </ul>
       </section>
       <section className="card">
+        <h2 className="text-xl font-semibold text-gooseNavy">Partner resources</h2>
+        <p className="mt-2 text-sm text-slate-700">
+          Werk je met links, campagnes of placements? Gebruik de UTM builder voor consistente tracking.
+        </p>
+        <div className="mt-4">
+          <a href="/tools/utm-builder" className="btn-secondary text-xs">
+            Open UTM builder
+          </a>
+        </div>
+      </section>
+      <section className="card">
         <h2 className="text-xl font-semibold text-gooseNavy">Partnerformulier</h2>
         <form name="samenwerken-lead" method="POST" data-netlify="true" className="mt-3 grid gap-3 md:grid-cols-2">
           <input type="hidden" name="form-name" value="samenwerken-lead" />

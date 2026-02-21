@@ -32,7 +32,7 @@ export const megaMenu = [
       { label: "Eiwit calculator", href: "/tools/eiwit-calculator" },
       { label: "Eten drinken timer", href: "/tools/timer-eten-drinken" },
       { label: "Voorraad teller", href: "/tools/voorraad-teller" },
-      { label: "UTM builder", href: "/tools/utm-builder" }
+      { label: "Starter kits", href: "/starter-kits" }
     ]
   },
   {

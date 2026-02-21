@@ -44,6 +44,16 @@ export function Footer() {
                   Community
                 </Link>
               </li>
+              <li>
+                <Link href="/partners" className="text-slate-100 hover:underline">
+                  Leveranciers
+                </Link>
+              </li>
+              <li>
+                <Link href="/over-david" className="text-slate-100 hover:underline">
+                  Over David
+                </Link>
+              </li>
             </ul>
           </section>
           <section>

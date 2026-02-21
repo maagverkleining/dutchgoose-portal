@@ -1,31 +1,67 @@
 <svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="560" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#EAF8DF"/>
-      <stop offset="1" stop-color="#FFF4C7"/>
+      <stop stop-color="#E8F7DF"/>
+      <stop offset="1" stop-color="#FFF3C3"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="560" rx="32" fill="url(#bg)"/>
-  <circle cx="150" cy="90" r="46" fill="#7BCB4A" fill-opacity="0.35"/>
-  <circle cx="1040" cy="110" r="38" fill="#FFD95A" fill-opacity="0.45"/>
-  <rect x="80" y="360" width="1040" height="130" rx="20" fill="#FFFFFF" fill-opacity="0.7"/>
-  <ellipse cx="250" cy="330" rx="72" ry="95" fill="#8FD66A"/>
-  <circle cx="250" cy="262" r="36" fill="#F6D2AE"/>
-  <rect x="210" y="292" width="80" height="88" rx="24" fill="#4FA4C9"/>
-  <ellipse cx="470" cy="330" rx="72" ry="95" fill="#7BCB4A"/>
-  <circle cx="470" cy="262" r="36" fill="#F4CC9D"/>
-  <rect x="430" y="292" width="80" height="88" rx="24" fill="#8FD66A"/>
-  <ellipse cx="760" cy="330" rx="72" ry="95" fill="#F4B357"/>
-  <circle cx="760" cy="262" r="36" fill="#F4CC9D"/>
-  <rect x="720" y="292" width="80" height="88" rx="24" fill="#F08C3F"/>
-  <ellipse cx="950" cy="330" rx="72" ry="95" fill="#4FA4C9"/>
-  <circle cx="950" cy="262" r="36" fill="#F4CC9D"/>
-  <rect x="910" y="292" width="80" height="88" rx="24" fill="#2C8CB6"/>
-  <circle cx="1035" cy="400" r="28" fill="#7BCB4A"/>
-  <circle cx="1035" cy="400" r="13" fill="#F7FAFF"/>
-  <path d="M110 420C188 380 236 378 320 420" stroke="#FFD95A" stroke-width="18" stroke-linecap="round"/>
-  <path d="M826 414C902 378 954 378 1030 414" stroke="#FFD95A" stroke-width="18" stroke-linecap="round"/>
-  <path d="M710 392C742 356 790 354 824 392" stroke="#7BCB4A" stroke-width="15" stroke-linecap="round"/>
-  <text x="90" y="95" fill="#0B375B" font-family="Arial, sans-serif" font-size="52" font-weight="700">BariBuddies Community</text>
-  <text x="92" y="140" fill="#0B375B" font-family="Arial, sans-serif" font-size="26" font-weight="600">Samen sterk na maagverkleining • kiwi en banaan vibes</text>
+
+  <rect x="54" y="40" width="1092" height="130" rx="20" fill="#FFFFFF" fill-opacity="0.72"/>
+  <text x="90" y="95" fill="#0B375B" font-family="Arial, sans-serif" font-size="54" font-weight="700">BariBuddies Community 🥝🍌</text>
+  <text x="90" y="140" fill="#214B6F" font-family="Arial, sans-serif" font-size="28" font-weight="600">Voor mensen met een maagverkleining in NL/BE • steun, tips en herkenning</text>
+
+  <rect x="72" y="360" width="1056" height="136" rx="22" fill="#FFFFFF" fill-opacity="0.78"/>
+
+  <g>
+    <ellipse cx="220" cy="315" rx="80" ry="105" fill="#6FC3E8"/>
+    <circle cx="220" cy="238" r="38" fill="#F2C89C"/>
+    <rect x="176" y="272" width="88" height="92" rx="28" fill="#2E93C0"/>
+    <rect x="144" y="285" width="26" height="66" rx="12" fill="#F2C89C"/>
+    <rect x="271" y="285" width="26" height="66" rx="12" fill="#F2C89C"/>
+    <circle cx="204" cy="234" r="3" fill="#344C5E"/>
+    <circle cx="236" cy="234" r="3" fill="#344C5E"/>
+  </g>
+
+  <g>
+    <ellipse cx="455" cy="315" rx="80" ry="105" fill="#7BCB4A"/>
+    <circle cx="455" cy="238" r="38" fill="#F1C79C"/>
+    <rect x="411" y="272" width="88" height="92" rx="28" fill="#8AD064"/>
+    <rect x="379" y="285" width="26" height="66" rx="12" fill="#F1C79C"/>
+    <rect x="506" y="285" width="26" height="66" rx="12" fill="#F1C79C"/>
+    <circle cx="439" cy="234" r="3" fill="#344C5E"/>
+    <circle cx="471" cy="234" r="3" fill="#344C5E"/>
+  </g>
+
+  <g>
+    <ellipse cx="760" cy="315" rx="80" ry="105" fill="#F1B458"/>
+    <circle cx="760" cy="238" r="38" fill="#F1C79C"/>
+    <rect x="716" y="272" width="88" height="92" rx="28" fill="#EE8C3D"/>
+    <rect x="684" y="285" width="26" height="66" rx="12" fill="#F1C79C"/>
+    <rect x="811" y="285" width="26" height="66" rx="12" fill="#F1C79C"/>
+    <circle cx="744" cy="234" r="3" fill="#344C5E"/>
+    <circle cx="776" cy="234" r="3" fill="#344C5E"/>
+  </g>
+
+  <g>
+    <ellipse cx="980" cy="315" rx="80" ry="105" fill="#59B7DF"/>
+    <circle cx="980" cy="238" r="38" fill="#F1C79C"/>
+    <rect x="936" y="272" width="88" height="92" rx="28" fill="#3A95BF"/>
+    <rect x="904" y="285" width="26" height="66" rx="12" fill="#F1C79C"/>
+    <rect x="1031" y="285" width="26" height="66" rx="12" fill="#F1C79C"/>
+    <circle cx="964" cy="234" r="3" fill="#344C5E"/>
+    <circle cx="996" cy="234" r="3" fill="#344C5E"/>
+  </g>
+
+  <g>
+    <circle cx="632" cy="410" r="48" fill="#7BCB4A"/>
+    <circle cx="632" cy="410" r="22" fill="#F8FBFF"/>
+    <circle cx="632" cy="410" r="8" fill="#214B6F"/>
+    <path d="M715 410C738 380 785 382 806 410" stroke="#F3BF3E" stroke-width="18" stroke-linecap="round"/>
+    <ellipse cx="876" cy="410" rx="34" ry="24" fill="#7BCB4A"/>
+    <ellipse cx="928" cy="410" rx="34" ry="24" fill="#F3BF3E"/>
+  </g>
+
+  <text x="100" y="435" fill="#0B375B" font-family="Arial, sans-serif" font-size="32" font-weight="700">Steun • Structuur • Slimme keuzes</text>
+  <text x="100" y="470" fill="#214B6F" font-family="Arial, sans-serif" font-size="22">Kiwi = groene keuzes, banaan = zachte ritmeboost</text>
 </svg>
