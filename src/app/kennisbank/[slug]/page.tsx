@@ -76,9 +76,10 @@ export default function KennisbankArticlePage({ params }: { params: { slug: stri
         </p>
       </header>
       <div className="space-y-4 text-slate-800">
-        <section className="card">
-          <h2 className="text-xl font-semibold text-gooseNavy">TLDR</h2>
-          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
+        <section className="rounded-goose border border-gooseNavy/40 bg-gradient-to-r from-gooseNavy to-gooseNavySoft p-5 text-white shadow-card">
+          <p className="section-chip mb-3 bg-white/20 text-white">In 30 seconden</p>
+          <h2 className="text-2xl font-bold leading-tight text-white">{article.title}</h2>
+          <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-white/95">
             {tldrPoints.map((point) => (
               <li key={point.slice(0, 32)}>{point}</li>
             ))}
