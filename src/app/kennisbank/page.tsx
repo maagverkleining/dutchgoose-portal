@@ -35,12 +35,12 @@ export default function KennisbankPage() {
       <ConversionBlock variant="tools" context="kennisbank-top" />
       <p className="text-slate-700">Geen medisch advies. Bespreek dit met je eigen ziekenhuis of team.</p>
       <div className="grid gap-4 md:grid-cols-2">
-        {knowledgebase.map((article) => (
+        {knowledgebase.map((article, index) => (
           <article className="card" key={article.slug}>
             <h2 className="text-lg font-semibold text-gooseNavy">{article.title}</h2>
             <p className="mt-2 text-sm text-slate-700">{article.description}</p>
             <p className="mt-2 text-xs text-slate-600">
-              {cardKickers[Math.abs(article.slug.length) % cardKickers.length]}
+              {cardKickers[index % cardKickers.length]}
             </p>
             <Link href={`/kennisbank/${article.slug}`} className="btn-secondary mt-4 text-xs">
               Lees artikel

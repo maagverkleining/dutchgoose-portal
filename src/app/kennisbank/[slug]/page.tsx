@@ -30,6 +30,12 @@ export default function KennisbankArticlePage({ params }: { params: { slug: stri
     notFound();
   }
 
+  const tldrPoints = [
+    article.description,
+    `Focuspunt: ${article.faqs[0]?.question ?? "Kies een klein, haalbaar actiepunt voor deze week."}`,
+    `Volgende stap: gebruik een tool of deal die past bij "${article.title.toLowerCase()}".`
+  ];
+
   return (
     <article className="space-y-6">
       <JsonLd
@@ -73,7 +79,7 @@ export default function KennisbankArticlePage({ params }: { params: { slug: stri
         <section className="card">
           <h2 className="text-xl font-semibold text-gooseNavy">TLDR</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
-            {article.body.slice(0, 3).map((point) => (
+            {tldrPoints.map((point) => (
               <li key={point.slice(0, 32)}>{point}</li>
             ))}
           </ul>
