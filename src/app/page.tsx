@@ -28,9 +28,12 @@ export default function HomePage() {
         <img
           src="/illustrations/hero-buddies.svg"
           alt="BariBuddies community sfeer"
-          className="mb-5 h-48 w-full rounded-2xl border border-white/30 object-cover"
+          className="mb-5 h-48 w-full rounded-2xl border border-white/30 object-cover object-center sm:h-56"
         />
         <p className="section-chip mb-4 bg-gooseBanana text-gooseNavy">Community first 🥝🍌</p>
+        <p className="mb-2 text-sm font-semibold tracking-wide text-gooseBanana">
+          Dit is de Dutch Goose portal voor leven na maagverkleining.
+        </p>
         <h1 className="text-3xl font-bold sm:text-4xl">
           Dutch Goose, jouw community portal na maagverkleining 🥝🍌
         </h1>
@@ -38,11 +41,11 @@ export default function HomePage() {
           Tools, deals, tests en community voor je leven na een maagverkleining. Warm, direct, geen ruis.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/deals" className="btn-primary bg-gooseKiwi text-gooseNavy hover:bg-gooseBanana">
-            Bekijk deals
-          </Link>
           <Link href="/start" className="btn-secondary border-white text-white hover:bg-white hover:text-gooseNavy">
             Start hier
+          </Link>
+          <Link href="/start#fase-selectie" className="btn-primary bg-gooseKiwi text-gooseNavy hover:bg-gooseBanana">
+            Kies je fase
           </Link>
         </div>
       </section>
@@ -85,6 +88,20 @@ export default function HomePage() {
           <Link href="/community/baribuddies" className="btn-primary mt-4 text-xs">
             Vraag een invite aan
           </Link>
+        </article>
+      </section>
+      <section className="grid gap-3 md:grid-cols-3">
+        <article className="card">
+          <h3 className="font-semibold text-gooseNavy">Community</h3>
+          <p className="mt-2 text-sm text-slate-700">Herkenning, support en invite flows.</p>
+        </article>
+        <article className="card">
+          <h3 className="font-semibold text-gooseNavy">Kennisbank</h3>
+          <p className="mt-2 text-sm text-slate-700">Praktische uitleg voor echte situaties.</p>
+        </article>
+        <article className="card">
+          <h3 className="font-semibold text-gooseNavy">Tools</h3>
+          <p className="mt-2 text-sm text-slate-700">Eiwit, timer, voorraad en direct toepassen.</p>
         </article>
       </section>
 

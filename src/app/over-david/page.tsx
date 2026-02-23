@@ -25,7 +25,7 @@ export default function OverDavidPage() {
           <img
             src="/images/david-gans-profiel.jpg"
             alt="David Gans"
-            className="h-full min-h-[360px] w-full object-cover"
+            className="h-full min-h-[360px] w-full bg-white object-contain object-top"
           />
         </article>
         <article className="card">

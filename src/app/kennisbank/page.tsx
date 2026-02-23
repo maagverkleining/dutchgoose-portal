@@ -13,6 +13,15 @@ export const metadata = buildMetadata({
 });
 
 export default function KennisbankPage() {
+  const cardKickers = [
+    "Praktische uitleg, zonder medisch jargon.",
+    "Direct toepasbaar in je dagritme.",
+    "Geschreven voor echte post-op situaties.",
+    "Kort, duidelijk en zonder ruis.",
+    "Met concrete stappen die je kunt testen.",
+    "Voor twijfelmomenten en vaste routines."
+  ];
+
   return (
     <div className="space-y-6">
       <Breadcrumbs items={[{ label: "Start", href: "/" }, { label: "Kennisbank" }]} />
@@ -30,6 +39,9 @@ export default function KennisbankPage() {
           <article className="card" key={article.slug}>
             <h2 className="text-lg font-semibold text-gooseNavy">{article.title}</h2>
             <p className="mt-2 text-sm text-slate-700">{article.description}</p>
+            <p className="mt-2 text-xs text-slate-600">
+              {cardKickers[Math.abs(article.slug.length) % cardKickers.length]}
+            </p>
             <Link href={`/kennisbank/${article.slug}`} className="btn-secondary mt-4 text-xs">
               Lees artikel
             </Link>
