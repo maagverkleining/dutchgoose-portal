@@ -20,9 +20,20 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup SSH key
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.MV_DEPLOY_SSH_KEY }}
+        env:
+          DEPLOY_KEY: ${{ secrets.MV_DEPLOY_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          if echo "$DEPLOY_KEY" | grep -q "BEGIN .* PRIVATE KEY"; then
+            printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          else
+            printf '%s' "$DEPLOY_KEY" | base64 --decode > ~/.ssh/deploy_key
+          fi
+          tr -d '\r' < ~/.ssh/deploy_key > ~/.ssh/deploy_key.clean
+          mv ~/.ssh/deploy_key.clean ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keygen -y -f ~/.ssh/deploy_key >/dev/null
 
       - name: Add host key
         run: |
@@ -41,11 +52,11 @@ jobs:
             --exclude '.logs' \
             --exclude '.run' \
             --exclude 'portal-*.zip' \
-            -e "ssh -p $PORT" \
+            -e "ssh -i ~/.ssh/deploy_key -p $PORT" \
             ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
 
       - name: Rebuild and restart container
         run: |
           PORT="${DEPLOY_PORT:-22}"
-          ssh -p "$PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+          ssh -i ~/.ssh/deploy_key -p "$PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
             "cd '$DEPLOY_PATH' && docker compose -f docker-compose.plex.yml up -d --build --remove-orphans"
