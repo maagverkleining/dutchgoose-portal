@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Grote Dutch Goose WLS Vitamine Vergelijking</title>
+  <meta name="description" content="Vergelijk WLS multivitaminen in Nederland op laagste prijs per pil, vorm, potgrootte en uitgebreide voedingswaarden.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./public/styles.css">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <img class="brand-logo" src="./public/dutch-goose-logo.svg" alt="Dutch Goose WLS logo">
+        <h1>De Grote Dutch Goose WLS Vitamine Vergelijking</h1>
+        <p>Door Dutch Goose: vergelijk grote leveranciers op goedkoopste prijs per pil, inhoud per pot, vorm en uitgebreide voedingswaarden per dagdosering.</p>
+        <div class="creator-links">
+          <a class="creator-link tiktok" href="https://www.tiktok.com/@dutchgoose_weightloss" target="_blank" rel="noopener noreferrer">TikTok @dutchgoose_weightloss</a>
+          <a class="creator-link instagram" href="https://www.instagram.com/dutchgoosejourney/" target="_blank" rel="noopener noreferrer">Instagram @dutchgoosejourney</a>
+        </div>
+        <div class="hero-meta" id="heroMeta"></div>
+      </div>
+
+      <div class="toolbar">
+        <div class="control">
+          <label for="supplierFilter">Leverancier</label>
+          <select id="supplierFilter"><option value="all">Alle leveranciers</option></select>
+        </div>
+
+        <div class="control">
+          <label for="formFilter">Vorm</label>
+          <select id="formFilter">
+            <option value="all">Alle vormen</option>
+            <option value="capsule">Capsule</option>
+            <option value="tablet">Tablet</option>
+            <option value="kauwtablet">Kauwtablet</option>
+            <option value="mix">Mix</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="sortBy">Sorteren</label>
+          <select id="sortBy">
+            <option value="ppp">Laagste prijs/pil</option>
+            <option value="pot">Grootste pot</option>
+            <option value="name">Naam A-Z</option>
+          </select>
+        </div>
+
+        <div class="stats" id="stats"></div>
+      </div>
+    </section>
+
+    <section class="cards" id="cards"></section>
+
+    <section class="panel">
+      <h2>Prijsoverzicht op basis van goedkoopste verpakking</h2>
+      <div class="table-wrap">
+        <table id="priceTable">
+          <thead>
+            <tr>
+              <th>Leverancier</th>
+              <th>Product</th>
+              <th>Vorm</th>
+              <th>Goedkoopste optie</th>
+              <th>Prijs/pil</th>
+              <th>Bestel</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Uitgebreide waardevergelijking (per dagdosering)</h2>
+      <div class="table-wrap">
+        <table id="nutrientTable">
+          <thead>
+            <tr id="nutrientHead"></tr>
+          </thead>
+          <tbody id="nutrientBody"></tbody>
+        </table>
+      </div>
+      <p class="note">Lege cellen betekenen: niet publiek gevonden in crawlbare productinformatie of niet expliciet gespecificeerd. Prijs/pil wordt berekend op basis van de goedkoopste beschikbare verpakking per productvariant.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Bronnen</h2>
+      <div class="sources" id="sources"></div>
+    </section>
+  </main>
+
+  <script src="./public/catalog-data.js"></script>
+  <script src="./public/app.js" defer></script>
+</body>
+</html>

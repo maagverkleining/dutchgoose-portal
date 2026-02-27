@@ -1,0 +1,36 @@
+<svg width="640" height="220" viewBox="0 0 640 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Dutch Goose WLS logo</title>
+  <desc id="desc">Een stijlvol logo met een gans en capsule voor Dutch Goose WLS vitamine vergelijking.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B2733"/>
+      <stop offset="0.52" stop-color="#174D84"/>
+      <stop offset="1" stop-color="#0D7A67"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F8E9D0"/>
+      <stop offset="1" stop-color="#EDB97F"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="636" height="216" rx="34" fill="url(#bg)"/>
+  <g transform="translate(28 28)">
+    <circle cx="78" cy="82" r="72" fill="rgba(255,255,255,0.12)"/>
+
+    <path d="M64 136C46 128 42 104 50 88C58 72 78 62 96 68C116 74 126 98 118 118C110 138 86 146 64 136Z" fill="#F9F1E4"/>
+    <path d="M104 75C114 66 128 68 136 76C145 84 146 97 140 107C133 117 121 121 109 116" stroke="#F9F1E4" stroke-width="10" stroke-linecap="round"/>
+    <path d="M126 83L148 78L138 94" fill="#E17F39"/>
+    <circle cx="118" cy="83" r="4.5" fill="#16202A"/>
+
+    <g transform="translate(18 106) rotate(-12)">
+      <rect x="0" y="0" width="78" height="28" rx="14" fill="url(#pill)"/>
+      <line x1="39" y1="2" x2="39" y2="26" stroke="#CB7A37" stroke-width="2"/>
+    </g>
+  </g>
+
+  <g transform="translate(188 54)">
+    <text x="0" y="46" fill="#FFFFFF" font-family="Syne, Manrope, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="0.5">Dutch Goose</text>
+    <text x="2" y="92" fill="#FFD8B4" font-family="Manrope, Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="2">WLS VITAMINE VERGELIJKING</text>
+    <text x="2" y="124" fill="#D7E8FF" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="600">Prijs per pil | Potgrootte | Waardematrix</text>
+  </g>
+</svg>

@@ -1,4 +1,4 @@
-name: Deploy Maagverkleiningvitaminen (Plex)
+name: Deploy Maagverkleiningvitaminen (Plesk Static)
 
 on:
   push:
@@ -57,22 +57,25 @@ jobs:
           PORT="${DEPLOY_PORT:-22}"
           ssh-keyscan -p "$PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts
 
-      - name: Sync files to server
+      - name: Validate static source
+        run: |
+          if [[ ! -f "wls-static/index.html" ]]; then
+            echo "::error::wls-static/index.html ontbreekt."
+            exit 1
+          fi
+
+      - name: Ensure target path exists
+        run: |
+          if [[ -z "${DEPLOY_PATH//[[:space:]]/}" ]]; then
+            echo "::error::Secret MV_DEPLOY_PATH is leeg of ontbreekt."
+            exit 1
+          fi
+          PORT="${DEPLOY_PORT:-22}"
+          ssh -i ~/.ssh/deploy_key -p "$PORT" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_PATH'"
+
+      - name: Sync static site to server
         run: |
           PORT="${DEPLOY_PORT:-22}"
           rsync -az --delete \
-            --exclude '.git' \
-            --exclude 'node_modules' \
-            --exclude '.next' \
-            --exclude '.env' \
-            --exclude '.logs' \
-            --exclude '.run' \
-            --exclude 'portal-*.zip' \
             -e "ssh -i ~/.ssh/deploy_key -p $PORT" \
-            ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
-
-      - name: Rebuild and restart container
-        run: |
-          PORT="${DEPLOY_PORT:-22}"
-          ssh -i ~/.ssh/deploy_key -p "$PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
-            "cd '$DEPLOY_PATH' && docker compose -f docker-compose.plex.yml up -d --build --remove-orphans"
+            ./wls-static/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
