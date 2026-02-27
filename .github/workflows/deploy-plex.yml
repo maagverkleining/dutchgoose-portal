@@ -53,9 +53,14 @@ jobs:
 
       - name: Add host key
         run: |
+          set -euo pipefail
           mkdir -p ~/.ssh
           PORT="${DEPLOY_PORT:-22}"
-          ssh-keyscan -p "$PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+          if ! timeout 20 ssh-keyscan -T 10 -p "$PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/tmp/sshscan.err; then
+            echo "::error::Kan SSH host key niet ophalen van ${DEPLOY_HOST}:${PORT}. Controleer SSH toegang/poort/firewall in Plesk."
+            cat /tmp/sshscan.err || true
+            exit 1
+          fi
 
       - name: Validate static source
         run: |
@@ -63,6 +68,17 @@ jobs:
             echo "::error::wls-static/index.html ontbreekt."
             exit 1
           fi
+
+      - name: Verify SSH login
+        run: |
+          set -euo pipefail
+          PORT="${DEPLOY_PORT:-22}"
+          if ! ssh -i ~/.ssh/deploy_key -p "$PORT" -o BatchMode=yes -o ConnectTimeout=12 "$DEPLOY_USER@$DEPLOY_HOST" "echo SSH_OK" >/tmp/sshlogin.out 2>/tmp/sshlogin.err; then
+            echo "::error::SSH login mislukt naar ${DEPLOY_USER}@${DEPLOY_HOST}:${PORT}. Controleer user, poort en of SSH voor deze user aan staat."
+            cat /tmp/sshlogin.err || true
+            exit 1
+          fi
+          cat /tmp/sshlogin.out
 
       - name: Ensure target path exists
         run: |
