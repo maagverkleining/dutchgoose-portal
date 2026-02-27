@@ -25,15 +25,31 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
+          if [[ -z "${DEPLOY_KEY//[[:space:]]/}" ]]; then
+            echo "::error::Secret MV_DEPLOY_SSH_KEY is leeg of ontbreekt."
+            exit 1
+          fi
           if echo "$DEPLOY_KEY" | grep -q "BEGIN .* PRIVATE KEY"; then
             printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
           else
-            printf '%s' "$DEPLOY_KEY" | base64 --decode > ~/.ssh/deploy_key
+            if ! printf '%s' "$DEPLOY_KEY" | base64 --decode > ~/.ssh/deploy_key 2>/tmp/keydecode.err; then
+              echo "::error::MV_DEPLOY_SSH_KEY is geen geldige private key (raw of base64)."
+              cat /tmp/keydecode.err
+              exit 1
+            fi
           fi
           tr -d '\r' < ~/.ssh/deploy_key > ~/.ssh/deploy_key.clean
           mv ~/.ssh/deploy_key.clean ~/.ssh/deploy_key
+          if grep -Eq '^(ssh-rsa|ssh-ed25519|ecdsa-sha2-nistp)' ~/.ssh/deploy_key; then
+            echo "::error::MV_DEPLOY_SSH_KEY lijkt een publieke key. Gebruik de private key met BEGIN/END PRIVATE KEY."
+            exit 1
+          fi
           chmod 600 ~/.ssh/deploy_key
-          ssh-keygen -y -f ~/.ssh/deploy_key >/dev/null
+          if ! ssh-keygen -y -f ~/.ssh/deploy_key >/dev/null 2>/tmp/keycheck.err; then
+            echo "::error::Private key formaat ongeldig of niet leesbaar door ssh-keygen."
+            cat /tmp/keycheck.err
+            exit 1
+          fi
 
       - name: Add host key
         run: |
