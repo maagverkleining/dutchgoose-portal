@@ -1,0 +1,18 @@
+services:
+  dutchgoose-wls:
+    build: .
+    container_name: dutchgoose-wls
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      CLICK_LOG_DIR: /app/runtime/click-logs
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_FROM: ${SMTP_FROM}
+      CONTACT_FORM_TO: ${CONTACT_FORM_TO:-info@dutchgoose.nl}
+    volumes:
+      - ./runtime/click-logs:/app/runtime/click-logs

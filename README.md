@@ -1,6 +1,6 @@
 # Dutch Goose Portal (Next.js + Netlify)
 
-Complete portal website voor `www.dutchgoose.nl` met routes voor deals, tools, tests, starter kits, kennisbank, community en partners.
+Complete portal website voor `www.maagverkleiningvitaminen.nl` met routes voor deals, tools, tests, starter kits, kennisbank, community en partners.
 
 ## Stack
 
@@ -27,14 +27,14 @@ Complete portal website voor `www.dutchgoose.nl` met routes voor deals, tools, t
    - Build command: `npm run build`
    - Publish directory: `.next`
 4. Netlify detecteert `netlify.toml` en activeert `@netlify/plugin-nextjs`.
-5. Deploy en koppel custom domain `www.dutchgoose.nl`.
+5. Deploy en koppel custom domain `www.maagverkleiningvitaminen.nl`.
 
 ## Affiliate en tracking
 
 - Alle affiliate uitgaande links lopen via `/go/[slug]`.
 - Redirect is `302`.
-- Click logging gebeurt via Netlify Function:
-  - `netlify/functions/log-click.ts`
+- Click logging gebeurt via Next API route:
+  - `src/app/api/log-click/route.ts`
 - Gelogde velden:
   - `timestamp`
   - `slug`
@@ -96,3 +96,22 @@ Gebruik:
 - `data`: JSON content
 - `netlify/functions`: click logging functies
 - `tools`: import scripts
+
+
+## Deploy op Plex server (Docker)
+
+Zie:
+
+- `DEPLOY-PLEX.md`
+
+Korte variant:
+
+1. `.env` met SMTP variabelen maken
+2. `docker compose -f docker-compose.plex.yml up -d --build`
+3. Reverse proxy naar `http://127.0.0.1:3000`
+
+Automatisch deployen:
+
+- lokaal: `npm run deploy:plex`
+- via GitHub: `.github/workflows/deploy-plex.yml`
+- GitHub workflow triggert alleen op branch: `codex/maagverkleiningvitaminen`

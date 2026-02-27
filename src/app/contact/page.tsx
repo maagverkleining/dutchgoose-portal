@@ -7,7 +7,15 @@ export const metadata = buildMetadata({
   path: "/contact"
 });
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams?: {
+    status?: string;
+  };
+};
+
+export default function ContactPage({ searchParams }: ContactPageProps) {
+  const status = searchParams?.status;
+
   return (
     <div className="space-y-6">
       <VisualHero
@@ -18,8 +26,19 @@ export default function ContactPage() {
         chip="Community support"
       />
       <section className="card">
-        <form name="contact" method="POST" data-netlify="true" className="space-y-3">
-          <input type="hidden" name="form-name" value="contact" />
+        {status === "success" ? (
+          <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+            Je bericht is verstuurd. We reageren zo snel mogelijk.
+          </p>
+        ) : null}
+        {status && status !== "success" ? (
+          <p className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+            Versturen is niet gelukt. Probeer het later opnieuw of mail direct naar info@dutchgoose.nl.
+          </p>
+        ) : null}
+        <form action="/api/contact" method="POST" className="space-y-3">
+          <input type="hidden" name="formType" value="contact" />
+          <input type="hidden" name="redirectTo" value="/contact" />
           <label className="block text-sm font-medium">
             Naam
             <input required name="name" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />

@@ -12,11 +12,14 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
-    "import:awin": "tsx tools/import-awin-export.ts"
+    "import:awin": "tsx tools/import-awin-export.ts",
+    "deploy:plex": "./scripts/deploy-plex.sh"
   },
   "dependencies": {
     "@netlify/functions": "^2.8.2",
+    "@types/nodemailer": "^7.0.11",
     "next": "^14.2.30",
+    "nodemailer": "^8.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

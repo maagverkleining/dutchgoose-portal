@@ -1,0 +1,51 @@
+name: Deploy Maagverkleiningvitaminen (Plex)
+
+on:
+  push:
+    branches:
+      - codex/maagverkleiningvitaminen
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/codex/maagverkleiningvitaminen'
+    env:
+      DEPLOY_HOST: ${{ secrets.MV_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.MV_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.MV_DEPLOY_PORT }}
+      DEPLOY_PATH: ${{ secrets.MV_DEPLOY_PATH }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.MV_DEPLOY_SSH_KEY }}
+
+      - name: Add host key
+        run: |
+          mkdir -p ~/.ssh
+          PORT="${DEPLOY_PORT:-22}"
+          ssh-keyscan -p "$PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Sync files to server
+        run: |
+          PORT="${DEPLOY_PORT:-22}"
+          rsync -az --delete \
+            --exclude '.git' \
+            --exclude 'node_modules' \
+            --exclude '.next' \
+            --exclude '.env' \
+            --exclude '.logs' \
+            --exclude '.run' \
+            --exclude 'portal-*.zip' \
+            -e "ssh -p $PORT" \
+            ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
+
+      - name: Rebuild and restart container
+        run: |
+          PORT="${DEPLOY_PORT:-22}"
+          ssh -p "$PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "cd '$DEPLOY_PATH' && docker compose -f docker-compose.plex.yml up -d --build --remove-orphans"
