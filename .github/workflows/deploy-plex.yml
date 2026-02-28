@@ -35,7 +35,7 @@ jobs:
       - name: Select deploy method
         id: select_method
         run: |
-          method="${DEPLOY_METHOD:-}"
+          method="$(printf '%s' "${DEPLOY_METHOD:-}" | tr '[:upper:]' '[:lower:]' | xargs)"
           if [[ -z "$method" ]]; then
             if [[ -n "${FTP_HOST//[[:space:]]/}" && -n "${FTP_USER//[[:space:]]/}" && -n "${FTP_PASS//[[:space:]]/}" ]]; then
               method="ftp"
