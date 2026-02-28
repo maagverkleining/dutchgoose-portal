@@ -37,11 +37,7 @@ jobs:
         run: |
           method="$(printf '%s' "${DEPLOY_METHOD:-}" | tr '[:upper:]' '[:lower:]' | xargs)"
           if [[ -z "$method" ]]; then
-            if [[ -n "${FTP_HOST//[[:space:]]/}" && -n "${FTP_USER//[[:space:]]/}" && -n "${FTP_PASS//[[:space:]]/}" ]]; then
-              method="ftp"
-            else
-              method="ssh"
-            fi
+            method="ftp"
           fi
           if [[ "$method" != "ssh" && "$method" != "ftp" ]]; then
             echo "::error::MV_DEPLOY_METHOD moet 'ssh' of 'ftp' zijn."
@@ -49,6 +45,14 @@ jobs:
           fi
           echo "method=$method" >> "$GITHUB_OUTPUT"
           echo "Deploy method: $method"
+
+      - name: Show deploy inputs (safe)
+        run: |
+          echo "method=${{ steps.select_method.outputs.method }}"
+          [[ -n "${FTP_HOST//[[:space:]]/}" ]] && echo "FTP_HOST: set" || echo "FTP_HOST: missing"
+          [[ -n "${FTP_USER//[[:space:]]/}" ]] && echo "FTP_USER: set" || echo "FTP_USER: missing"
+          [[ -n "${FTP_PASS//[[:space:]]/}" ]] && echo "FTP_PASS: set" || echo "FTP_PASS: missing"
+          [[ -n "${FTP_PATH//[[:space:]]/}" ]] && echo "FTP_PATH: set" || echo "FTP_PATH: missing"
 
       - name: Setup SSH key
         if: steps.select_method.outputs.method == 'ssh'
