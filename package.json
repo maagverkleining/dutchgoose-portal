@@ -6,9 +6,11 @@
     "node": ">=18.18.0"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/serve-wls-static.mjs",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/serve-wls-static.mjs",
+    "dev:portal": "next dev -p 3003",
+    "start:portal": "next start -p 3003",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",

@@ -25,11 +25,20 @@ Trigger:
 
 ## Vereiste GitHub Secrets
 
+- `MV_DEPLOY_METHOD` (`ssh` of `ftp`)
 - `MV_DEPLOY_HOST` (bijv. `79.137.20.193`)
 - `MV_DEPLOY_USER` (Plesk system user, bijv. `dutchgoo`)
 - `MV_DEPLOY_PORT` (meestal `22`)
 - `MV_DEPLOY_PATH` (document root, bijv. `httpdocs` of `httpdocs/maagverkleiningvitaminen`)
 - `MV_DEPLOY_SSH_KEY` (private key die toegang heeft tot die user)
+
+Voor FTP/FTPS (als SSH niet beschikbaar is):
+
+- `MV_FTP_HOST` (bijv. Plesk FTP host)
+- `MV_FTP_USER`
+- `MV_FTP_PASS`
+- `MV_FTP_PORT` (meestal `21`)
+- `MV_FTP_PATH` (document root, vaak `httpdocs`)
 
 ## DNS
 

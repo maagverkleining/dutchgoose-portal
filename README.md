@@ -9,17 +9,24 @@ Deze map bevat de statische WLS-vergelijkingssite (inhoud van `dutchgoose-wls.ne
 ## Stack
 
 - Statische HTML/CSS/JS
-- GitHub Actions deploy via SSH/rsync
+- GitHub Actions deploy via SSH/rsync of FTP/FTPS
 - Plesk hosting (dotpoint)
 
 ## Lokale preview
 
 ```bash
-cd wls-static
-python3 -m http.server 4080
+npm run dev
 ```
 
-Open daarna `http://localhost:4080`.
+Open daarna `http://localhost:3002`.
+
+Portal (oude Next.js app) lokaal openen kan nog via:
+
+```bash
+npm run dev:portal
+```
+
+Dan draait die op `http://localhost:3003`.
 
 ## Deploy naar Plesk
 
@@ -34,11 +41,20 @@ Trigger:
 
 Benodigde GitHub Secrets:
 
+- `MV_DEPLOY_METHOD` (`ssh` of `ftp`)
 - `MV_DEPLOY_HOST`
 - `MV_DEPLOY_USER`
 - `MV_DEPLOY_PORT`
 - `MV_DEPLOY_PATH`
 - `MV_DEPLOY_SSH_KEY`
+
+Optioneel voor FTP/FTPS deploy:
+
+- `MV_FTP_HOST`
+- `MV_FTP_USER`
+- `MV_FTP_PASS`
+- `MV_FTP_PORT`
+- `MV_FTP_PATH`
 
 Doelpad op server:
 

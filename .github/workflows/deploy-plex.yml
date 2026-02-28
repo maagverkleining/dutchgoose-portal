@@ -11,15 +11,47 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/codex/maagverkleiningvitaminen'
     env:
+      DEPLOY_METHOD: ${{ secrets.MV_DEPLOY_METHOD }}
       DEPLOY_HOST: ${{ secrets.MV_DEPLOY_HOST }}
       DEPLOY_USER: ${{ secrets.MV_DEPLOY_USER }}
       DEPLOY_PORT: ${{ secrets.MV_DEPLOY_PORT }}
       DEPLOY_PATH: ${{ secrets.MV_DEPLOY_PATH }}
+      FTP_HOST: ${{ secrets.MV_FTP_HOST }}
+      FTP_USER: ${{ secrets.MV_FTP_USER }}
+      FTP_PASS: ${{ secrets.MV_FTP_PASS }}
+      FTP_PORT: ${{ secrets.MV_FTP_PORT }}
+      FTP_PATH: ${{ secrets.MV_FTP_PATH }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Validate static source
+        run: |
+          if [[ ! -f "wls-static/index.html" ]]; then
+            echo "::error::wls-static/index.html ontbreekt."
+            exit 1
+          fi
+
+      - name: Select deploy method
+        id: select_method
+        run: |
+          method="${DEPLOY_METHOD:-}"
+          if [[ -z "$method" ]]; then
+            if [[ -n "${FTP_HOST//[[:space:]]/}" && -n "${FTP_USER//[[:space:]]/}" && -n "${FTP_PASS//[[:space:]]/}" ]]; then
+              method="ftp"
+            else
+              method="ssh"
+            fi
+          fi
+          if [[ "$method" != "ssh" && "$method" != "ftp" ]]; then
+            echo "::error::MV_DEPLOY_METHOD moet 'ssh' of 'ftp' zijn."
+            exit 1
+          fi
+          echo "method=$method" >> "$GITHUB_OUTPUT"
+          echo "Deploy method: $method"
+
       - name: Setup SSH key
+        if: steps.select_method.outputs.method == 'ssh'
         env:
           DEPLOY_KEY: ${{ secrets.MV_DEPLOY_SSH_KEY }}
         run: |
@@ -52,6 +84,7 @@ jobs:
           fi
 
       - name: Add host key
+        if: steps.select_method.outputs.method == 'ssh'
         run: |
           set -euo pipefail
           mkdir -p ~/.ssh
@@ -62,14 +95,8 @@ jobs:
             exit 1
           fi
 
-      - name: Validate static source
-        run: |
-          if [[ ! -f "wls-static/index.html" ]]; then
-            echo "::error::wls-static/index.html ontbreekt."
-            exit 1
-          fi
-
       - name: Verify SSH login
+        if: steps.select_method.outputs.method == 'ssh'
         run: |
           set -euo pipefail
           PORT="${DEPLOY_PORT:-22}"
@@ -81,6 +108,7 @@ jobs:
           cat /tmp/sshlogin.out
 
       - name: Ensure target path exists
+        if: steps.select_method.outputs.method == 'ssh'
         run: |
           if [[ -z "${DEPLOY_PATH//[[:space:]]/}" ]]; then
             echo "::error::Secret MV_DEPLOY_PATH is leeg of ontbreekt."
@@ -90,8 +118,41 @@ jobs:
           ssh -i ~/.ssh/deploy_key -p "$PORT" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_PATH'"
 
       - name: Sync static site to server
+        if: steps.select_method.outputs.method == 'ssh'
         run: |
           PORT="${DEPLOY_PORT:-22}"
           rsync -az --delete \
             -e "ssh -i ~/.ssh/deploy_key -p $PORT" \
             ./wls-static/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
+
+      - name: Install lftp
+        if: steps.select_method.outputs.method == 'ftp'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Validate FTP secrets
+        if: steps.select_method.outputs.method == 'ftp'
+        run: |
+          if [[ -z "${FTP_HOST//[[:space:]]/}" || -z "${FTP_USER//[[:space:]]/}" || -z "${FTP_PASS//[[:space:]]/}" ]]; then
+            echo "::error::FTP secrets ontbreken. Zet MV_FTP_HOST, MV_FTP_USER en MV_FTP_PASS."
+            exit 1
+          fi
+          if [[ -z "${FTP_PATH//[[:space:]]/}" ]]; then
+            echo "::error::Secret MV_FTP_PATH ontbreekt (bijv. httpdocs)."
+            exit 1
+          fi
+
+      - name: Sync static site via FTP/FTPS
+        if: steps.select_method.outputs.method == 'ftp'
+        run: |
+          PORT="${FTP_PORT:-21}"
+          lftp -e "
+          set cmd:fail-exit yes;
+          set ftp:ssl-allow yes;
+          set ssl:verify-certificate no;
+          open -u \"$FTP_USER\",\"$FTP_PASS\" -p \"$PORT\" \"$FTP_HOST\";
+          mkdir -p \"$FTP_PATH\";
+          mirror -R --delete --verbose ./wls-static \"$FTP_PATH\";
+          bye
+          "
