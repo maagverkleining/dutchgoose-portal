@@ -150,13 +150,28 @@ jobs:
       - name: Sync static site via FTP/FTPS
         if: steps.select_method.outputs.method == 'ftp'
         run: |
+          set -euo pipefail
           PORT="${FTP_PORT:-21}"
-          lftp -e "
-          set cmd:fail-exit yes;
-          set ftp:ssl-allow yes;
-          set ssl:verify-certificate no;
-          open -u \"$FTP_USER\",\"$FTP_PASS\" -p \"$PORT\" \"$FTP_HOST\";
-          mkdir -p \"$FTP_PATH\";
-          mirror -R --delete --verbose ./wls-static \"$FTP_PATH\";
-          bye
-          "
+          HOST="$(printf '%s' "$FTP_HOST" | sed -E 's#^[a-zA-Z]+://##' | sed -E 's#/$##')"
+          TARGET_PATH="$FTP_PATH"
+
+          sync_once() {
+            local ssl_allow="$1"
+            echo "FTP deploy attempt: host=$HOST port=$PORT path=$TARGET_PATH ssl_allow=$ssl_allow"
+            lftp -u "$FTP_USER","$FTP_PASS" -p "$PORT" "$HOST" -e "
+            set cmd:fail-exit yes;
+            set net:timeout 20;
+            set net:max-retries 1;
+            set ftp:passive-mode true;
+            set ftp:ssl-allow $ssl_allow;
+            set ssl:verify-certificate no;
+            mkdir -p \"$TARGET_PATH\";
+            mirror -R --delete --verbose ./wls-static \"$TARGET_PATH\";
+            bye
+            "
+          }
+
+          if ! sync_once yes; then
+            echo "FTPS poging mislukt, probeer plain FTP..."
+            sync_once no
+          fi
