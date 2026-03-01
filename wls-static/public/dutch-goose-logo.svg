@@ -1,73 +1,73 @@
-<svg width="880" height="210" viewBox="0 0 880 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="860" height="200" viewBox="0 0 860 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Dutch Goose WLS logo</title>
-  <desc id="desc">Bannerlogo met een duidelijke gans, vitaminebollen en de tekst Dutch Goose WLS Vitamine Vergelijking.</desc>
+  <desc id="desc">Logo met witte gans, vitaminebollen en tekst Dutch Goose WLS Vitamine Vergelijking.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="880" y2="210" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1A3D67"/>
-      <stop offset="0.54" stop-color="#17597D"/>
-      <stop offset="1" stop-color="#12807B"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="860" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#163B63"/>
+      <stop offset="0.56" stop-color="#165B7A"/>
+      <stop offset="1" stop-color="#147C78"/>
     </linearGradient>
-    <linearGradient id="leftPanel" x1="0" y1="0" x2="280" y2="210" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#112D4E"/>
-      <stop offset="1" stop-color="#1C4D73"/>
+    <linearGradient id="left" x1="0" y1="0" x2="250" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#133454"/>
+      <stop offset="1" stop-color="#1E5477"/>
     </linearGradient>
-    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(140 106) rotate(90) scale(88 88)">
-      <stop stop-color="#B5D9F2" stop-opacity="0.42"/>
-      <stop offset="1" stop-color="#B5D9F2" stop-opacity="0"/>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(128 102) rotate(90) scale(82 82)">
+      <stop stop-color="#9DE8E4" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#9DE8E4" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="neck" x1="122" y1="58" x2="198" y2="187" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#21262D"/>
-      <stop offset="0.55" stop-color="#161B21"/>
-      <stop offset="1" stop-color="#4A515D"/>
+    <linearGradient id="whiteFeather" x1="88" y1="24" x2="206" y2="172" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#EEF2F6"/>
+      <stop offset="1" stop-color="#DDE4EB"/>
     </linearGradient>
-    <linearGradient id="body" x1="82" y1="126" x2="184" y2="204" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#6E604A"/>
-      <stop offset="1" stop-color="#4D4334"/>
+    <linearGradient id="beak" x1="178" y1="58" x2="230" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6B84E"/>
+      <stop offset="1" stop-color="#D78822"/>
     </linearGradient>
-    <linearGradient id="pillWarm" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#FFE1A8"/>
-      <stop offset="1" stop-color="#D49435"/>
+    <linearGradient id="pillOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFDFA0"/>
+      <stop offset="1" stop-color="#E9972E"/>
     </linearGradient>
-    <linearGradient id="pillCool" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#A8F0E3"/>
-      <stop offset="1" stop-color="#2F9689"/>
+    <linearGradient id="pillMint" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#B5EFE4"/>
+      <stop offset="1" stop-color="#5AAFA6"/>
     </linearGradient>
     <linearGradient id="pillPurple" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#D9D1FF"/>
-      <stop offset="1" stop-color="#6F63C7"/>
+      <stop stop-color="#DDD3FF"/>
+      <stop offset="1" stop-color="#7B69D1"/>
     </linearGradient>
   </defs>
 
-  <rect x="2" y="2" width="876" height="206" rx="30" fill="url(#bg)"/>
-  <rect x="2" y="2" width="876" height="206" rx="30" stroke="rgba(212,238,248,0.34)" stroke-width="2"/>
-  <rect x="14" y="14" width="266" height="182" rx="24" fill="url(#leftPanel)" stroke="rgba(194,225,244,0.34)" stroke-width="2"/>
-  <circle cx="141" cy="106" r="88" fill="url(#halo)"/>
+  <rect x="2" y="2" width="856" height="196" rx="28" fill="url(#bg)"/>
+  <rect x="2" y="2" width="856" height="196" rx="28" stroke="rgba(206,235,247,0.34)" stroke-width="2"/>
+  <rect x="14" y="14" width="246" height="172" rx="22" fill="url(#left)" stroke="rgba(196,228,245,0.32)" stroke-width="2"/>
+  <circle cx="128" cy="102" r="82" fill="url(#glow)"/>
 
   <g>
-    <ellipse cx="126" cy="170" rx="52" ry="28" fill="url(#body)"/>
-    <path d="M96 177C113 188 138 190 161 178C174 172 183 162 187 150C172 161 151 167 131 167C117 167 106 171 96 177Z" fill="#8A7A62" fill-opacity="0.42"/>
-    <path d="M135 177C116 161 112 125 123 96C132 73 150 55 174 48C192 43 209 49 219 61C227 71 230 82 228 93C226 108 217 119 204 126C192 133 176 136 159 133C154 146 153 162 160 176" fill="url(#neck)"/>
-    <path d="M153 89C164 96 180 96 191 88C200 82 205 72 203 62C196 65 188 67 180 67C170 67 160 65 152 61C147 70 147 80 153 89Z" fill="#EFF4F8"/>
-    <path d="M211 73L236 66L217 82L204 80C202 77 204 74 211 73Z" fill="#4D5560"/>
-    <circle cx="197" cy="67" r="3.8" fill="#10171F"/>
-    <circle cx="196" cy="66" r="1.1" fill="#F8FDFF"/>
+    <path d="M127 170C108 160 101 135 105 114C109 89 123 68 146 51C163 38 184 30 203 33C219 35 231 44 236 56C242 70 240 84 232 95C223 108 207 114 188 114C182 126 180 139 184 151C188 162 194 170 203 176C182 182 150 182 127 170Z" fill="#0D334F" fill-opacity="0.68"/>
+    <path d="M124 168C106 157 101 134 105 114C109 89 123 67 145 49C162 35 183 28 202 31C220 33 233 43 238 56C244 70 242 85 234 96C225 109 209 116 190 116C183 129 181 144 185 157C189 166 196 173 206 178C187 186 150 183 124 168Z" fill="url(#whiteFeather)"/>
+    <path d="M156 63C168 71 184 72 197 65C206 60 211 52 212 43C205 46 197 48 189 48C178 48 167 46 159 42C154 49 153 57 156 63Z" fill="#F8FBFD"/>
+    <path d="M188 62C196 54 210 51 221 53C229 55 233 61 232 68C230 76 222 82 212 84C203 86 192 83 186 77C182 72 183 66 188 62Z" fill="url(#beak)"/>
+    <path d="M207 71C212 68 217 67 221 68C217 72 212 74 206 75" stroke="#A05A18" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="178" cy="56" r="4.1" fill="#1C3043"/>
+    <circle cx="177.2" cy="55.2" r="1.2" fill="#F7FDFF"/>
   </g>
 
   <g font-family="Manrope, Arial, sans-serif" font-weight="800" text-anchor="middle">
-    <circle cx="75" cy="150" r="15" fill="url(#pillWarm)"/><text x="75" y="155" font-size="12" fill="#4F3407">C</text>
-    <circle cx="96" cy="171" r="14" fill="url(#pillCool)"/><text x="96" y="176" font-size="11" fill="#073A37">B</text>
-    <circle cx="120" cy="182" r="13" fill="url(#pillPurple)"/><text x="120" y="186" font-size="10" fill="#F4F1FF">A</text>
-    <circle cx="146" cy="183" r="14" fill="url(#pillWarm)"/><text x="146" y="188" font-size="11" fill="#4F3407">K</text>
-    <circle cx="168" cy="168" r="12" fill="url(#pillCool)"/><text x="168" y="172" font-size="9" fill="#073A37">B6</text>
-    <circle cx="180" cy="146" r="11" fill="url(#pillPurple)"/><text x="180" y="150" font-size="8" fill="#F4F1FF">D</text>
-    <circle cx="140" cy="152" r="10" fill="url(#pillWarm)"/><text x="140" y="156" font-size="8" fill="#4F3407">Zn</text>
-    <circle cx="108" cy="139" r="10" fill="url(#pillCool)"/><text x="108" y="143" font-size="8" fill="#073A37">Mg</text>
+    <circle cx="72" cy="144" r="14" fill="url(#pillOrange)"/><text x="72" y="149" font-size="11" fill="#5A3B0A">C</text>
+    <circle cx="95" cy="162" r="13" fill="url(#pillMint)"/><text x="95" y="167" font-size="10" fill="#134742">B6</text>
+    <circle cx="122" cy="173" r="14" fill="url(#pillPurple)"/><text x="122" y="178" font-size="11" fill="#F3F0FF">A</text>
+    <circle cx="150" cy="173" r="14" fill="url(#pillOrange)"/><text x="150" y="178" font-size="11" fill="#5A3B0A">K</text>
+    <circle cx="174" cy="160" r="12" fill="url(#pillMint)"/><text x="174" y="164" font-size="9" fill="#134742">B</text>
+    <circle cx="188" cy="141" r="10" fill="url(#pillOrange)"/><text x="188" y="145" font-size="8" fill="#5A3B0A">Zn</text>
+    <circle cx="54" cy="159" r="10" fill="url(#pillMint)"/><text x="54" y="163" font-size="8" fill="#134742">Mg</text>
+    <circle cx="206" cy="146" r="12" fill="url(#pillOrange)"/><text x="206" y="151" font-size="9" fill="#5A3B0A">C</text>
   </g>
 
-  <g transform="translate(304 56)">
-    <text x="0" y="46" fill="#F5E8CD" font-family="Cormorant Garamond, Georgia, serif" font-size="74" font-weight="700">Dutch Goose</text>
-    <text x="2" y="86" fill="#F3D8AD" font-family="Manrope, Arial, sans-serif" font-size="31" font-weight="800" letter-spacing="1">WLS VITAMINE VERGELIJKING</text>
-    <rect x="2" y="98" width="430" height="36" rx="12" fill="rgba(14,36,57,0.46)" stroke="rgba(220,239,249,0.35)" stroke-width="2"/>
-    <text x="16" y="122" fill="#E7F3FB" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="700">Prijs per pil | Potgrootte | Waardematrix</text>
+  <g transform="translate(286 50)">
+    <text x="0" y="42" fill="#F4E8CC" font-family="Cormorant Garamond, Georgia, serif" font-size="67" font-weight="700">Dutch Goose</text>
+    <text x="2" y="78" fill="#F2D7AE" font-family="Manrope, Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="1">WLS VITAMINE VERGELIJKING</text>
+    <rect x="2" y="90" width="400" height="32" rx="10" fill="rgba(15,37,57,0.48)" stroke="rgba(222,239,249,0.34)" stroke-width="2"/>
+    <text x="14" y="111" fill="#E5F2FA" font-family="Manrope, Arial, sans-serif" font-size="14" font-weight="700">Prijs per pil | Potgrootte | Waardematrix</text>
   </g>
 </svg>
