@@ -1,0 +1,141 @@
+name: Daily WLS Price Data Check
+
+on:
+  schedule:
+    - cron: "15 5 * * *" # dagelijks 05:15 UTC
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/maagverkleiningvitaminen
+    paths:
+      - wls-static/public/catalog-data.js
+      - .github/workflows/daily-price-freshness-check.yml
+
+jobs:
+  catalog-freshness:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Evaluate catalog freshness
+        id: freshness
+        run: |
+          node <<'NODE'
+          const fs = require("node:fs");
+          const path = "wls-static/public/catalog-data.js";
+          const raw = fs.readFileSync(path, "utf8");
+
+          const match = raw.match(/window\.__WLS_CATALOG\s*=\s*(\{[\s\S]*\})\s*;?\s*$/);
+          if (!match) {
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, "stale=true\n");
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, "reason=Kon window.__WLS_CATALOG niet parsen.\n");
+            process.exit(0);
+          }
+
+          let catalog;
+          try {
+            catalog = JSON.parse(match[1]);
+          } catch (err) {
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, "stale=true\n");
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `reason=JSON parse error: ${String(err.message || err)}\n`);
+            process.exit(0);
+          }
+
+          const generatedAt = catalog.generatedAt;
+          if (!generatedAt) {
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, "stale=true\n");
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, "reason=generatedAt ontbreekt in catalog-data.js.\n");
+            process.exit(0);
+          }
+
+          const generatedDate = new Date(`${generatedAt}T00:00:00Z`);
+          if (Number.isNaN(generatedDate.getTime())) {
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, "stale=true\n");
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `reason=generatedAt ongeldig formaat: ${generatedAt}\n`);
+            process.exit(0);
+          }
+
+          const now = new Date();
+          const ageDays = Math.floor((now.getTime() - generatedDate.getTime()) / (24 * 60 * 60 * 1000));
+          const stale = ageDays > 1;
+
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `stale=${stale}\n`);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `generated_at=${generatedAt}\n`);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `age_days=${ageDays}\n`);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `reason=generatedAt=${generatedAt}, age_days=${ageDays}\n`);
+          NODE
+
+      - name: Summary
+        run: |
+          echo "### Daily WLS prijsdata controle" >> "$GITHUB_STEP_SUMMARY"
+          echo "- generatedAt: \`${{ steps.freshness.outputs.generated_at || 'onbekend' }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- age_days: \`${{ steps.freshness.outputs.age_days || 'onbekend' }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- stale: \`${{ steps.freshness.outputs.stale }}\`" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open issue when stale
+        if: steps.freshness.outputs.stale == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = "WLS prijsdata mogelijk verouderd";
+            const label = "price-data-monitor";
+
+            const { data: labels } = await github.rest.issues.listLabelsOnRepo({ owner, repo });
+            if (!labels.find((l) => l.name === label)) {
+              await github.rest.issues.createLabel({
+                owner,
+                repo,
+                name: label,
+                color: "B60205",
+                description: "Prijsdata check: catalog generatedAt te oud"
+              });
+            }
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: "open",
+              labels: label,
+              per_page: 100
+            });
+            const existing = issues.find((i) => i.title === title);
+            const body = [
+              "Dagelijkse controle geeft aan dat de WLS prijsdata mogelijk verouderd is.",
+              "",
+              `- generatedAt: ${process.env.GENERATED_AT || "onbekend"}`,
+              `- age_days: ${process.env.AGE_DAYS || "onbekend"}`,
+              `- run: ${process.env.GITHUB_SERVER_URL}/${owner}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`
+            ].join("\n");
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: existing.number,
+                body
+              });
+            } else {
+              await github.rest.issues.create({
+                owner,
+                repo,
+                title,
+                body,
+                labels: [label]
+              });
+            }
+        env:
+          GENERATED_AT: ${{ steps.freshness.outputs.generated_at }}
+          AGE_DAYS: ${{ steps.freshness.outputs.age_days }}
+
+      - name: Fail when stale
+        if: steps.freshness.outputs.stale == 'true'
+        run: |
+          echo "::error::Catalog data is te oud. ${{ steps.freshness.outputs.reason }}"
+          exit 1
