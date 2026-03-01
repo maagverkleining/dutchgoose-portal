@@ -96,13 +96,17 @@
 
     <section class="panel">
       <h2>Uitgebreide waardevergelijking (per dagdosering)</h2>
-      <div class="table-wrap">
+      <div class="table-wrap table-wrap--nutrient" id="nutrientTableWrap">
         <table id="nutrientTable">
           <thead>
             <tr id="nutrientHead"></tr>
           </thead>
           <tbody id="nutrientBody"></tbody>
         </table>
+      </div>
+      <div class="table-scroll-ui" id="nutrientScrollUi" hidden>
+        <span class="scroll-label">Scroll horizontaal door de tabel</span>
+        <input type="range" id="nutrientScrollRange" min="0" max="0" value="0" aria-label="Horizontaal scrollen in waardetabel">
       </div>
       <p class="note">Lege cellen betekenen: niet publiek gevonden in crawlbare productinformatie of niet expliciet gespecificeerd. Prijs/pil wordt berekend op basis van de goedkoopste beschikbare verpakking per productvariant.</p>
     </section>

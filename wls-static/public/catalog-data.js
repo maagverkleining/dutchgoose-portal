@@ -1,10 +1,15 @@
 window.__WLS_CATALOG = {
-  "generatedAt": "2026-02-19",
+  "generatedAt": "2026-03-01",
   "notes": [
     "Prijzen zijn indicatief en kunnen door acties/abonnementen afwijken.",
+    "Lucovitaal prijsactie 3+2 gratis is handmatig verwerkt op 2026-03-01; controleer de productpagina voor actuele voorwaarden.",
     "FitForMe publiceert op de productpagina geen volledige mg/mcg tabel in crawlbare tekst; daarom deels inferentie op basis van %RI uit productvisuals.",
     "Vitaminen op Recept en Flinndal hebben meerdere verpakkingsgroottes; prijs per pil kan daardoor verschillen."
   ],
+  "runtimeMeta": {
+    "refreshedAt": "2026-03-01T13:05:00+01:00",
+    "refreshType": "handmatig"
+  },
   "nutrients": [
     "vitamine_a_mcg",
     "vitamine_b1_mg",
@@ -486,7 +491,8 @@ window.__WLS_CATALOG = {
       "image": "https://www.lucovitaal.nl/media/catalog/product/cache/ee3ca9a24e0f5bd15af13294cc5aaf29/8/7/8713713023755_lev1_1.jpg",
       "sourceUrl": "https://www.lucovitaal.nl/wls-multi-vitaminen-mineralen.html",
       "packageOptions": [
-        { "count": 30, "price": 19.99, "label": "30 capsules" }
+        { "count": 30, "price": 19.99, "label": "30 capsules" },
+        { "count": 150, "price": 19.99, "label": "Actie 3+2 gratis (5 x 30 capsules)" }
       ],
       "nutrients": {
         "vitamine_a_mcg": 600,

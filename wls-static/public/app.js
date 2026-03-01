@@ -12,7 +12,11 @@ const heroMetaEl = document.getElementById('heroMeta');
 const priceBody = document.querySelector('#priceTable tbody');
 const nutrientHead = document.getElementById('nutrientHead');
 const nutrientBody = document.getElementById('nutrientBody');
+const nutrientTableWrap = document.getElementById('nutrientTableWrap');
+const nutrientScrollUi = document.getElementById('nutrientScrollUi');
+const nutrientScrollRange = document.getElementById('nutrientScrollRange');
 const sourcesEl = document.getElementById('sources');
+let nutrientScrollInitialized = false;
 
 function eur(v) {
   return new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(v);
@@ -156,6 +160,9 @@ function renderSources() {
 
 function renderMeta() {
   const chips = [];
+  if (state.catalog.generatedAt) {
+    chips.push(`Data bijgewerkt: ${state.catalog.generatedAt}`);
+  }
   if (state.catalog.lastCalculatedAt) {
     chips.push(`Laatste berekening: ${new Date(state.catalog.lastCalculatedAt).toLocaleString('nl-NL')}`);
   }
@@ -166,6 +173,36 @@ function renderMeta() {
   heroMetaEl.innerHTML = chips.map((c) => `<span class="chip">${c}</span>`).join('');
 }
 
+function updateNutrientScrollUi() {
+  if (!nutrientTableWrap || !nutrientScrollUi || !nutrientScrollRange) return;
+
+  const maxScroll = Math.max(0, nutrientTableWrap.scrollWidth - nutrientTableWrap.clientWidth);
+  const currentScroll = Math.max(0, Math.min(maxScroll, nutrientTableWrap.scrollLeft));
+  const hasOverflow = maxScroll > 6;
+
+  nutrientScrollUi.hidden = !hasOverflow;
+  nutrientScrollRange.max = String(maxScroll);
+  nutrientScrollRange.value = String(currentScroll);
+
+  nutrientTableWrap.classList.toggle('is-scrollable', hasOverflow);
+  nutrientTableWrap.classList.toggle('at-start', currentScroll <= 2);
+  nutrientTableWrap.classList.toggle('at-end', currentScroll >= maxScroll - 2);
+}
+
+function setupNutrientScrollUi() {
+  if (nutrientScrollInitialized || !nutrientTableWrap || !nutrientScrollUi || !nutrientScrollRange) return;
+  nutrientScrollInitialized = true;
+
+  nutrientTableWrap.addEventListener('scroll', updateNutrientScrollUi, { passive: true });
+  nutrientScrollRange.addEventListener('input', () => {
+    nutrientTableWrap.scrollLeft = Number(nutrientScrollRange.value);
+    updateNutrientScrollUi();
+  });
+  window.addEventListener('resize', () => {
+    window.requestAnimationFrame(updateNutrientScrollUi);
+  });
+}
+
 function render() {
   const items = getVisibleProducts();
   state.visible = items;
@@ -174,6 +211,7 @@ function render() {
   renderCards(items);
   renderPriceTable(items);
   renderNutrientMatrix(items);
+  window.requestAnimationFrame(updateNutrientScrollUi);
 }
 
 function setupFilters() {
@@ -205,6 +243,7 @@ async function init() {
   }
 
   setupFilters();
+  setupNutrientScrollUi();
   renderMeta();
   render();
   renderSources();

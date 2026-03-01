@@ -418,6 +418,58 @@ select {
 }
 
 .table-wrap { overflow-x: auto; }
+.table-wrap--nutrient {
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.table-wrap--nutrient.is-scrollable::before,
+.table-wrap--nutrient.is-scrollable::after {
+  content: "";
+  position: sticky;
+  top: 0;
+  width: 26px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  display: inline-block;
+}
+
+.table-wrap--nutrient.is-scrollable::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255, 254, 251, 0.95), rgba(255, 254, 251, 0));
+}
+
+.table-wrap--nutrient.is-scrollable::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255, 254, 251, 0.95), rgba(255, 254, 251, 0));
+}
+
+.table-wrap--nutrient.at-start::before { opacity: 0; }
+.table-wrap--nutrient.at-end::after { opacity: 0; }
+
+.table-scroll-ui {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.9rem 0.2rem;
+}
+
+.table-scroll-ui[hidden] {
+  display: none;
+}
+
+.scroll-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+#nutrientScrollRange {
+  width: 100%;
+  accent-color: var(--acc-3);
+}
 
 table {
   width: 100%;
