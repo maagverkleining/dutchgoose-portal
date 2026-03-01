@@ -18,7 +18,6 @@
     "deploy:plex": "./scripts/deploy-plex.sh"
   },
   "dependencies": {
-    "@netlify/functions": "^2.8.2",
     "@types/nodemailer": "^7.0.11",
     "next": "^14.2.30",
     "nodemailer": "^8.0.1",
@@ -26,7 +25,6 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^5.11.24",
     "@types/node": "^20.17.24",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",
