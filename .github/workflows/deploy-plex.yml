@@ -166,7 +166,7 @@ jobs:
             set ftp:ssl-allow $ssl_allow;
             set ssl:verify-certificate no;
             mkdir -p \"$TARGET_PATH\";
-            mirror -R --delete --verbose ./wls-static \"$TARGET_PATH\";
+            mirror -R --delete --verbose ./wls-static/ "$TARGET_PATH/";
             bye
             "
           }
