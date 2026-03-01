@@ -14,6 +14,9 @@ export default function VoorwaardenPage() {
         <p>Gebruik van Dutch Goose is op eigen verantwoordelijkheid.</p>
         <p>Content is informatief en vervangt geen medisch advies.</p>
         <p>Samenwerkingen en partnerlinks worden duidelijk gemarkeerd.</p>
+        <p className="font-mono text-sm">
+          tiktok-developers-site-verification=v5ZgtGnNL3YNQE1wQ5ill1G3DFUsZ8Qo
+        </p>
       </div>
     </div>
   );
