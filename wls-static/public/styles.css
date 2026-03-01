@@ -39,13 +39,13 @@ body {
   background: linear-gradient(124deg, #0c355f 0%, #13597a 44%, #1b8b88 100%);
   color: #fff;
   border-radius: 22px;
-  padding: 0.74rem 0.84rem 0.68rem;
+  padding: 0.64rem 0.74rem 0.6rem;
   border: 1px solid rgba(227, 245, 255, 0.23);
   box-shadow: 0 16px 32px rgba(20, 40, 58, 0.24);
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(210px, 0.85fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(190px, 0.8fr);
   gap: 0.58rem;
-  min-height: 278px;
+  min-height: 252px;
 }
 
 .hero-card::before {
@@ -85,8 +85,8 @@ body {
 }
 
 .hero-plaque {
-  width: min(100%, 620px);
-  border-radius: 16px;
+  width: min(100%, 560px);
+  border-radius: 14px;
   padding: 0.21rem 0.21rem 0.24rem;
   background:
     linear-gradient(180deg, rgba(199, 229, 247, 0.36), rgba(173, 218, 238, 0.17));
@@ -99,17 +99,17 @@ body {
 }
 
 .brand-logo {
-  width: min(612px, 100%);
+  width: min(560px, 100%);
   height: auto;
   display: block;
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
 .hero h1 {
   font-family: "Cormorant Garamond", "Syne", serif;
-  font-size: clamp(1.78rem, 3.35vw, 3.2rem);
+  font-size: clamp(1.62rem, 2.9vw, 2.7rem);
   font-weight: 700;
-  margin-top: 0.42rem;
+  margin-top: 0.34rem;
   margin-bottom: 0.12rem;
   line-height: 0.9;
   letter-spacing: -0.02em;
@@ -126,7 +126,7 @@ body {
   max-width: 64ch;
   line-height: 1.24;
   color: rgba(241, 250, 255, 0.97);
-  font-size: clamp(0.86rem, 0.94vw, 1rem);
+  font-size: clamp(0.8rem, 0.82vw, 0.92rem);
   font-weight: 500;
   text-shadow: 0 2px 14px rgba(6, 20, 34, 0.34);
   animation: heroRise 0.62s ease both;
@@ -134,7 +134,7 @@ body {
 }
 
 .hero-actions {
-  margin-top: 0.4rem;
+  margin-top: 0.3rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.66rem;
@@ -154,10 +154,10 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  padding: 0.41rem 0.78rem;
+  padding: 0.36rem 0.68rem;
   text-decoration: none;
   font-weight: 900;
-  font-size: 0.74rem;
+  font-size: 0.68rem;
   letter-spacing: 0.01em;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.36);
@@ -190,8 +190,8 @@ body {
 .chip {
   border: 1px solid rgba(190, 219, 244, 0.45);
   border-radius: 999px;
-  padding: 0.34rem 0.6rem;
-  font-size: 0.72rem;
+  padding: 0.3rem 0.54rem;
+  font-size: 0.66rem;
   background: rgba(28, 57, 77, 0.57);
   font-weight: 800;
   color: #eaf8ff;
@@ -200,7 +200,7 @@ body {
 
 .hero-orbit {
   position: relative;
-  min-height: 214px;
+  min-height: 182px;
   margin-right: 0.1rem;
   margin-top: 0.2rem;
 }
