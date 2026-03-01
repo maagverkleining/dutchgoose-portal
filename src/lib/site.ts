@@ -1,6 +1,16 @@
+const defaultSiteUrl = "https://dutchgoose.nl";
+const rawSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || defaultSiteUrl).trim();
+const normalizedSiteUrl = rawSiteUrl.endsWith("/")
+  ? rawSiteUrl.slice(0, -1)
+  : rawSiteUrl;
+
 export const siteConfig = {
   name: "Dutch Goose",
-  url: "https://www.dutchgoose.nl",
+  url: normalizedSiteUrl,
+  utmSource: normalizedSiteUrl
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "")
+    .split("/")[0],
   description:
     "Dutch Goose is jouw portal na maagverkleining met deals, tools, tests, kennisbank en community.",
   defaultCouponCode: "DUTCHGOOSE",
