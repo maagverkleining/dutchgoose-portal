@@ -1,36 +1,76 @@
-<svg width="640" height="220" viewBox="0 0 640 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="940" height="250" viewBox="0 0 940 250" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Dutch Goose WLS logo</title>
-  <desc id="desc">Een stijlvol logo met een gans en capsule voor Dutch Goose WLS vitamine vergelijking.</desc>
+  <desc id="desc">Logo met gans, vitaminebollen en tekst Dutch Goose WLS Vitamine Vergelijking.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="220" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1B2733"/>
-      <stop offset="0.52" stop-color="#174D84"/>
-      <stop offset="1" stop-color="#0D7A67"/>
+    <linearGradient id="plaqueBg" x1="0" y1="0" x2="940" y2="250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1C406A"/>
+      <stop offset="0.52" stop-color="#195B80"/>
+      <stop offset="1" stop-color="#157D7A"/>
     </linearGradient>
-    <linearGradient id="pill" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#F8E9D0"/>
-      <stop offset="1" stop-color="#EDB97F"/>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(145 114) rotate(90) scale(108 108)">
+      <stop stop-color="#98C6DF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#98C6DF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="neckShade" x1="89" y1="57" x2="196" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D3138"/>
+      <stop offset="0.45" stop-color="#171C22"/>
+      <stop offset="1" stop-color="#47505D"/>
     </linearGradient>
+    <linearGradient id="beak" x1="186" y1="88" x2="220" y2="104" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A2E36"/>
+      <stop offset="1" stop-color="#545C68"/>
+    </linearGradient>
+    <linearGradient id="pillA" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFE0A8"/>
+      <stop offset="1" stop-color="#DA9D3E"/>
+    </linearGradient>
+    <linearGradient id="pillB" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#9EE7D6"/>
+      <stop offset="1" stop-color="#2E9185"/>
+    </linearGradient>
+    <linearGradient id="pillC" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#D6CBFF"/>
+      <stop offset="1" stop-color="#6E60C2"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-30%" width="150%" height="170%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#04192A" flood-opacity="0.45"/>
+    </filter>
   </defs>
 
-  <rect x="2" y="2" width="636" height="216" rx="34" fill="url(#bg)"/>
-  <g transform="translate(28 28)">
-    <circle cx="78" cy="82" r="72" fill="rgba(255,255,255,0.12)"/>
+  <rect x="2" y="2" width="936" height="246" rx="34" fill="url(#plaqueBg)"/>
+  <rect x="2" y="2" width="936" height="246" rx="34" stroke="rgba(209,236,250,0.36)" stroke-width="3"/>
+  <rect x="16" y="16" width="428" height="218" rx="28" fill="rgba(8,25,43,0.28)" stroke="rgba(198,229,245,0.38)" stroke-width="2"/>
 
-    <path d="M64 136C46 128 42 104 50 88C58 72 78 62 96 68C116 74 126 98 118 118C110 138 86 146 64 136Z" fill="#F9F1E4"/>
-    <path d="M104 75C114 66 128 68 136 76C145 84 146 97 140 107C133 117 121 121 109 116" stroke="#F9F1E4" stroke-width="10" stroke-linecap="round"/>
-    <path d="M126 83L148 78L138 94" fill="#E17F39"/>
-    <circle cx="118" cy="83" r="4.5" fill="#16202A"/>
+  <circle cx="145" cy="116" r="106" fill="url(#halo)"/>
 
-    <g transform="translate(18 106) rotate(-12)">
-      <rect x="0" y="0" width="78" height="28" rx="14" fill="url(#pill)"/>
-      <line x1="39" y1="2" x2="39" y2="26" stroke="#CB7A37" stroke-width="2"/>
-    </g>
+  <g filter="url(#softShadow)">
+    <path d="M136 197C108 186 95 157 99 132C104 101 123 82 153 76C176 72 198 82 207 103C214 119 212 138 204 153C191 177 163 208 136 197Z" fill="url(#neckShade)"/>
+    <path d="M101 161C115 188 153 211 184 189C204 175 212 150 210 126C193 157 152 176 101 161Z" fill="#726C5A" fill-opacity="0.36"/>
+    <path d="M131 73C120 84 122 107 136 122C148 135 172 139 187 129C199 122 206 106 205 93C204 82 198 71 188 65C172 56 145 58 131 73Z" fill="#1A2027"/>
+    <path d="M132 78C127 89 131 107 145 116C161 126 184 121 195 107C205 95 203 74 187 67C168 58 141 62 132 78Z" fill="#222831"/>
+    <path d="M131 89C128 102 133 112 145 117C157 122 174 120 183 111C191 103 192 93 188 82C178 90 151 97 131 89Z" fill="#F0F4F6"/>
+    <path d="M184 88L221 78L199 102L183 99C179 95 180 90 184 88Z" fill="url(#beak)"/>
+    <circle cx="177" cy="83" r="4.2" fill="#12171E"/>
+    <circle cx="176" cy="82" r="1.3" fill="#F7FDFF"/>
   </g>
 
-  <g transform="translate(188 54)">
-    <text x="0" y="46" fill="#FFFFFF" font-family="Syne, Manrope, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="0.5">Dutch Goose</text>
-    <text x="2" y="92" fill="#FFD8B4" font-family="Manrope, Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="2">WLS VITAMINE VERGELIJKING</text>
-    <text x="2" y="124" fill="#D7E8FF" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="600">Prijs per pil | Potgrootte | Waardematrix</text>
+  <g font-family="Manrope, Arial, sans-serif" font-weight="800" text-anchor="middle">
+    <circle cx="74" cy="145" r="19" fill="url(#pillA)"/><text x="74" y="151" font-size="16" fill="#4E3508">C</text>
+    <circle cx="96" cy="173" r="17" fill="url(#pillB)"/><text x="96" y="178" font-size="14" fill="#083B38">B</text>
+    <circle cx="128" cy="182" r="15" fill="url(#pillC)"/><text x="128" y="187" font-size="12" fill="#F2EEFF">A</text>
+    <circle cx="154" cy="184" r="18" fill="url(#pillA)"/><text x="154" y="190" font-size="14" fill="#4E3508">K</text>
+    <circle cx="176" cy="165" r="14" fill="url(#pillB)"/><text x="176" y="170" font-size="11" fill="#083B38">B6</text>
+    <circle cx="186" cy="142" r="13" fill="url(#pillC)"/><text x="186" y="147" font-size="10" fill="#F2EEFF">D</text>
+    <circle cx="160" cy="145" r="13" fill="url(#pillB)"/><text x="160" y="150" font-size="10" fill="#083B38">Na</text>
+    <circle cx="139" cy="164" r="12" fill="url(#pillA)"/><text x="139" y="169" font-size="10" fill="#4E3508">Zn</text>
+    <circle cx="119" cy="145" r="12" fill="url(#pillC)"/><text x="119" y="150" font-size="10" fill="#F2EEFF">Mg</text>
+    <circle cx="90" cy="124" r="12" fill="url(#pillB)"/><text x="90" y="129" font-size="10" fill="#083B38">B1</text>
+  </g>
+
+  <g transform="translate(292 72)">
+    <text x="0" y="52" fill="#F7EACC" font-family="Cormorant Garamond, Georgia, serif" font-size="82" font-weight="700" letter-spacing="0.5">Dutch Goose</text>
+    <text x="2" y="102" fill="#F3D7AD" font-family="Manrope, Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="1.1">WLS VITAMINE VERGELIJKING</text>
+    <rect x="2" y="118" width="470" height="42" rx="14" fill="rgba(14,35,56,0.44)" stroke="rgba(226,240,250,0.34)" stroke-width="2"/>
+    <text x="18" y="146" fill="#E6F2FA" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="700">Prijs per pil | Potgrootte | Waardematrix</text>
   </g>
 </svg>
