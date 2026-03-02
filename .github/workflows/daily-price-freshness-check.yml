@@ -17,10 +17,14 @@ jobs:
     permissions:
       contents: read
       issues: write
+    env:
+      CATALOG_REF: codex/maagverkleiningvitaminen
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.CATALOG_REF }}
 
       - name: Evaluate catalog freshness
         id: freshness
@@ -28,7 +32,14 @@ jobs:
           node <<'NODE'
           const fs = require("node:fs");
           const path = "wls-static/public/catalog-data.js";
-          const raw = fs.readFileSync(path, "utf8");
+          let raw = "";
+          try {
+            raw = fs.readFileSync(path, "utf8");
+          } catch (err) {
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, "stale=true\n");
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `reason=Kon ${path} niet lezen op ref ${process.env.CATALOG_REF}: ${String(err.message || err)}\n`);
+            process.exit(0);
+          }
 
           const match = raw.match(/window\.__WLS_CATALOG\s*=\s*(\{[\s\S]*\})\s*;?\s*$/);
           if (!match) {
