@@ -104,7 +104,16 @@ function renderCards(items) {
           <div class="price">Laagste prijs/pil: <span class="ppp">${ppp !== null ? eur(ppp) : 'n.v.t.'}</span></div>
           <div class="best">Goedkoopste pot: ${best ? `${best.count} stuks voor ${eur(best.price)}` : 'n.v.t.'}</div>
           <div class="options">Varianten: ${options || 'n.v.t.'}</div>
-          <a class="buy" href="${p.orderUrl}" target="_blank" rel="noopener noreferrer">Bekijk prijs en bestel nu</a>
+          <a
+            class="buy"
+            href="${p.orderUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="affiliate_click"
+            data-supplier="${p.supplier}"
+            data-product-id="${p.id}"
+            data-placement="card_buy"
+          >Bekijk prijs en bestel nu</a>
         </div>
       </article>
     `;
@@ -122,7 +131,18 @@ function renderPriceTable(items) {
         <td>${formLabel(p.form)}</td>
         <td>${best ? `${best.count} stuks (${eur(best.price)})` : 'n.v.t.'}</td>
         <td>${ppp !== null ? eur(ppp) : 'n.v.t.'}</td>
-        <td><a class="table-buy" href="${p.orderUrl}" target="_blank" rel="noopener noreferrer">Bestel direct</a></td>
+        <td>
+          <a
+            class="table-buy"
+            href="${p.orderUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="affiliate_click"
+            data-supplier="${p.supplier}"
+            data-product-id="${p.id}"
+            data-placement="table_buy"
+          >Bestel direct</a>
+        </td>
       </tr>
     `;
   }).join('');
