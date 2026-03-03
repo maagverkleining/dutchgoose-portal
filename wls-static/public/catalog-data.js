@@ -1,5 +1,5 @@
 window.__WLS_CATALOG = {
-  "generatedAt": "2026-03-01",
+  "generatedAt": "2026-03-03",
   "notes": [
     "Prijzen zijn indicatief en kunnen door acties/abonnementen afwijken.",
     "Lucovitaal prijsactie 3+2 gratis is handmatig verwerkt op 2026-03-01; controleer de productpagina voor actuele voorwaarden.",
@@ -7,8 +7,9 @@ window.__WLS_CATALOG = {
     "Vitaminen op Recept en Flinndal hebben meerdere verpakkingsgroottes; prijs per pil kan daardoor verschillen."
   ],
   "runtimeMeta": {
-    "refreshedAt": "2026-03-01T13:05:00+01:00",
-    "refreshType": "handmatig"
+    "refreshedAt": "2026-03-03T07:17:45.120Z",
+    "refreshType": "automatisch",
+    "refreshedBy": "daily-github-action"
   },
   "nutrients": [
     "vitamine_a_mcg",
@@ -70,8 +71,16 @@ window.__WLS_CATALOG = {
       "image": "https://flinndal.nl/cloud/img/wls-capsule_hand_lineaal_combo-%281%29_fd7a4a6d.png",
       "sourceUrl": "https://www.flinndal.nl/multivitaminen/wls-tablet",
       "packageOptions": [
-        { "count": 90, "price": 33.95, "label": "90 tabletten" },
-        { "count": 180, "price": 67.9, "label": "180 tabletten (herhaalgemak)" }
+        {
+          "count": 90,
+          "price": 33.95,
+          "label": "90 tabletten"
+        },
+        {
+          "count": 180,
+          "price": 67.9,
+          "label": "180 tabletten (herhaalgemak)"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 600,
@@ -106,7 +115,11 @@ window.__WLS_CATALOG = {
       "image": "https://flinndal.nl/cloud/img/wls-capsule_hand_lineaal_combo-%281%29_fd7a4a6d.png",
       "sourceUrl": "https://www.flinndal.nl/multivitaminen/wls-capsule",
       "packageOptions": [
-        { "count": 90, "price": 33.95, "label": "90 capsules" }
+        {
+          "count": 90,
+          "price": 33.95,
+          "label": "90 capsules"
+        }
       ],
       "nutrients": {
         "vitamine_b12_mcg": 350,
@@ -130,10 +143,26 @@ window.__WLS_CATALOG = {
       "image": "https://www.vitaminenoprecept.nl/cloud/img/wls_subliem_gbp_kauwtablet_multivitamine_496x792_b9e19035.png?width=800",
       "sourceUrl": "https://www.vitaminenoprecept.nl/wls-formule/wls-subliem-gbp-formule",
       "packageOptions": [
-        { "count": 30, "price": 11.95, "label": "30 capsules" },
-        { "count": 85, "price": 27.95, "label": "85 capsules" },
-        { "count": 170, "price": 42.95, "label": "170 capsules" },
-        { "count": 340, "price": 69.95, "label": "340 capsules" }
+        {
+          "count": 30,
+          "price": 11.95,
+          "label": "30 capsules"
+        },
+        {
+          "count": 85,
+          "price": 27.95,
+          "label": "85 capsules"
+        },
+        {
+          "count": 170,
+          "price": 42.95,
+          "label": "170 capsules"
+        },
+        {
+          "count": 340,
+          "price": 69.95,
+          "label": "340 capsules"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 600,
@@ -167,10 +196,26 @@ window.__WLS_CATALOG = {
       "image": "https://www.vitaminenoprecept.nl/cloud/img/wls_subliem_gbp_kauwtablet_multivitamine_496x792_b9e19035.png?width=800",
       "sourceUrl": "https://www.vitaminenoprecept.nl/wls-formule/wls-subliem-sleeve-formule",
       "packageOptions": [
-        { "count": 30, "price": 11.95, "label": "30 capsules" },
-        { "count": 85, "price": 27.95, "label": "85 capsules" },
-        { "count": 170, "price": 42.95, "label": "170 capsules" },
-        { "count": 340, "price": 69.95, "label": "340 capsules" }
+        {
+          "count": 30,
+          "price": 11.95,
+          "label": "30 capsules"
+        },
+        {
+          "count": 85,
+          "price": 27.95,
+          "label": "85 capsules"
+        },
+        {
+          "count": 170,
+          "price": 42.95,
+          "label": "170 capsules"
+        },
+        {
+          "count": 340,
+          "price": 69.95,
+          "label": "340 capsules"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 600,
@@ -207,10 +252,26 @@ window.__WLS_CATALOG = {
       "image": "https://www.vitaminenoprecept.nl/cloud/img/wls_subliem_gbp_kauwtablet_multivitamine_496x792_b9e19035.png?width=800",
       "sourceUrl": "https://www.vitaminenoprecept.nl/wls-formule/wls-subliem-mini-formule",
       "packageOptions": [
-        { "count": 30, "price": 11.95, "label": "30 capsules" },
-        { "count": 85, "price": 27.95, "label": "85 capsules" },
-        { "count": 170, "price": 42.95, "label": "170 capsules" },
-        { "count": 340, "price": 62.96, "label": "340 capsules" }
+        {
+          "count": 30,
+          "price": 11.95,
+          "label": "30 capsules"
+        },
+        {
+          "count": 85,
+          "price": 27.95,
+          "label": "85 capsules"
+        },
+        {
+          "count": 170,
+          "price": 42.95,
+          "label": "170 capsules"
+        },
+        {
+          "count": 340,
+          "price": 62.96,
+          "label": "340 capsules"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 600,
@@ -244,9 +305,21 @@ window.__WLS_CATALOG = {
       "image": "https://www.vitaminenoprecept.nl/cloud/img/wls_subliem_gbp_kauwtablet_multivitamine_496x792_b9e19035.png?width=800",
       "sourceUrl": "https://www.vitaminenoprecept.nl/wls-formule/wls-subliem-gbp-kauwtablet",
       "packageOptions": [
-        { "count": 30, "price": 16.95, "label": "30 kauwtabletten + ijzer tablet" },
-        { "count": 85, "price": 42.95, "label": "85 kauwtabletten + ijzer tablet" },
-        { "count": 170, "price": 69.95, "label": "170 kauwtabletten + ijzer tablet" }
+        {
+          "count": 30,
+          "price": 17.95,
+          "label": "30 kauwtabletten + ijzer tablet"
+        },
+        {
+          "count": 85,
+          "price": 40.95,
+          "label": "85 kauwtabletten + ijzer tablet"
+        },
+        {
+          "count": 170,
+          "price": 77.95,
+          "label": "170 kauwtabletten + ijzer tablet"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 600,
@@ -275,7 +348,11 @@ window.__WLS_CATALOG = {
       "image": "https://pim.fitforme.com/_default_upload_bucket/3083/image-thumb__3083__1500w/WLS-Forte-Multivitamin-Gastric-Bypass-Product-Image-FitForMe-NL_2.7cf03ddd.jpg",
       "sourceUrl": "https://fitforme.com/nl-nl/product/assortiment/wls-forte/",
       "packageOptions": [
-        { "count": 90, "price": 46.95, "label": "90 capsules" }
+        {
+          "count": 90,
+          "price": 46.95,
+          "label": "90 capsules"
+        }
       ],
       "nutrients": {
         "foliumzuur_b11_mcg": 600,
@@ -296,7 +373,11 @@ window.__WLS_CATALOG = {
       "image": "https://pim.fitforme.com/_default_upload_bucket/3083/image-thumb__3083__1500w/WLS-Forte-Multivitamin-Gastric-Bypass-Product-Image-FitForMe-NL_2.7cf03ddd.jpg",
       "sourceUrl": "https://fitforme.com/nl-nl/product/assortiment/wls-forte/",
       "packageOptions": [
-        { "count": 90, "price": 49.95, "label": "90 kauwtabletten" }
+        {
+          "count": 90,
+          "price": 49.95,
+          "label": "90 kauwtabletten"
+        }
       ],
       "nutrients": {
         "foliumzuur_b11_mcg": 600,
@@ -317,7 +398,11 @@ window.__WLS_CATALOG = {
       "image": "https://pim.fitforme.com/_default_upload_bucket/3083/image-thumb__3083__1500w/WLS-Forte-Multivitamin-Gastric-Bypass-Product-Image-FitForMe-NL_2.7cf03ddd.jpg",
       "sourceUrl": "https://fitforme.com/nl-nl/product/assortiment/wls-maximum/",
       "packageOptions": [
-        { "count": 90, "price": 44.95, "label": "90 capsules" }
+        {
+          "count": 90,
+          "price": 44.95,
+          "label": "90 capsules"
+        }
       ],
       "nutrients": {
         "foliumzuur_b11_mcg": 600,
@@ -338,12 +423,36 @@ window.__WLS_CATALOG = {
       "image": "https://www.elan-products.nl/wp-content/uploads/2023/07/elan-compass-capsules.jpg",
       "sourceUrl": "https://www.elan-products.nl/producten/compass-capsules/",
       "packageOptions": [
-        { "count": 60, "price": 24.0, "label": "1 verpakking (2 maanden)" },
-        { "count": 120, "price": 46.0, "label": "2 verpakkingen (4 maanden)" },
-        { "count": 180, "price": 58.5, "label": "3 verpakkingen (6 maanden)" },
-        { "count": 240, "price": 77.0, "label": "4 verpakkingen (8 maanden)" },
-        { "count": 300, "price": 92.5, "label": "5 verpakkingen (10 maanden)" },
-        { "count": 360, "price": 105.0, "label": "6 verpakkingen (12 maanden)" }
+        {
+          "count": 60,
+          "price": 24,
+          "label": "1 verpakking (2 maanden)"
+        },
+        {
+          "count": 120,
+          "price": 46,
+          "label": "2 verpakkingen (4 maanden)"
+        },
+        {
+          "count": 180,
+          "price": 58.5,
+          "label": "3 verpakkingen (6 maanden)"
+        },
+        {
+          "count": 240,
+          "price": 77,
+          "label": "4 verpakkingen (8 maanden)"
+        },
+        {
+          "count": 300,
+          "price": 92.5,
+          "label": "5 verpakkingen (10 maanden)"
+        },
+        {
+          "count": 360,
+          "price": 105,
+          "label": "6 verpakkingen (12 maanden)"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 900,
@@ -378,10 +487,26 @@ window.__WLS_CATALOG = {
       "image": "https://www.elan-products.nl/wp-content/uploads/2023/07/compass-tabletten-vooraanzicht.jpg",
       "sourceUrl": "https://www.elan-products.nl/producten/compass-tabletten/",
       "packageOptions": [
-        { "count": 90, "price": 39.95, "label": "1 pot (3 maanden)" },
-        { "count": 180, "price": 58.5, "label": "2 potten (6 maanden)" },
-        { "count": 270, "price": 86.25, "label": "3 potten (9 maanden)" },
-        { "count": 360, "price": 105.0, "label": "4 potten (12 maanden)" }
+        {
+          "count": 90,
+          "price": 39.95,
+          "label": "1 pot (3 maanden)"
+        },
+        {
+          "count": 180,
+          "price": 58.5,
+          "label": "2 potten (6 maanden)"
+        },
+        {
+          "count": 270,
+          "price": 86.25,
+          "label": "3 potten (9 maanden)"
+        },
+        {
+          "count": 360,
+          "price": 105,
+          "label": "4 potten (12 maanden)"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 900,
@@ -416,10 +541,26 @@ window.__WLS_CATALOG = {
       "image": "https://www.elan-products.nl/wp-content/uploads/2023/07/elan-compass-kauwtabletten.jpg",
       "sourceUrl": "https://www.elan-products.nl/producten/compass-kauwtabletten/",
       "packageOptions": [
-        { "count": 90, "price": 39.95, "label": "1 pot (3 maanden)" },
-        { "count": 180, "price": 58.5, "label": "2 potten (6 maanden)" },
-        { "count": 270, "price": 86.25, "label": "3 potten (9 maanden)" },
-        { "count": 360, "price": 105.0, "label": "4 potten (12 maanden)" }
+        {
+          "count": 90,
+          "price": 39.95,
+          "label": "1 pot (3 maanden)"
+        },
+        {
+          "count": 180,
+          "price": 58.5,
+          "label": "2 potten (6 maanden)"
+        },
+        {
+          "count": 270,
+          "price": 86.25,
+          "label": "3 potten (9 maanden)"
+        },
+        {
+          "count": 360,
+          "price": 105,
+          "label": "4 potten (12 maanden)"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 900,
@@ -454,10 +595,26 @@ window.__WLS_CATALOG = {
       "image": "https://www.vitaminenspecialist.nl/wp-content/uploads/2024/10/1STUK_WLS-300x300.png",
       "sourceUrl": "https://www.vitaminenspecialist.nl/alle-vitaminen/wls/",
       "packageOptions": [
-        { "count": 14, "price": 10, "label": "Proefverpakking (14 caps.)" },
-        { "count": 85, "price": 20, "label": "85 stuks" },
-        { "count": 170, "price": 30, "label": "170 stuks" },
-        { "count": 340, "price": 49, "label": "340 stuks" }
+        {
+          "count": 14,
+          "price": 10,
+          "label": "Proefverpakking (14 caps.)"
+        },
+        {
+          "count": 85,
+          "price": 20,
+          "label": "85 stuks"
+        },
+        {
+          "count": 170,
+          "price": 30,
+          "label": "170 stuks"
+        },
+        {
+          "count": 340,
+          "price": 49,
+          "label": "340 stuks"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 600,
@@ -491,8 +648,16 @@ window.__WLS_CATALOG = {
       "image": "https://www.lucovitaal.nl/media/catalog/product/cache/ee3ca9a24e0f5bd15af13294cc5aaf29/8/7/8713713023755_lev1_1.jpg",
       "sourceUrl": "https://www.lucovitaal.nl/wls-multi-vitaminen-mineralen.html",
       "packageOptions": [
-        { "count": 30, "price": 19.99, "label": "30 capsules" },
-        { "count": 150, "price": 19.99, "label": "Actie 3+2 gratis (5 x 30 capsules)" }
+        {
+          "count": 30,
+          "price": 19.99,
+          "label": "30 capsules"
+        },
+        {
+          "count": 150,
+          "price": 19.99,
+          "label": "Actie 3+2 gratis (5 x 30 capsules)"
+        }
       ],
       "nutrients": {
         "vitamine_a_mcg": 600,
