@@ -1,0 +1,58 @@
+name: Deploy Dutchgoose (Plesk Docker)
+
+on:
+  push:
+    branches:
+      - codex/dutchgoose
+    paths-ignore:
+      - "wls-static/**"
+      - "docs/WLS-*.md"
+      - ".github/workflows/deploy-plex.yml"
+      - ".github/workflows/wls-preview-check.yml"
+      - ".github/workflows/wls-promote-live.yml"
+      - ".github/workflows/wls-rollback-live.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/codex/dutchgoose'
+    env:
+      DG_DEPLOY_HOST: ${{ secrets.DG_DEPLOY_HOST }}
+      DG_DEPLOY_USER: ${{ secrets.DG_DEPLOY_USER }}
+      DG_DEPLOY_PORT: ${{ secrets.DG_DEPLOY_PORT }}
+      DG_DEPLOY_PATH: ${{ secrets.DG_DEPLOY_PATH }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate deploy secrets
+        run: |
+          [[ -n "${DG_DEPLOY_HOST//[[:space:]]/}" ]] || (echo "::error::DG_DEPLOY_HOST ontbreekt." && exit 1)
+          [[ -n "${DG_DEPLOY_USER//[[:space:]]/}" ]] || (echo "::error::DG_DEPLOY_USER ontbreekt." && exit 1)
+          [[ -n "${DG_DEPLOY_PATH//[[:space:]]/}" ]] || (echo "::error::DG_DEPLOY_PATH ontbreekt." && exit 1)
+
+      - name: Setup SSH key
+        env:
+          DG_DEPLOY_SSH_KEY: ${{ secrets.DG_DEPLOY_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          [[ -n "${DG_DEPLOY_SSH_KEY//[[:space:]]/}" ]] || (echo "::error::DG_DEPLOY_SSH_KEY ontbreekt." && exit 1)
+          printf '%s\n' "$DG_DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          tr -d '\r' < ~/.ssh/deploy_key > ~/.ssh/deploy_key.clean
+          mv ~/.ssh/deploy_key.clean ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+      - name: Add host key
+        run: |
+          PORT="${DG_DEPLOY_PORT:-22}"
+          timeout 20 ssh-keyscan -T 10 -p "$PORT" "$DG_DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Verify SSH login
+        run: |
+          PORT="${DG_DEPLOY_PORT:-22}"
+          ssh -i ~/.ssh/deploy_key -p "$PORT" -o BatchMode=yes -o ConnectTimeout=12 "$DG_DEPLOY_USER@$DG_DEPLOY_HOST" "echo SSH_OK"
+
+      - name: Deploy Dutchgoose
+        run: bash ./scripts/deploy-dutchgoose.sh
