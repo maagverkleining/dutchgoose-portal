@@ -47,7 +47,11 @@ jobs:
       - name: Add host key
         run: |
           PORT="${DG_DEPLOY_PORT:-22}"
-          timeout 20 ssh-keyscan -T 10 -p "$PORT" "$DG_DEPLOY_HOST" >> ~/.ssh/known_hosts
+          if ! timeout 20 ssh-keyscan -T 10 -p "$PORT" "$DG_DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/tmp/sshscan.err; then
+            echo "::error::Kan SSH host key niet ophalen van ${DG_DEPLOY_HOST}:${PORT}. Controleer host, poort en firewall."
+            cat /tmp/sshscan.err || true
+            exit 1
+          fi
 
       - name: Verify SSH login
         run: |
