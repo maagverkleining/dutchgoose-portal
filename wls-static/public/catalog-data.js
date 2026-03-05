@@ -1,5 +1,5 @@
 window.__WLS_CATALOG = {
-  "generatedAt": "2026-03-03",
+  "generatedAt": "2026-03-05",
   "notes": [
     "Prijzen zijn indicatief en kunnen door acties/abonnementen afwijken.",
     "Lucovitaal prijsactie 3+2 gratis is handmatig verwerkt op 2026-03-01; controleer de productpagina voor actuele voorwaarden.",
@@ -7,7 +7,7 @@ window.__WLS_CATALOG = {
     "Vitaminen op Recept en Flinndal hebben meerdere verpakkingsgroottes; prijs per pil kan daardoor verschillen."
   ],
   "runtimeMeta": {
-    "refreshedAt": "2026-03-03T07:17:45.120Z",
+    "refreshedAt": "2026-03-05T07:38:15.160Z",
     "refreshType": "automatisch",
     "refreshedBy": "daily-github-action"
   },
