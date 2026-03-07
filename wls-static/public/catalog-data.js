@@ -1,15 +1,15 @@
 window.__WLS_CATALOG = {
-  "generatedAt": "2026-03-05",
+  "generatedAt": "2026-03-07",
   "notes": [
+    "Lucovitaal handmatig gecheckt op 2026-03-07: 30 capsules voor EUR 9,00.",
     "Prijzen zijn indicatief en kunnen door acties/abonnementen afwijken.",
-    "Lucovitaal prijsactie 3+2 gratis is handmatig verwerkt op 2026-03-01; controleer de productpagina voor actuele voorwaarden.",
     "FitForMe publiceert op de productpagina geen volledige mg/mcg tabel in crawlbare tekst; daarom deels inferentie op basis van %RI uit productvisuals.",
     "Vitaminen op Recept en Flinndal hebben meerdere verpakkingsgroottes; prijs per pil kan daardoor verschillen."
   ],
   "runtimeMeta": {
-    "refreshedAt": "2026-03-05T07:38:15.160Z",
-    "refreshType": "automatisch",
-    "refreshedBy": "daily-github-action"
+    "refreshedAt": "2026-03-07T05:36:56.848Z",
+    "refreshType": "handmatige correctie",
+    "refreshedBy": "codex-manual-update"
   },
   "nutrients": [
     "vitamine_a_mcg",
@@ -650,13 +650,8 @@ window.__WLS_CATALOG = {
       "packageOptions": [
         {
           "count": 30,
-          "price": 19.99,
+          "price": 9,
           "label": "30 capsules"
-        },
-        {
-          "count": 150,
-          "price": 19.99,
-          "label": "Actie 3+2 gratis (5 x 30 capsules)"
         }
       ],
       "nutrients": {
