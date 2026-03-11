@@ -1,7 +1,0 @@
-RewriteEngine On
-
-# Keep the maintenance page itself directly reachable.
-RewriteRule ^maintenance\.html$ - [L]
-
-# Temporary offline mode: send all requests to the maintenance page.
-RewriteRule ^.*$ /maintenance.html [R=302,L]
