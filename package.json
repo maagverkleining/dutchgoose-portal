@@ -6,22 +6,25 @@
     "node": ">=18.18.0"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/serve-wls-static.mjs",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/serve-wls-static.mjs",
+    "dev:portal": "next dev -p 3003",
+    "start:portal": "next start -p 3003",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
-    "import:awin": "tsx tools/import-awin-export.ts"
+    "import:awin": "tsx tools/import-awin-export.ts",
+    "deploy:plex": "./scripts/deploy-plex.sh"
   },
   "dependencies": {
-    "@netlify/functions": "^2.8.2",
+    "@types/nodemailer": "^7.0.11",
     "next": "^14.2.30",
+    "nodemailer": "^8.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^5.11.24",
     "@types/node": "^20.17.24",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",

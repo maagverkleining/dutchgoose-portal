@@ -1,98 +1,61 @@
-# Dutch Goose Portal (Next.js + Netlify)
+# Maagverkleiningvitaminen (Plesk Static Deploy)
 
-Complete portal website voor `www.dutchgoose.nl` met routes voor deals, tools, tests, starter kits, kennisbank, community en partners.
+Actieve productiebron voor `www.maagverkleiningvitaminen.nl` staat in:
+
+- `wls-static/`
+
+Deze map bevat de statische WLS-vergelijkingssite (inhoud van `dutchgoose-wls.netlify.app`) en wordt direct naar Plesk gedeployed.
 
 ## Stack
 
-- Next.js 14 (App Router)
-- TypeScript (strict)
-- Tailwind CSS
-- Netlify plugin voor Next.js
-- JSON data in `/data` (geen CMS)
+- Statische HTML/CSS/JS
+- GitHub Actions deploy via SSH/rsync of FTP/FTPS
+- Plesk hosting (dotpoint)
 
-## Snel starten
+## Lokale preview
 
-1. Installeer dependencies:
-   - `npm install`
-2. Start lokaal:
-   - `npm run dev`
-3. Build check:
-   - `npm run build`
+```bash
+npm run dev
+```
 
-## Netlify live zetten
+Open daarna `http://localhost:3002`.
 
-1. Push deze repo naar GitHub.
-2. Maak een nieuwe Netlify site met die repo.
-3. Build settings:
-   - Build command: `npm run build`
-   - Publish directory: `.next`
-4. Netlify detecteert `netlify.toml` en activeert `@netlify/plugin-nextjs`.
-5. Deploy en koppel custom domain `www.dutchgoose.nl`.
+Portal (oude Next.js app) lokaal openen kan nog via:
 
-## Affiliate en tracking
+```bash
+npm run dev:portal
+```
 
-- Alle affiliate uitgaande links lopen via `/go/[slug]`.
-- Redirect is `302`.
-- Click logging gebeurt via Netlify Function:
-  - `netlify/functions/log-click.ts`
-- Gelogde velden:
-  - `timestamp`
-  - `slug`
-  - `category`
-  - `placement`
-  - `ref`
-  - `userAgentHash`
-  - `country` (optioneel)
+Dan draait die op `http://localhost:3003`.
 
-## Nieuwe adverteerder toevoegen
+## Deploy naar Plesk
 
-Open `/data/merchants.json` en voeg een object toe met velden:
+Workflow:
 
-- `name`
-- `slug`
-- `category`
-- `shortPitch`
-- `whyForMaagverkleining` (3 bullets)
-- `trackingNetwork` (`awin` of `direct`)
-- `awinMerchantId` (optioneel)
-- `awinTrackingUrl` (optioneel)
-- `baseUrl`
-- `allowDefaultCode` (boolean)
-- `couponCode` (optioneel)
-- `couponText` (optioneel)
-- `heroImage` (optioneel)
-- `isFeatured` (boolean)
-- `needsReview` (boolean)
+- `.github/workflows/deploy-plex.yml`
 
-## Waar Awin tracking URL en merchant ID invullen
+Trigger:
 
-Per merchant in `/data/merchants.json`:
+- push naar branch `codex/maagverkleiningvitaminen`
+- of handmatig via `workflow_dispatch`
 
-- `awinMerchantId`: het Awin merchant ID
-- `awinTrackingUrl`: de tracking URL uit Awin
+Benodigde GitHub Secrets:
 
-De clickref (`dg_[slug]_[placement]_[yyyyMMdd]`) wordt centraal opgebouwd in:
+- `MV_DEPLOY_METHOD` (`ssh` of `ftp`)
+- `MV_DEPLOY_HOST`
+- `MV_DEPLOY_USER`
+- `MV_DEPLOY_PORT`
+- `MV_DEPLOY_PATH`
+- `MV_DEPLOY_SSH_KEY`
 
-- `src/lib/tracking.ts` (`buildClickRef`)
+Optioneel voor FTP/FTPS deploy:
 
-## Awin import tool
+- `MV_FTP_HOST`
+- `MV_FTP_USER`
+- `MV_FTP_PASS`
+- `MV_FTP_PORT`
+- `MV_FTP_PATH`
 
-Bestand:
+Doelpad op server:
 
-- `tools/import-awin-export.ts`
-
-Gebruik:
-
-1. Zet een Awin export bestand (`.csv`, `.xlsx` of `.xls`) in `/imports`.
-2. Run:
-   - `npm run import:awin`
-3. Script merged nieuwe merchants in `/data/merchants.json` met `needsReview: true`.
-
-## Belangrijke mappen
-
-- `src/app`: alle routes
-- `src/components`: UI componenten
-- `src/lib`: config, SEO, tracking, data helpers
-- `data`: JSON content
-- `netlify/functions`: click logging functies
-- `tools`: import scripts
+- `MV_DEPLOY_PATH` moet de documentroot van je domein/subdomein zijn (bijv. `httpdocs` of `httpdocs/maagverkleiningvitaminen`).
