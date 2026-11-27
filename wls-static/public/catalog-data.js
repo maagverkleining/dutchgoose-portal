@@ -1,5 +1,5 @@
 window.__WLS_CATALOG = {
-  "generatedAt": "2026-11-26",
+  "generatedAt": "2026-11-27",
   "notes": [
     "Lucovitaal handmatig gecheckt op 2026-03-07: 30 capsules voor EUR 9,00.",
     "Prijzen zijn indicatief en kunnen door acties/abonnementen afwijken.",
@@ -7,7 +7,7 @@ window.__WLS_CATALOG = {
     "Vitaminen op Recept en Flinndal hebben meerdere verpakkingsgroottes; prijs per pil kan daardoor verschillen."
   ],
   "runtimeMeta": {
-    "refreshedAt": "2026-11-26T14:57:21.871Z",
+    "refreshedAt": "2026-11-27T14:53:32.944Z",
     "refreshType": "automatisch",
     "refreshedBy": "daily-github-action"
   },
